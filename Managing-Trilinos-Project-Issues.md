@@ -1,6 +1,14 @@
 (Draft)
 
-## Overview
+[Overview](#overview)
+
+[Using GitHub Issues](#using-github-issues)
+
+[Using Waffle.io (Kanban Board)](#using-waffle)
+
+[Processing New GitHub Issues](#processing-new-issues)
+
+## <a name="overview"></a>Overview
 
 The Trilinos Project uses the Kanban agile software development process to improve project productivity and increase visibility and transparency of activities. The primary issue tracking tool used by the Trilinos Project is [GItHub Issues](https://guides.github.com/features/issues/). In addition, [waffle.io](https://waffle.io) provides a [Kanban Board](https://waffle.io/trilinos/Trilinos) view of [Trilinos Issues on GitHub](https://github.com/trilinos/Trilinos/issues). Waffle.io uses the same login credentials as GitHub. 
 
@@ -18,7 +26,7 @@ The basic premise of Kanban is:
 
 An excellent overview of Kanban (and Scrum) is provided by [Henrik Kniberg and Mattias Skarin](http://www.infoq.com/minibooks/kanban-scrum-minibook).
 
-## General Guidance for Trilinos Developers Using GitHub Issues 
+## <a name="using-github-issues"></a>General Guidance for Trilinos Developers Using GitHub Issues 
 
 GitHub provides an [excellent overview](https://guides.github.com/features/issues/) for using GitHub Issues. Developers should be generally familiar with the features discussed in this overview. Below we assume familiarity with these features and focus on recommended and common use of these features within the Trilinos project.
 
@@ -28,7 +36,7 @@ Many Trilinos package development teams have created a [team in the Trilinos org
 
 GitHub Issues does not support dependency tracking in a strong way. That is to say, you cannot say that one issue depends on another in the same way you can in a tool like Bugzilla. There are two ways dependencies can be noted using GitHub issues. First, you can use a reference, as noted in the overview. References can denote a dependency, or simply that another issue is "related" (a designation that is lacking in Bugzilla). If you reference one issue in another, the referenced issue will have a note added to it saying it was referenced, and listing the issue it was referenced by. The other way a dependency can be noted is to set up a milestone and add the issue to that milestone. For example, if customer release 1.0 depends on a GitHub issue, you can set up a milestone for customer release 1.0. You can also track progress toward milestones.
 
-## General Guidance for Trilinos Developers Using waffle.io
+## <a name="using-waffle"></a>General Guidance for Trilinos Developers Using waffle.io
 
 As stated above, waffle.io provides a [Kanban Board](https://waffle.io/trilinos/Trilinos) for [Trilinos GitHub Issues](https://github.com/trilinos/Trilinos/issues), and a basic premise of Kanban is to limit work-in-progress. "Work-in-progress" relates specifically to the tickets in the third column of the Kanban board "In Progress". Below is a brief description of each of the columns on the Kanban board.
 
@@ -58,7 +66,7 @@ While the default waffle.io Kanban board for Trilinos provides some insight into
 
 Filtered searches can be bookmarked. For example, the URL to the Kanban board for MueLu issues is [https://waffle.io/trilinos/Trilinos?label=MueLu](https://waffle.io/trilinos/Trilinos?label=MueLu).
 
-### Processing New GitHub Issues
+## <a name="processing-new-issues"></a>Processing New GitHub Issues
 
 Using the filtering capability mentioned above, it is possible to find all of the issues with no labels applied to them using the "Unlabeled" label filter. When issues are submitted without labels, the below steps should be taken to properly review and categorize the new issue. This can be done by any developer. Developers are asked when visiting the Kanban board to check periodically for issues without labels are carry out these steps. Developers are also asked to complete these steps when filing a new issue so that it is immediately properly categorized.
 
