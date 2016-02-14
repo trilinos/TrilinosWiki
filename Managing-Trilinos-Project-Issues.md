@@ -68,20 +68,20 @@ Filtered searches can be bookmarked. For example, the URL to the Kanban board fo
 
 ## <a name="processing-new-issues"></a>Processing New GitHub Issues
 
-Using the filtering capability mentioned above, it is possible to find all of the issues with no labels applied to them using the "Unlabeled" label filter. When issues are submitted without labels, the below steps should be taken to properly review and categorize the new issue. This can be done by any developer. Developers are asked when visiting the Kanban board to check periodically for issues without labels are carry out these steps. Developers are also asked to complete these steps when filing a new issue so that it is immediately properly categorized.
+Using the filtering capability mentioned above, it is possible to find all of the issues with no labels applied to them using the "Unlabeled" label filter. When issues are submitted without labels, the below steps should be taken to properly review and categorize the new issue. This can be done by any developer. Developers are asked when visiting the Kanban board to check periodically for issues without labels are carry out these steps. Developers are also asked to complete these steps when filing a new issue so that it is immediately properly categorized:
 
-* Add Labels
+1. **Add Labels**
 
 As previously mentioned, the Trilinos Project has a policy of requiring at least one label per GitHub issue. The idea is that only those who have push access to the repository can apply labels, so if labels have been applied to the issue, someone has at least done a preliminary review of the issue. With no currently known exceptions, the label(s) applied to the issue should include at least one package label, or the Framework label, corresponding naturally to the package(s) or part of the project associated with the issue. Once a label is applied, it will no longer show up in the "Unlabeled" view, so it is important to also complete the remaining steps below, as other developers will not know these have not been completed once a label is applied.
 
-* Mention Associated Teams and Developers
+2. **Mention Associated Teams and Developers**
 
 Adding a GitHub mention for package teams and developers will alert the right people when a new issue is filed. It may also be appropriate to add comments to the issue when mentioning teams/developers.
 
-* Assign the Issue (optional, but strongly advised in some situations)
+3. **Assign the Issue (optional, but strongly advised in some situations)**
 
 If there is an obvious assignee for an issue, it is best to assign the issue so that someone feels ownership of the issue. If that person cannot address the issue due to time or other constraints, they can try to identify an alternative assignee. In the case where an issue is filed associated with a package that is "orphans", i.e. no current developers are closely associated with package, it is particularly important to choose an assignee. Although assigning someone to an issue for a package that no one closely associates themselves with may be counter-intuitive, it is important to note that if that is the case, no one is likely to filter for the package label either, so pick someone, and they can try to find someone else if necessary.
 
-* Associate the Issue with a Milestone (optional)
+4. **Associate the Issue with a Milestone (optional)**
 
 This is less common, but should be done when appropriate.
