@@ -10,7 +10,7 @@
 
 ## <a name="overview"></a>Overview
 
-The Trilinos Project uses the Kanban agile software development process to improve project productivity and increase visibility and transparency of activities. The primary issue tracking tool used by the Trilinos Project is [GItHub Issues](https://guides.github.com/features/issues/). In addition, [waffle.io](https://waffle.io) provides a [Kanban Board](https://waffle.io/trilinos/Trilinos) view of [Trilinos Issues on GitHub](https://github.com/trilinos/Trilinos/issues). Waffle.io uses the same login credentials as GitHub. 
+The Trilinos Project uses the Kanban agile software development process to improve project productivity and increase visibility and transparency of activities. The primary issue tracking tool used by the Trilinos Project is [GitHub Issues](https://guides.github.com/features/issues/). In addition, [waffle.io](https://waffle.io) provides a [Kanban Board](https://waffle.io/trilinos/Trilinos) view of [Trilinos Issues on GitHub](https://github.com/trilinos/Trilinos/issues). Waffle.io uses the same login credentials as GitHub. 
 
 In addition to GitHub Issues and waffle.io, some Trilinos deliverable tracking takes place in the issue tracking tools of Trilinos customers. This tracking can be any combinations of high-level, (similar to SCRUM epics), or at a lower-level (similar to SCRUM stories or tasks) depending on specific circumstances. The process for using customer tools varies by customer. 
 
