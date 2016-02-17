@@ -1,4 +1,4 @@
-(Draft)
+(Draft: seeking feedback on overall content, especially labels and milestones)
 
 [Overview](#overview)
 
