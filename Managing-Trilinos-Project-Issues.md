@@ -68,6 +68,8 @@ Filtered searches can be bookmarked. For example, the URL to the Kanban board fo
 
 ## <a name="processing-new-issues"></a>Processing New GitHub Issues
 
+(Note: a summary of this information is available on the [New Issue Cheat Sheet](https://github.com/trilinos/Trilinos/wiki/New-Issue-Cheat-Sheet))
+
 Using the filtering capability mentioned above, it is possible to find all of the issues with no labels applied to them using the "Unlabeled" label filter. When issues are submitted without labels, the below steps should be taken to properly review and categorize the new issue. This can be done by any developer. Developers are asked when visiting the Kanban board to check periodically for issues without labels are carry out these steps. Developers are also asked to complete these steps when filing a new issue so that it is immediately properly categorized:
 
 1. **Add Labels**: As previously mentioned, the Trilinos Project has a policy of requiring at least one label per GitHub issue. The idea is that only those who have push access to the repository can apply labels, so if labels have been applied to the issue, someone has at least done a preliminary review of the issue. Once a label is applied, it will no longer show up in the "Unlabeled" view, so it is important to also complete the remaining steps below, as other developers will not know these have not been completed once a label is applied. Applying all applicable labels is also important, because filtering by label will only work to the extent that the right labels have been added. Here are some common types of labels to consider:
