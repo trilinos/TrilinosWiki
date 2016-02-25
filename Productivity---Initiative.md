@@ -3,7 +3,7 @@
 ### Personal Productivity Checklist:
 
 1. **Traceable:** 
-  * _Is the work I am performing planned and properly recorded in the Trilinos GitHub issues database?_
+  * _Is the work I am performing planned and recorded in the Trilinos GitHub issues database?_
   * _Can I trace this work back to a core requirement?_
   * _Stretch: Are there specification and design artifacts associated with this work?_
 2. **In Progress:**
