@@ -18,7 +18,7 @@
 4. **Improved:**
  * _The quality of my work better than six months ago:_
    * _Learned new skills._
-   * Read literature, took on-demand or in-person training courses._ 
+   * _Read literature, took on-demand or in-person training courses._ 
 
 ### Helpful Links:
 
