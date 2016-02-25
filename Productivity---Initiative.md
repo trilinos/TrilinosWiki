@@ -16,9 +16,9 @@
  * _Testing is sufficient for confident refactoring in the future._
  * _Stretch: Code, including test suite and associated documentation, is good enough for someone else to support after I move on to other work._
 4. **Improved:**
- * _The quality of my work better than six months ago._
- * _Learned new skills._
- * _Stretch: Read literature, taken on-demand or in-person training courses._ 
+ * _The quality of my work better than six months ago:_
+   * _Learned new skills._
+   * Read literature, took on-demand or in-person training courses._ 
 
 ### Helpful Links:
 
