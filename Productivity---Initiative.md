@@ -10,7 +10,7 @@
  * _In the context of a Kanban workflow [[Minibook](http://www.infoq.com/minibooks/kanban-scrum-minibook)][[YouTube](https://www.youtube.com/watch?v=5By0zzn2zNg)], this task is the most effective use of my time._
  * _This task is listed in the “In Progress” column of the Trilinos Kanban board._
  * _My “In Progress” queue size is within personal or small group limit._
- * _Stretch: Backlog has been recently scanned and [groomed](http://www.infoq.com/news/2013/05/approaches-backlog-grooming)._
+ * _Stretch: Backlog has been recently scanned and [refined (groomed)](http://www.leadingagile.com/2014/11/replacing-backlog-grooming/)._
 3. **Sustainable:**
  * _Output is high quality work, usable until the end of its expected life._
  * _Testing is sufficient for confident refactoring in the future._
