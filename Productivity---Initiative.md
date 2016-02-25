@@ -4,7 +4,7 @@
 
 1. **Traceable:** 
   * _Task is planned and recorded in the Trilinos GitHub issues database._
-  * _Task is traceable back to a core requirement._
+  * _Task is traceable back to core requirements._
   * _Stretch: There are specification and design artifacts for this task._
 2. **In Progress:**
  * _In the context of a Kanban workflow [[Minibook](http://www.infoq.com/minibooks/kanban-scrum-minibook)][[YouTube](https://www.youtube.com/watch?v=5By0zzn2zNg)], this task is the most effective use of my time._
@@ -12,13 +12,13 @@
  * _My “In Progress” queue size is within personal or small group limit._
  * _Stretch: Backlog has been recently scanned and [groomed](http://www.infoq.com/news/2013/05/approaches-backlog-grooming)._
 3. **Sustainable:**
- * _Task is high enough work, usable until the end of its expected life._
+ * _Output is high quality work, usable until the end of its expected life._
  * _Testing is sufficient for confident refactoring in the future._
  * _Stretch: Code, including test suite and associated documentation, is good enough for someone else to support after I move on to other work._
 4. **Improved:**
- * _Quality of my work better than six months ago._
+ * _The quality of my work better than six months ago._
  * _Learned new skills._
- * _Stretch: Read literature, taken an on-demand or in-person training course._ 
+ * _Stretch: Read literature, taken on-demand or in-person training courses._ 
 
 ### Helpful Links:
 
