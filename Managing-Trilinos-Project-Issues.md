@@ -16,15 +16,19 @@ In addition to GitHub Issues and waffle.io, some Trilinos deliverable tracking t
 
 The basic premise of Kanban is:
 
-1. By limiting the number of distinct project tasks that are active (in progress) at any given time, productivity is improved because the overhead of swapping between distinct activities is optimized. 
+1. **Limit WIP:**
+  * By limiting the work in progress (WIP, i.e. the number of distinct project tasks that are active at any given time), productivity is improved because the overhead of swapping between distinct activities is optimized.
+  * Weaknesses in the development workflow that create bottlenecks in productivity become evident when an in-progress task is taking longer than expected. Rather than permitting the team to move on to another task, the team must identify and fix the productivity bottleneck, leading to a better process in the future.
 
-1. Weaknesses in the development workflow that create bottlenecks in productivity become evident when an in-progress task is taking longer than expected. Rather than permitting the team to move on to another task, the team must identify and fix the productivity bottleneck, leading to a better process in the future.
+1. **Pull scheduling:**
+  * Developers only pull new work when their is sufficient capacity to do so.
+  * Avoids a deadline-based approach. Deadlines are dealt with in a different way (e.g. deadlines on milestones with flexible scope).
 
-1. Avoids a deadline-based approach. Deadlines are dealt with in a different way.
+1. **Just-in-time commitment:** Planning and commitment is deferred until the "last responsible moment".
 
-1. Provides a nice board for viewing and managing issues. The board is useful for all stakeholders, including developers, interested users, project leadership, and management.
+1. **Visualize the workflow:** Provides a nice board for viewing and managing issues. The board is useful for all stakeholders, including developers, interested users, project leadership, and management.
 
-An excellent overview of Kanban (and Scrum) is provided by [Henrik Kniberg and Mattias Skarin](http://www.infoq.com/minibooks/kanban-scrum-minibook).
+An excellent overview of Kanban (and Scrum) is provided by [Henrik Kniberg and Mattias Skarin](http://www.infoq.com/minibooks/kanban-scrum-minibook).  Another useful site for information on Kanban is [Open Kanban](http://agilelion.com/agile-kanban-cafe/open-kanban).  Also, here is a nice [kick-start example for Kanban](http://blog.crisp.se/2009/11/16/henrikkniberg/kanban-kick-start-example).
 
 ## <a name="using-github-issues"></a>General Guidance for Trilinos Developers Using GitHub Issues 
 
