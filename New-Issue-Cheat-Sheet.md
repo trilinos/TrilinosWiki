@@ -4,7 +4,7 @@ Below is a concise summary of the key elements of processing new Trilinos issues
 
     * Package: Tpetra, Framework, etc.
 
-    * Category: performance, testing, build, bug, enhancement
+    * Category: performance, test, build, bug, enhancement
 
     * Platform: linux, osx, windows, gpu, manycore
 
