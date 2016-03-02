@@ -2,7 +2,7 @@ Below is a concise summary of the key elements of processing new Trilinos issues
 
 1. **Add Labels**: The Trilinos Project has a policy of requiring at least one label per GitHub issue. There are several types of labels to consider:
 
-    * Package: Tpetra, Framework, etc.
+    * Package: Tpetra, Framework (includes CMake, TriBITS, configuration), etc.
 
     * Category: performance, test, build, bug, enhancement
 
