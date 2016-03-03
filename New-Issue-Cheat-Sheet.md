@@ -10,6 +10,8 @@ Below is a concise summary of the key elements of processing new Trilinos issues
 
     * Platform: `linux`, `osx`, `windows`, `gpu`, `manycore`
 
+    * Customer: `ATDM`, `SIERRA`, `RAMSES` etc. If of specific interest to one or more customers.
+
     (Also see the "help wanted" in the "Assign the Issue" item below.)
 
 2. **Mention Associated Teams and Developers**: Adding a GitHub mention for package teams and developers will alert the right people when a new issue is filed.
