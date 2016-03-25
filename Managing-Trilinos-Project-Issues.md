@@ -94,8 +94,6 @@ Using the waffle.io filtering capability mentioned above, it is possible to find
 
     * Platform: `linux`, `osx`, `windows`, `gpu`, `manycore`
 
-    * Customer: `ATDM`, `SIERRA`, `RAMSES` etc. If of specific interest to one or more customers.
-
     (Also see the "help wanted" in the "Assign the Issue" item below.)
 
 2. **Mention Associated Teams and Developers**: Adding a GitHub @ mention for package teams and developers will alert the right people when a new issue is filed. It may also be appropriate to add comments to the issue when mentioning teams/developers.
