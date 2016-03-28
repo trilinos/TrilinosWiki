@@ -43,7 +43,7 @@ Below are some of the policies used by the Trilinos Project.
 
 + [Namespace safety and use of standard C++ headers](https://software.sandia.gov//trilinos/developer/policies/namespace_safety.html)
 
-### Testing
+### [Testing](https://github.com/trilinos/Trilinos/wiki/Testing)
 
 + [Proper pre-checkin process](https://github.com/trilinos/Trilinos/wiki/Safe-Checkin-Testing)
 
