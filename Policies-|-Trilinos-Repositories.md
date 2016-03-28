@@ -2,11 +2,7 @@
 
 ## Introduction
 
-When we refer to the "Trilinos repository", we are referring to the primary Trilinos git repository located at
-
-    software.sandia.gov:/space/git/Trilinos. 
-
-However, there are a large number of repositories associated with the Trilinos Project. Below is a list of repositories associated with Trilinos, along with related policies, or pointers to the related policies.
+When we refer to the "Trilinos repository", we are referring to the primary Trilinos git repository located at software.sandia.gov:/space/git/Trilinos. However, there are a large number of repositories associated with the Trilinos Project. Below is a list of repositories associated with Trilinos, along with related policies, or pointers to the related policies.
 
 ### General Interest Repositories
 
