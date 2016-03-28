@@ -1,3 +1,5 @@
+(Note: this page has no content and needs to be reviewed after the move to the GitHub wiki as it is partially out of date.)
+
 # Git
 
 ### Git Links
