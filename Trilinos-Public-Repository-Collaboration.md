@@ -23,3 +23,9 @@ Developers who push changes submitted by contributors are responsible for the co
 Submitted format-patch files should be thoroughly tested before pushing changes to the main Trilinos repository. In addition to reviewing the general appropriateness of the patch and the line-by-line changes, a test (or tests) in the test suite should exercise the new or modified feature. Ideally, this test should be submitted along with the source code modifications as a patch. If not, it is appropriate to ask the submitter for a test, or, in some cases, it makes sense for the developer applying the patch to add tests.
 
 After specific tests have been added and run for the feature, the Trilinos test suite for the modified package(s) and** all forward packages** should be run on one or more platforms. It is recommended to do this through the [Trilinos checkin test script](https://github.com/trilinos/Trilinos/wiki/Safe-Checkin-Testing).
+
+After pushing, please remember to take note of any continuous testing failures over the next two hours, and nightly failures the next morning, as for any other source code change.
+
+### Requesting an Update to the Public Repository
+
+At this time we are not able to update the public repository on an automated, continuous basis. We are planning to keep the repository reasonably up-to-date with current development, although "reasonable" in this context is still being defined. If you are working closely with someone on a patch, or have some other need to update the public repository quickly, please send a request to the [Trilinos Framework mail list](https://github.com/trilinos/Trilinos/wiki/Mail-Lists).
