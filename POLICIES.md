@@ -15,7 +15,7 @@ Below are some of the policies used by the Trilinos Project.
 
 + [Collaborating through the publicTrilinos public git repository](https://github.com/trilinos/Trilinos/wiki/Trilinos-Public-Repository-Collaboration)
 
-+ [Policies associated with and list of Trilinos repositories](https://software.sandia.gov//trilinos/developer/policies/trilinos_repositories.html)
++ [Policies associated with and list of Trilinos repositories](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Trilinos-Repositories)
 
 + [Updating publicTrilinos, filtering public_Trilinos, and modifying exclusions for the release tarball](https://software.sandia.gov//trilinos/developer/policies/public_repository_updates.html)
 
