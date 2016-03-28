@@ -13,7 +13,7 @@ Below are some of the policies used by the Trilinos Project.
 
 ### Trilinos Framework and Tools Issues
 
-+ [Collaborating through the publicTrilinos public git repository](https://software.sandia.gov//trilinos/developer/policies/public_repository_collaboration.html)
++ [Collaborating through the publicTrilinos public git repository](https://github.com/trilinos/Trilinos/wiki/Trilinos-Public-Repository-Collaboration)
 
 + [Policies associated with and list of Trilinos repositories](https://software.sandia.gov//trilinos/developer/policies/trilinos_repositories.html)
 
