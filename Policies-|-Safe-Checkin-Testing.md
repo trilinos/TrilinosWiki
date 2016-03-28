@@ -1,4 +1,4 @@
-#Safe Checkin Testing
+#Proper Safe Checkin Testing
 
 In order to maintain the stability of "Primary Stable" Code in Trilinos, the checkin-test.py script should always be used to test code before any checkin that changes source code. The script can be found inside of the Trilinos source tree at:
 
