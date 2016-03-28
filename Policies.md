@@ -45,7 +45,7 @@ Below are some of the policies used by the Trilinos Project.
 
 ### Testing
 
-+ [Proper pre-checkin process](https://software.sandia.gov//trilinos/developer/policies/checkin_test.html)
++ [Proper pre-checkin process](https://github.com/trilinos/Trilinos/wiki/Safe-Checkin-Testing)
 
 + [Remote testing and push process](https://software.sandia.gov//trilinos/developer/policies/checkin_test_remote.html)
 
