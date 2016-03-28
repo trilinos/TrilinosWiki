@@ -1,4 +1,4 @@
-# Trilinos Public Repository Collaboration
+# Collaborating through the publicTrilinos public git repository
 
 ### Introduction 
 
