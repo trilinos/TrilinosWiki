@@ -1,18 +1,42 @@
 # Tools - CMake
 
-#### Recommended CMake version: 2.8.4
-#### Minimum supported CMake version: 2.8.0
+#### Recommended CMake version: 3.3.2 (patched)
+
+The patched version of CMake 3.3.2 installed using:
+
+```
+Trilinos/cmake/tribits/devtools_install/install-cmake.py --cmake-version=3.3.2 ...
+```
+
+is currently the fastest released version of CMake that works with Trilinos.
+
+#### Minimum supported CMake version: 2.8.11
 
 The Trilinos build system is based on CMake. CTest, used for Trilinos testing, is included in the CMake distribution.
 
 ### CMake Links
 
 + [CMake homepage](https://cmake.org/)
-+ [Building Trilinos](https://trilinos.org/oldsite/TrilinosBuildQuickRef.html)
-+ [Linking CMake-aware software against Trilinos libraries](https://trilinos.org/oldsite/Finding_Trilinos.txt)
++ [Building Trilinos](http://trilinos.org/docs/files/TrilinosBuildReference.html)
++ [Linking CMake-aware software against Trilinos libraries](http://trilinos.org/docs/files/Finding_Trilinos.txt)
 
 ### Installing CMake
-An easy way to install CMake is to use the $TrilinosHome/cmake/python/download-cmake.py script. The instructions for using the script can be found by going to the top level Trilinos directory and running:
+
+An easy way to build and install various versions of CMake from source on many machines is to use the script:
+
+   Trilinos/cmake/tribits/devtools_install/install-cmake.py
+
+For example:
+
+```
+$ cd Trilinos/
+$ cmake/tribits/devtools_install/install-cmake.py --cmake-version=3.3.2 \
+  --install-dir=~/cmake-3.3.2 --parallel=<num-procs> --do-all
+$ export PATH=$HOME/cmake-3.3.2/bin:$PATH
+```
+See `install-cmake.py --help` for more details.  This script will apply patches to certain versions of CMake to address bugs or performance issues.
+
+Another way to install binary versions of CMake is to use the $TrilinosHome/cmake/python/download-cmake.py script. The instructions for using the script can be found by going to the top level Trilinos directory and running:
 
     cmake/python/download-cmake.py --help
 
