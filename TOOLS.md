@@ -10,7 +10,7 @@
 
 ### Build System
 
-+ [CMake](https://github.com/trilinos/Trilinos/wiki/CMake) **(2.8.2 preferred, 2.8.0 minimum)** - Configuration and building
++ [CMake](https://github.com/trilinos/Trilinos/wiki/CMake) **(3.5.1 preferred, 2.8.11 minimum)** - Configuration and building
 
 ### Verification and Regression Testing
 
