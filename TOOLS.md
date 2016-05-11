@@ -4,10 +4,6 @@
 
 + [git](https://github.com/trilinos/Trilinos/wiki/Git) - Version control and history management
 
-+ [CVS](https://software.sandia.gov//trilinos/developer/cvs.html) - Version control (unconverged auxiliary repositories)
-
-+ [Bonsai](https://software.sandia.gov//trilinos/developer/bonsai.html) - CVS history management (unconverged auxiliary repositories)
-
 ### Build System
 
 + [CMake](https://github.com/trilinos/Trilinos/wiki/CMake) **(3.5.1 preferred, 2.8.11 minimum)** - Configuration and building
