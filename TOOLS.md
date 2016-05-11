@@ -16,9 +16,9 @@
 
 + [Trilinos Test Harness](https://github.com/trilinos/Trilinos/wiki/Testing) - Test results Dashboard and test categories
 
-### Bug Tracking
+### Issue and Bug Tracking
 
-+ [Bugzilla](https://software.sandia.gov//trilinos/developer/bugzilla.html) - Bug-tracking
++ [GitHub Issues](https://github.com/trilinos/Trilinos/issues) - Issue and Bug tracking
 
 ### Documentation Generation
 
