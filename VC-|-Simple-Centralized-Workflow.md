@@ -10,16 +10,16 @@ The simple centralized workflow (i.e. the git equivalent of SVN) is outlined on 
 Another description is the [“Simple Centralized CI Workflow”](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).  That link gives the summary:
 
 | **Get latest updates from the central repo:** | `$ git pull --rebase # from origin/master` |
-| **Make local changes and create commits:** | `$ emacs <files> # Or other editor |
-|  | `$ git commit -a`
-| **Examine state of local branch:** | `$ git status` |
-| | `$ git log --name-status @{u}..HEAD` |
-| **Test changes locally:** `$ git pull # from origin/master` |
-| | ... Test changes (e.g. using checkin-test.py) |
-| **Push changes to central repo:** | `$ git pull --rebase # from origin/master` |
-| | `$ git push # to origin/master` |
+| **Make local changes and create commits:**    | `$ emacs <files> # Or other editor |
+|                                               | `$ git commit -a` |
+| **Examine state of local branch:**            | `$ git status` |
+|                                               | `$ git log --name-status @{u}..HEAD` |
+| **Test changes locally:**                     | `$ git pull # from origin/master` |
+|                                               | ... Test changes (e.g. using checkin-test.py) ... |
+| **Push changes to central repo:**             | `$ git pull --rebase # from origin/master` |
+|                                               | `$ git push # to origin/master` |
 
-The key to keeping a nice linear history is the `--rebase` argument in the `git pull --rebase` command right before the final `git push` command.  That is always safe of you created commits locally and did not share them with anyone (which is the typical SVN workflow).
+The key to keeping a nice linear history is the `--rebase` argument in the `git pull --rebase` command right before the final `git push` command.  That is always safe if these commits are created locally and were not shared with any other repo (which is the typical SVN workflow depicted above).
 
 NOTE: The checkin-test.py script performs all of the steps starting with "Test changes locally" automatically by default.
 
