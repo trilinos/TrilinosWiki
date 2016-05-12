@@ -4,15 +4,15 @@ Modifying the workflow from the [Simple Centralized Workflow](https://github.com
 
 ```
 $ cd Trilinos/
-[(master)]$ git fetch origin
-[(master)]$ git checkout --track origin/develop
+[ (master)]$ git fetch origin
+[ (master)]$ git checkout --track origin/develop
 [(develop)]$ 
 ```
 
 If the local 'develop' tracking branch is already created (can be seen by running `git branch`), then just check out that branch using:
 
 ```
-[(master)]$ git checkout develop
+[ (master)]$ git checkout develop
 [(develop)]$ 
 ```
 
