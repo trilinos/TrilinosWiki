@@ -1,4 +1,4 @@
-No matter what git-related workflow that is being used, developers need to understand how to maintain a simple linear shared remote tracking branch.  This shared remote branch may be the 'develop' branch, a shared topic branch, or a Trilinos release branch.  This workflow should be used when a single local commit (or a very small number of local commits) are pushed to the shared remote tracking branch.  In these cases, one should rebase the local commits on top of the updated remote tracking branch before the push in order to maintain a nice linear history.  The motivation of this simple workflow is explained in more detail at the [Simple Centralized CI Workflow](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).
+No matter what git-related workflow that is being used, developers need to understand how to maintain a simple linear shared remote tracking branch.  This shared remote branch may be the ['develop' branch](https://github.com/trilinos/Trilinos/wiki/VC-|-'develop'-'master'-workflow), a shared topic branch, or a Trilinos release branch.  This workflow should be used when a single local commit (or a very small number of local commits) are pushed to the shared remote tracking branch.  In these cases, one should rebase the local commits on top of the updated remote tracking branch before the push in order to maintain a nice linear history.  The motivation of this simple workflow is explained in more detail at the [Simple Centralized CI Workflow](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).
 
 ## The simple centralized workflow
 
@@ -7,7 +7,7 @@ The simple centralized workflow (i.e. the git equivalent of SVN) is outlined on 
 * “Your team can develop projects in the exact same way as they do with Subversion.”
 * “Before the developer can publish their feature, they need to fetch the updated central commits and rebase their changes on top of them. This is like saying, “I want to add my changes to what everyone else has already done.” The result is a perfectly linear history, just like in traditional SVN workflows”
 
-Another description is the [“Simple Centralized CI Workflow”](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).  That link gives the summary:
+Another description is the [“Simple Centralized CI Workflow”](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).  That link gives the summary (for example, where the branch is assumed to be 'master' but it could be 'develop' or any other shared remote tracking branch):
 
 | Step                                          | Git Commands |
 | ---                                           | --- |
@@ -17,7 +17,7 @@ Another description is the [“Simple Centralized CI Workflow”](https://docs.g
 | **Examine state of local branch:**            | `$ git status` |
 |                                               | `$ git log --name-status @{u}..HEAD` |
 | **Test changes locally:**                     | `$ git pull` (from origin/master) |
-|                                               | ... Test changes (e.g. using checkin-test.py) ... |
+|                                               | ... Test changes ( using checkin-test.py) ... |
 | **Push changes to central repo:**             | `$ git pull --rebase` (from origin/master) |
 |                                               | `$ git push`  (to origin/master) |
 
