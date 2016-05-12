@@ -31,7 +31,7 @@ To avoid having to address the same merge conflicts more than once on the subseq
 $ git config --global rerere.enabled 1
 ```
 
-If you turn on git rerere before you address merge conflicts the first time, then git will remember these conflict resolutions and take care of that automatically in all future rebase commands in that local git repo.
+If you turn on git rerere before you address merge conflicts the first time, then git will remember these conflict resolutions and take care of that automatically in all future rebase commands in that local git repo.  (NOTE: git rerere should have been enabled as part of your [initial git setup](https://github.com/trilinos/Trilinos/wiki/VC-|-Initial-Setup).)
 
 If those references don’t make sense, please don’t give up.  Take a look at [ways to avoid merge commits in git](http://kernowsoul.com/blog/2012/06/20/4-ways-to-avoid-merge-commits-in-git/) (but don’t set up for auto rebase, that will come to bite you later!).  Or look at [this StackOverflow Question](http://stackoverflow.com/questions/25614345/rebase-onto-upstream-changes-with-non-trivial-merge-commits-present-locally).
 
