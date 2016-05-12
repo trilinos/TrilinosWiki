@@ -40,8 +40,7 @@ If those references don’t make sense, please don’t give up.  Take a look at 
 Many beginner developers new to git use a simple git workflow like:
 
 ```
-$ cd Trilinos/
-$ git pull
+$ cd Trilinos/   # Old version of 'master' :-)
 … change files, do testing, etc. …
 $ git commit -a
 $ git push   # Fails because someone pushed to origin/mater since your last pull
