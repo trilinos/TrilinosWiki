@@ -12,7 +12,6 @@ $ cd Trilinos/
 If the local 'develop' tracking branch is already created (can be seen by running `git branch`), then just check out that branch using:
 
 ```
-[(master)]$ git fetch origin
 [(master)]$ git checkout develop
 [(develop)]$ 
 ```
