@@ -24,9 +24,9 @@ When you start a work session, ask the question, Is my work [Traceable, In Progr
     * _Learned new skills._
     * _Read literature, took on-demand or in-person training courses._
 
-## Want a shelf magnet of the Productivity++ checklist?
+### Want a shelf magnet of the Productivity++ checklist?
 Contact Mike Heroux <maherou@sandia.gov>
 
-### Helpful Links:
+## Helpful Links:
 
 [Kanban and Scrum -- Making the Most of Both](http://www.infoq.com/minibooks/kanban-scrum-minibook), by Henrik Kniberg and Mattias Skarin
