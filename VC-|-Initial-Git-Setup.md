@@ -28,10 +28,13 @@ These make using git so much easier!
 alias gitdist=$TRILINOS_HOME/cmake/tribits/python_utils/gitdist
 ```
 
-**3.b) Set up useful `gitdist` alias**, for example, in your `~/.bash_profile` file:
+**3.b) Set up useful `gitdist` alias commands**, for example, in your `~/.bash_profile` file:
 
 ```
+# Show compact table of repo stauts
 alias gitdist-status="gitdist dist-repo-status"
+# Run git command only on repos with changes w.r.t. tracking branch
 alias gitdist-mod="gitdist --dist-mod-only"`
+# Show compact table of repos status only for repos with changes w.r.t. tracking branch
 alias gitdist-mod-status="gitdist dist-repo-status --dist-mod-only"
 ```
