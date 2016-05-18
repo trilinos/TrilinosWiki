@@ -9,6 +9,7 @@ $ git config --global color.ui true         # Use color in git output to termina
 $ git config --global push.default simple   # or 'tracking' with older versions of git
 $ git config --global rerere.enabled 1      # auto resolve of same conflicts on rebase!
 ```
+For example, set up a shell script like [git-config-bartlettra.sh](https://github.com/trilinos/Trilinos/blob/master/sampleScripts/git-profiles/git-config-bartlettra.sh) and run it on every new machine to set consistent git settings.
 
 **2) Install Git helper scripts locally** for the Git shell prompt [git-prompt.sh](https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh) and Git tab completion [git-completion.bash](https://raw.github.com/git/git/master/contrib/completion/git-completion.bash), and add them to your shell, for example, setting the following in your `~/.bash_profile` file:
 
