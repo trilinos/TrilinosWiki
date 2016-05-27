@@ -7,14 +7,21 @@
 <a name="overview"/>
 # Overview
 
-The Trilinos project uses a long-lived branch called 'develop' to conduct basic development.  All Trilinos developers directly pull from and push to the shared github 'develop' branch.  Then, the 'master' branch is updated from the 'develop' branch when it passes a specific set of builds for a specific set of packages (the set of packages and builds will evolve over time).  The motivation for the usage of a 'develop' branch and the full set of mechanics and implications are described in [Addition of a 'develop' branch](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.u2ougk1wk7ph).
+The Trilinos project uses a long-lived branch called 'develop' to conduct basic development.  All Trilinos developers directly pull from and push to the shared github 'develop' branch.  Then, the 'master' branch is updated from the 'develop' branch when it passes a specific set of builds for a specific set of packages (the set of packages and builds will evolve over time).  This is depicted in the below figure:
 
-On this page contains all of the information that a regular Trilinos developer needs to know in order to transition to and use the 'develop' branch.
+
+![Triinos Git 'develop'/'master' workflow](https://github.com/trilinos/trilinos_wiki_images/blob/master/GitDevelopMasterWorkflow.png)
+
+The motivation for the usage of a 'develop' branch and the full set of mechanics and implications are described in [Addition of a 'develop' branch](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.u2ougk1wk7ph).
+
+However, this page contains just the information that an average Trilinos developer needs to know in order to transition to and use the 'develop' branch as well as make commits on the local 'develop' branch and push to the shared 'develop' branch.  The level of git knowledge to perform these tasks should be very low and all of the commands and steps are described in detail below.
+
+(NOTE: The "bug-fix" workflow elements are not described below but are described in great detail the above reference.  If things go well, then these "bug fix" commits should almost never be needed.  But in the rare cases these "bug-fix" commits are needed/desired, then more experienced Trilinos git developers can help make these changes.)
 
 <a name="get_on_local_develop"/>
 # Get on a local 'develop' tracking branch
 
-Modifying the workflow from the [Simple Centralized Workflow](https://github.com/trilinos/Trilinos/wiki/VC-|-Simple-Centralized-Workflow) is easy.  Just get on a local 'develop' tracking branch.  If the local 'develop' tracking branch has not already been created, then create it using:
+Modifying the workflow from the [Simple Centralized Workflow](https://github.com/trilinos/Trilinos/wiki/VC-|-Simple-Centralized-Workflow) to use the 'develop' branch instead of the 'master' branch is easy.  If the local repo is clean (i.e. no local modifications or untracked fiels), then one needs to just get on a local 'develop' tracking branch.  If the local 'develop' tracking branch has not already been created, then create it using:
 
 ```
 $ cd Trilinos/
@@ -23,9 +30,10 @@ $ cd Trilinos/
 [(develop)]$ 
 ```
 
-If the local 'develop' tracking branch is already created (can be seen by running `git branch`), then just check out that branch using:
+If the local 'develop' tracking branch was already created (can be seen by running `git branch`), then just check out that branch using:
 
 ```
+$ cd Trilinos/
 [ (master)]$ git checkout develop
 [(develop)]$ 
 ```
