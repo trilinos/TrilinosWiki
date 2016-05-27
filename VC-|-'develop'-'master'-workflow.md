@@ -109,7 +109,7 @@ or one checks out the previously created 'develop' tracking branch and updates i
 [(develop)]$
 ```
 
-**3) Merge changes from the local 'master' branch:**
+**3) Merge changes from the local 'master' branch to the local 'develop' branch:**
 
 ```
 [(develop)]$ git merge master   # resolve any merge conflicts
@@ -117,13 +117,13 @@ or one checks out the previously created 'develop' tracking branch and updates i
 
 At this point, the merged in commits from the local 'master' branch as safe and will get pushed to the remote github 'develop' branch.  These commits will be rebased before the final push as described [above](#centralized_develop_workflow).  (NOTE: If git rerere is enabled, then any merge conflicts that have already been resolved will be resolved automatically on the final rebase before the final push.)
 
-**4) Reset the 'master' branch**
+**4) Reset the local 'master' branch**
 
-If one will later want to go back to the local 'master' branch, it is a good idea to reset it to 'origin/master' **after** the locally changed 'master' branch has been merged into the 'develop' branch as described above.  This is performed using:
+If one will later want to go back to the local 'master' branch, then it is a good idea to reset it to the 'origin/master' branch  **after** the locally updated 'master' branch has been merged into the 'develop' branch as described above.  This reset is performed as:
 
 ```
 [(develop)]$ git checkout master
-[(master)]$ git reset --hard origin/master
+[ (master)]$ git reset --hard origin/master
 ```
 
 Then one can go back to the 'develop' branch and continue work there with:
