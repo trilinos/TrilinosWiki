@@ -9,7 +9,7 @@
 
 The Trilinos project uses a long-lived branch called 'develop' to conduct basic development.  All Trilinos developers directly pull from and push to the shared github 'develop' branch.  Then, the 'master' branch is updated from the 'develop' branch when it passes a specific set of builds for a specific set of packages (the set of packages and builds will evolve over time).  This is depicted in the below figure:
 
-![Triinos Git 'develop'/'master' workflow](https://github.com/trilinos/trilinos_wiki_images/blob/master/GitDevelopMasterWorkflow.png)
+![Trilinos Git 'develop'/'master' workflow](https://github.com/trilinos/trilinos_wiki_images/blob/master/GitDevelopMasterWorkflow.png)
 
 The motivation for the usage of a 'develop' branch and the full set of mechanics and implications are described in [Addition of a 'develop' branch](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.u2ougk1wk7ph).
 
@@ -19,7 +19,7 @@ For those developers more comfortable with git, all one needs to do is:
 * Pull from, make changes on, and push to the 'develop' branch instead of the 'master' branch (see [details](centralized_develop_workflow))
 * If changes are accidentally make to one's local 'master' branch instead of the local 'develop' branch, then just merge the local 'master' branch to the local 'develop' branch and then reset the local 'master' branch (see [details](transition_to_develop)).
 
-If a developer understands the above, then they don't need to ready any more on this page.  However, if a developer is not clear what is required, then the rest of this page contains the exact detailed information that an average Trilinos developer needs to know in order to transition to and use the 'develop' branch as well as make commits on the local 'develop' branch and push to the shared 'develop' branch.  Performing these tasks does not require advanced usage of git. All required commands and steps are described in detail below.
+If a developer understands the above, then they don't need to read any more on this page.  However, if a developer is not clear what is required, then the rest of this page contains the exact detailed information that an average Trilinos developer needs to know in order to transition to and use the 'develop' branch as well as make commits on the local 'develop' branch and push to the shared 'develop' branch.  Performing these tasks does not require advanced usage of git. All required commands and steps are described in detail below.
 
 (NOTE: The "bug-fix" workflow elements shown in the above figure are not described below but are described in great detail the above reference.  If things go well, then these "bug fix" commits should almost never be needed.  But in the rare cases these "bug-fix" commits or revert commits are needed/desired, then more experienced Trilinos git developers can help make those changes.)
 
@@ -66,7 +66,7 @@ NOTE: The checkin-test.py script performs the steps from the second `git pull` a
 
 The below process applies only to situations where a Trilinos developer has made changes (and perhaps local commits) to the local git repo's 'master' branch and needs to transfer the changes to their local 'develop' branch, where they can be pushed to the github 'develop' branch.
 
-NOTE: These instructions assume that the Trilinos developer is using the [simple centralized workflow on the local 'master' branch](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow) and has been directly pushing their locally created commits directly to the github 'master' branch.  If a more complex workflow is being used (such as using a [shared topic branch](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.eezqw2tso48u), or other types of git workflows), then the instructions need to be cusotmized for the specific situation.
+NOTE: These instructions assume that the Trilinos developer is using the [simple centralized workflow on the local 'master' branch](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow) and has been directly pushing their locally created commits directly to the github 'master' branch.  If a more complex workflow is being used (such as using a [shared topic branch](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.eezqw2tso48u), or other types of git workflows), then the instructions need to be customized for the specific situation.
 
 Before getting started, every Trilinos developer should set up their local account to use the git usability scripts git-prompt.sh and git-completion.bash and enable git `rerere` as described [here](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Initial-Git-Setup).  The shell scripts will make it obvious what local branch a developer is on and git `rerere` will help with the rebasing and merging commands required to transition local commits.
 
