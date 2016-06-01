@@ -1,3 +1,9 @@
+The Trilinos github repository maintains several long-lived branches:
+
+* **develop**: The main development branch that Trilinos developers directly make commits to add new features, fix bugs, etc.  Generally, only very close collaborators that want to have access to the very latest development version of Trilinos and don't mind dealing with more defects and instability can pull from this branch.
+* **master**: A relatively stable version of Trilinos that is updated from the 'develop' branch when specific set of builds for a specific set of packages have 100% passing tests.  Close collaborators and users who want the to access a recent fairly stable version of Trilinos should pull from this branch.
+* **trilinos-release-X-Y-branch**: Branch for the maintenance of the set of Trilinos X.Y.Z releases.  Official releases of Trilinos are tagged on this branch using the tag name **trilinos-release-X-Y-Z**.  External users that need named and supported version of Trilinos with minimal patch releases should use these tagged releases `trilinos-release-X-Y-Z` (and not just pull from the release branch).  NOTE: Generally Trilinos only supplies support and creates patch releases for the most current release branch.
+
 The following links provide information on Trilinos version control processes and workflows.
 
 * See [How to Do Version Control with Git in Your CSE Project](http://ideas-productivity.org/wordpress/wp-content/uploads/2015/04/IDEAS-VCHowToVersionControlwithGit-V0.2.pdf) (an [IDEAS Productivity "How To" Document](https://ideas-productivity.org/resources/howtos/)).
