@@ -17,7 +17,7 @@ For those developers more comfortable with git, all one needs to do is:
 
 * Get on a local 'develop' branch which is tracking 'origin/develop' (see [details](#get_on_local_develop))
 * Pull from, make changes on, and push to the 'develop' branch instead of the 'master' branch (see [details](centralized_develop_workflow))
-* If changes are accidentally make to one's local 'master' branch instead of the local 'develop' branch, then just merge the local 'master' branch to the local 'develop' branch and then reset the local 'master' branch (see [details](transition_to_develop)).
+* If changes are accidentally made to the local 'master' branch instead of the local 'develop' branch, then just merge the local 'master' branch to the local 'develop' branch and then reset the local 'master' branch (see [details](transition_to_develop)).
 
 If a developer understands the above, then they don't need to read any more on this page.  However, if a developer is not clear what is required, then the rest of this page contains the exact detailed information that an average Trilinos developer needs to know in order to transition to and use the 'develop' branch as well as make commits on the local 'develop' branch and push to the shared 'develop' branch.  Performing these tasks does not require advanced usage of git. All required commands and steps are described in detail below.
 
