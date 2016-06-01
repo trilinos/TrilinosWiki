@@ -21,7 +21,7 @@ However, this page contains just the information that an average Trilinos develo
 <a name="get_on_local_develop"/>
 # Get on a local 'develop' tracking branch
 
-Modifying the workflow from the [Simple Centralized Workflow](https://github.com/trilinos/Trilinos/wiki/VC-|-Simple-Centralized-Workflow) to use the 'develop' branch instead of the 'master' branch is easy.  If the local repo is clean (i.e. no local modifications or untracked fiels), then one needs to just get on a local 'develop' tracking branch.  If the local 'develop' tracking branch has not already been created, then create it using:
+Modifying the workflow from the [Simple Centralized Workflow](https://github.com/trilinos/Trilinos/wiki/VC-|-Simple-Centralized-Workflow) to use the 'develop' branch instead of the 'master' branch is easy.  If the local repo is clean (i.e. no local modifications or untracked files), then one just needs to get on a local 'develop' tracking branch.  If the local 'develop' tracking branch has not already been created, then create it using:
 
 ```
 $ cd Trilinos/
