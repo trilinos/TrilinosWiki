@@ -50,7 +50,7 @@ Once on the local 'develop' branch which is tracking the remote 'origin/develop'
 
 ```
 [(develop)]$ git pull                               # from origin/develop
-... Make changes (e.g. using emacs) ...
+... Make changes (e.g. using emacs or vi) ...
 [(develop)]$ git commit -a
 [(develop)]$ git status
 [(develop)]$ git log --name-status @{u}..HEAD       # review changes
