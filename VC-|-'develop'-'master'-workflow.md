@@ -44,7 +44,7 @@ $ cd Trilinos/
 Once on the local 'develop' branch which is tracking the remote 'origin/develop' branch, one simply uses the [Simple Centralized Workflow](https://github.com/trilinos/Trilinos/wiki/VC-|-Simple-Centralized-Workflow) using raw `git pull`, `git commit` and `git push` commands, i.e.:
 
 ```
-[(develop)]$ git pull                               # from origin/develp
+[(develop)]$ git pull                               # from origin/develop
 [(develop)]$ emacs <files>                          # or using other editor
 [(develop)]$ git commit -a
 [(develop)]$ git status
