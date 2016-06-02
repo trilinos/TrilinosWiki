@@ -1,4 +1,4 @@
-The Trilinos github repository maintains several long-lived branches:
+The Trilinos github repository contains several long-lived branches:
 
 * **develop**: The main development branch that Trilinos developers directly push commits to in order to add new features, fix bugs, etc.
   * _Who pulls from this branch?_
