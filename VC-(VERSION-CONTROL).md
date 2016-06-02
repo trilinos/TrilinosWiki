@@ -1,8 +1,15 @@
 The Trilinos github repository maintains several long-lived branches:
 
-* **develop**: The main development branch that Trilinos developers directly make commits to add new features, fix bugs, etc.  Generally, only very close collaborators that want to have access to the very latest development version of Trilinos and don't mind dealing with more defects and instability can pull from this branch.
-* **master**: A relatively stable version of Trilinos that is updated from the 'develop' branch when specific set of builds for a specific set of packages have 100% passing tests.  Close collaborators and users who want the to access a recent fairly stable version of Trilinos should pull from this branch.
-* **trilinos-release-X-Y-branch**: Branch for the maintenance of the set of Trilinos X.Y.Z releases.  Official releases of Trilinos are tagged on this branch using the tag name **trilinos-release-X-Y-Z**.  External users that need named and supported version of Trilinos with minimal patch releases should use these tagged releases `trilinos-release-X-Y-Z` (and not just pull from the release branch).  NOTE: Generally Trilinos only supplies support and creates patch releases for the most current release branch.
+* **develop**: The main development branch that Trilinos developers directly push commits to in order to add new features, fix bugs, etc.
+  * _Who pulls from this branch?_
+    * Close collaborators and customers that want to help test (not use) new features as they are being developed
+    * Very close collaborators that want to have access to the very latest development version of Trilinos who don't mind dealing with more defects and increased instability
+* **master**: A relatively stable version of Trilinos that is updated from the 'develop' branch when a specific set of builds for a specific set of packages have 100% passing tests.
+  * _Who pull from this branch?_
+    * Close collaborators and users who want to access a very recent yet fairly stable version of Trilinos
+* **trilinos-release-X-Y-branch**: Branch for the maintenance of the set of Trilinos X.Y.Z releases.  Official releases of Trilinos are tagged on this branch using the tag name **trilinos-release-X-Y-Z**.
+  * _Who pulls from this branch?_
+    * External users that need named and supported versions of Trilinos with minimal patch releases for bug fixes (These users only should access tagged releases `trilinos-release-X-Y-Z` and not just pull from the release branch).
 
 The following links provide information on Trilinos version control processes and workflows.
 
