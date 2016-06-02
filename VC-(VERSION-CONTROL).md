@@ -4,12 +4,12 @@ The Trilinos github repository contains several long-lived branches:
   * _Who pulls from this branch?_
     * Close collaborators and customers that want to help test (not use) new features as they are being developed
     * Very close collaborators that want to have access to the very latest development version of Trilinos who don't mind dealing with more defects and increased instability
-* **master**: A relatively stable version of Trilinos that is updated from the 'develop' branch when a specific set of builds for a specific set of packages have 100% passing tests.
+* **master**: A relatively stable version of Trilinos that is updated from the 'develop' branch when a specific set of builds for a specific set of packages have 100% passing tests
   * _Who pull from this branch?_
     * Close collaborators and users who want to access a very recent yet fairly stable version of Trilinos
-* **trilinos-release-X-Y-branch**: Branch for the maintenance of the set of Trilinos X.Y.Z releases.  Official releases of Trilinos are tagged on this branch using the tag name **trilinos-release-X-Y-Z**.
+* **trilinos-release-X-Y-branch**: Branch for the maintenance of the set of Trilinos X.Y.Z releases.  Official releases of Trilinos are tagged on this branch using the tag name **trilinos-release-X-Y-Z**
   * _Who pulls from this branch?_
-    * External users that need named and supported versions of Trilinos with minimal patch releases for bug fixes (These users only should access tagged releases `trilinos-release-X-Y-Z` and not just pull from the release branch).
+    * External users that need named and supported versions of Trilinos with minimal-change patch releases for bug fixes (Note, users only should access tagged releases `trilinos-release-X-Y-Z` and not just pull from the tip of a release branch).
 
 The following links provide information on Trilinos version control processes and workflows.
 
