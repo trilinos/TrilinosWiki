@@ -1,6 +1,6 @@
 **Table of Contents:**
 * [Overview](#overview)
-* [**Transitioning to a develop-master workflow**](#transition_develop_master)
+* [Transitioning to a develop-master workflow](#transition_develop_master)
 * [Moving local changes to the 'develop' branch](#move_to_develop)
 
 <a name="overview"/>
