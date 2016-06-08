@@ -55,7 +55,7 @@ The process to transition local changes not on the 'develop' branch to the 'deve
 
 **1) Checkout and update the local tracking 'develop' branch**
 
-If you are not already on the local 'develop' branch, this step is described [above](https://github.com/trilinos/Trilinos/wiki/VC-%7C-'develop'-'master'-workflow#get_on_local_develop).
+If you are not already on the local 'develop' branch, this step is described [above](#transition_develop_master).
 
 Next, pull to update 'develop'.
 
