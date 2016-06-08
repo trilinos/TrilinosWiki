@@ -18,7 +18,7 @@ Once on local 'develop' tracking branch, then just do the [centralized workflow]
 
 See more details [here](VC-%7C-'develop'-'master'-workflow).
 
-**WARNING:** Don't make the mistake and do:
+**WARNING:** Don't make the mistake the following mistake:
 
 ```
 $ git checkout -b develop
