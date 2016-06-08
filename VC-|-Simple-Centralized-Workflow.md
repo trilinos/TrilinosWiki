@@ -1,4 +1,4 @@
-No matter what git-related workflow that is being used, developers need to understand how to maintain a simple linear shared remote tracking branch.  This shared remote branch may be the ['develop' branch](https://github.com/trilinos/Trilinos/wiki/VC-|-'develop'-'master'-workflow), a shared topic branch, or a Trilinos release branch.  This workflow should be used when a single local commit (or a very small number of local commits) are pushed to the shared remote tracking branch.  In these cases, one should rebase the local commits on top of the updated remote tracking branch before the push in order to maintain a nice linear history.  The motivation of this simple workflow is explained in more detail at the [Simple Centralized CI Workflow](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).
+No matter what git-related workflow that is being used, developers need to understand how to maintain a simple linear shared remote tracking branch.  This shared remote branch may be the ['develop' branch](https://github.com/trilinos/Trilinos/wiki/VC-|-'develop'-'master'-workflow), a shared topic branch, or a Trilinos release branch.  This workflow should be used when a single local commit (or a very small number of local commits) are pushed to the shared remote tracking branch.  In these cases, one should rebase the local commits on top of the updated remote tracking branch before the push in order to maintain a nice linear history on that branch.  The motivation of this simple workflow is explained in more detail at the [Simple Centralized CI Workflow](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).
 
 ## The simple centralized workflow
 
@@ -7,19 +7,19 @@ The simple centralized workflow (i.e. the git equivalent of SVN) is outlined on 
 * “Your team can develop projects in the exact same way as they do with Subversion.”
 * “Before the developer can publish their feature, they need to fetch the updated central commits and rebase their changes on top of them. This is like saying, “I want to add my changes to what everyone else has already done.” The result is a perfectly linear history, just like in traditional SVN workflows”
 
-Another description is the [“Simple Centralized CI Workflow”](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).  That link gives the summary (for example, where the branch is assumed to be 'master' but it could be 'develop' or any other shared remote tracking branch):
+Another description is the [“Simple Centralized CI Workflow”](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.7z34akh7lsvp).  That link gives the summary where `<branch>` is the a local tracking branch which is tracking the remote `origin/<branch>` branch (for example, where the branch `<branch>` is assumed to be 'master' but it could be 'develop' or any other shared remote tracking branch such as a shared topic or feature branch):
 
 | Step                                          | Git Commands |
 | ---                                           | --- |
-| **Get latest updates from the central repo:** | `$ git pull` (from origin/master) |
+| **Get latest updates from the central repo:** | `$ git pull` (from `origin/<branch>`) |
 | **Make local changes and create commits:**    | `$ emacs <files>`   (or other editor) |
 |                                               | `$ git commit -a` |
 | **Examine state of local branch:**            | `$ git status` |
 |                                               | `$ git log --name-status @{u}..HEAD` |
-| **Test changes locally:**                     | `$ git pull` (from origin/master) |
+| **Test changes locally:**                     | `$ git pull` (from `origin/<branch>`) |
 |                                               | ... Test changes ( using checkin-test.py) ... |
-| **Push changes to central repo:**             | `$ git pull --rebase` (from origin/master) |
-|                                               | `$ git push`  (to origin/master) |
+| **Push changes to central repo:**             | `$ git pull --rebase` (from `origin/<branch>`) |
+|                                               | `$ git push`  (to `origin/<branch>`) |
 
 The key to keeping a nice linear history is the `--rebase` argument in the `git pull --rebase` command right before the final `git push` command.  That is always safe if these commits are created locally and were not shared with any other repo (which is the typical SVN workflow depicted above).
 
@@ -37,17 +37,17 @@ If those references don’t make sense, please don’t give up.  Take a look at 
 
 ## Justification
 
-Many beginner developers new to git use a simple git workflow like:
+Many beginner developers new to git use a simple git workflow (e.g. where `<branch>` is 'develop' or 'master') 'like:
 
 ```
-$ cd Trilinos/   # Old version of 'master' :-)
-… change files, do testing, etc. …
-$ git commit -a
-$ git push   # Fails because someone pushed to origin/mater since your last pull
-$ git pull   # Creates a trivial merge commit!
-$ git push
+[(<branch>]$ cd Trilinos/   # Old version of '<branch>' :-)
+             … change files, do testing, etc. …
+[(<branch>]$ git commit -a
+[(<branch>]$ git push   # Fails because someone pushed to origin/<branch> since your last pull
+[(<branch>]$ git pull   # Creates a trivial merge commit!
+[(<branch>]$ git push   # Pushes messy trivial merge commit to origin/<branch> :-(
 ```
 
-The problem with the above process, is that the later ‘git pull’ creates what is often called a trivial merge commit.  Such trivial merge commits make the git history difficult to look at and follow and the mess up the nice linear history that you get using a tool like Subversion (SVN).  (As a result, many development projects that use git will not even let you push these trivial commits.  For example, the push hooks for the SIERRA git repos do not allow them.  Also, PETSc does not allow them.)
+The problem with the above process, is that the later `git pull` creates what is often called a trivial merge commit.  Such trivial merge commits make the git history difficult to look at and follow and the mess up the nice linear history that you get using a tool like Subversion (SVN).  (As a result, many development projects that use git will not even let developers push these trivial commits.  For example, the push hooks for the SIERRA git repos do not allow them.  Also, PETSc does not allow them.)
 
-Another problem with these trivial merge commits is that GitHub push emails show all of the changed files associated with these trivial merge commits.  This results in getting a bunch of false matches for custom email filters for the GitHub push emails.  For example, many Trilinos developers have an Outlook filter that only shows emails that contain package names such as “teuchos”, “thyra”, "kokkos" and "tpetra".  But these people get spammed because of these trivial merge commits involving commits that have nothing to do with these keywords.  Therefore, routinely using trivial merge commits makes these git email filters are almost worthless.
+Another problem with these trivial merge commits is that GitHub push emails show all of the changed files associated with these trivial merge commits.  This results in getting a bunch of false matches for custom email filters for the GitHub push emails.  For example, many Trilinos developers have an Outlook email filter that only shows emails that contain package names such as "teuchos", "thyra", "kokkos" and "tpetra".  But these people get spammed because of these trivial merge commits involving commits that have nothing to do with these keywords.  Therefore, routinely using trivial merge commits makes these git email filters almost worthless.
