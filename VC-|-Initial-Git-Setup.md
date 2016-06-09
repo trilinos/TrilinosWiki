@@ -23,7 +23,7 @@ These make using git so much easier!
 
 **3) If [developing on multiple git repositories](???) install and setup the usage of `gitdist`**:
 
-**3.a) Install gitdist into your env**, for example, after clonging Trilinos, set in your `~/.bash_profile` file:
+**3.a) Install gitdist into your env**, for example, after cloning Trilinos, set in your `~/.bash_profile` file:
 
 ```
 alias gitdist=$TRILINOS_HOME/cmake/tribits/python_utils/gitdist
