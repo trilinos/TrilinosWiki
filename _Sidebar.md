@@ -11,6 +11,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Mail lists](https://github.com/trilinos/Trilinos/wiki/Tools-%7C-Mail-Lists)  
 [Version Control](https://github.com/trilinos/Trilinos/wiki/VC-(VERSION-CONTROL))  
 &nbsp;&nbsp;&nbsp;&nbsp;[Initial git setup](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Initial-Git-Setup)  
-&nbsp;&nbsp;&nbsp;&nbsp;['develop'/'master' workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-'develop'-'master'-workflow)([cheatsheet](https://github.com/trilinos/Trilinos/wiki/VC-|-'develop'-'master'-workfow-cheat-sheet))  
+&nbsp;&nbsp;&nbsp;&nbsp;['develop'/'master'](https://github.com/trilinos/Trilinos/wiki/VC-%7C-'develop'-'master'-workflow) ([cheatsheet](https://github.com/trilinos/Trilinos/wiki/VC-|-'develop'-'master'-workfow-cheat-sheet))  
 &nbsp;&nbsp;&nbsp;&nbsp;[Centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow)  
 [Productivity++](https://github.com/trilinos/Trilinos/wiki/Productivity-Initiative)  
