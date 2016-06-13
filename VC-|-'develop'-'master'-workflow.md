@@ -12,7 +12,7 @@ The Trilinos project uses a long-lived branch called 'develop' to conduct basic 
 
 The motivation for the usage of a 'develop' branch and the full set of mechanics and implications are described in [Addition of a 'develop' branch](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.u2ougk1wk7ph).
 
-(NOTE: The "bug-fix" workflow elements shown in the above figure are not described below but are described in great detail the above reference.  If things go well, then these "bug fix" commits should almost never be needed.  But in the rare cases these "bug-fix" commits or revert commits are needed/desired, then more experienced Trilinos git developers can help make those changes.)
+(NOTE: The "bug-fix" workflow elements shown in the above figure are not described below but are described in great detail in the [above reference](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#heading=h.u2ougk1wk7ph).  If things go well, then these "bug fix" commits should almost never be needed.  But in the rare cases these "bug-fix" commits or revert commits are needed/desired, then more experienced Trilinos git developers can help make those changes.)
 
 <a name="transition_develop_master"/>
 # Transitioning to a develop-master workflow
