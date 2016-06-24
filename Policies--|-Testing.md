@@ -4,9 +4,13 @@
 
 ## Overview
 
-Trilinos now uses CTest and CDash for testing and display of test results. With CTest/CDash, a testing day is from 10 p.m. to 10 p.m. MST. CDash pages for current results can be found at:
+Trilinos now uses CTest and CDash for testing and display of test results. With CTest/CDash, a testing day is from 10 p.m. to 10 p.m. MST. CDash pages for current results can be found below.
 
-Links to CDash dashboard results and query tools
+NOTE: Many of the Trilinos Nightly builds are temporarily being sent to the following site CDash site:
+
+http://my.cdash.org/index.php?project=Trilinos
+
+Links to main Trilinos CDash dashboard results and query tools:
 
 + [Main projects dashboard page for the current day](http://testing.sandia.gov/cdash)
 + [Subprojects (packages) dashboard page for Trilinos for the current day](http://testing.sandia.gov/cdash/index.php?project=Trilinos) [**Warning**: can be slow to come up]
