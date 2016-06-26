@@ -25,4 +25,4 @@ $ ctest -j10
 
 All of the TPLs supported by the loaded SEMS Dev Env will be automatically picked up and enabled.
 
-Also, the same loaded SEMS Dev Env can be used for MPI and serial (non-MPI) builds and shared and static lib builds.  The SEMS Dev Env only needs to be changed when wants a different compiler/version and/or MPI/version and/or CMake/version, etc.
+Also, the same loaded SEMS Dev Env can be used for MPI and serial (non-MPI) builds and shared and static lib builds.  The SEMS Dev Env only needs to be changed when one wants a different compiler/version and/or MPI/version and/or CMake/version, etc.
