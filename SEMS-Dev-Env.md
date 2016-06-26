@@ -17,7 +17,7 @@ $ cmake \
   -DTPL_ENABLE_MPI \
   -DTrilinos_ENABLE_<PKG0>=ON \
   -DTrilinos_ENABLE_<PKG0>=ON \
-  [...] \
+  [other options] \
   $TRILNOS_HOME
 $ make -j10
 $ ctest -j10
