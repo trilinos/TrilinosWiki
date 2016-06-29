@@ -1,5 +1,3 @@
-(Note: this page is incomplete.)
-
 # Git
 
 ### Git Links
