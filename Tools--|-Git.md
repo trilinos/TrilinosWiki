@@ -2,9 +2,11 @@
 
 ### Git Links
 
-[git cheat sheet](http://cheat.errtheblog.com/s/git)
+[Git cheat sheet](http://cheat.errtheblog.com/s/git)
 
-[A collection of tutorials and references for git](http://sixrevisions.com/resources/git-tutorials-beginners/#more-5519)
+[Collection of tutorials and references for git](http://sixrevisions.com/resources/git-tutorials-beginners/)
+
+[IDEAS Project Git Tutorial and Reference Collection](https://ideas-productivity.org/resources/howtos/git-tutorial-and-reference-collection/)
 
 [Pro Git book](http://progit.org/book)
 
