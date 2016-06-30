@@ -1,4 +1,4 @@
-(Note: Will likely be making pages for each page link, thus having to change links to new pages)
+**NOTE: UNDER DEVELOPMENT:  Will likely be making pages for each page link, thus having to change links to new pages**
 
 # Policies
 
@@ -6,18 +6,14 @@ Below are some of the policies used by the Trilinos Project.
 
 ## Definitions
 
-+ Primary, secondary, and tertiary stable code versus experimental code
++ [Primary and secondary tested code versus experimental code](https://trilinos.org/trac/trilinos/wiki/TribitsLifecycleModelOverview#test_categories)
 + Primary development platform versus secondary development and testing platforms
 
 ## Policies
 
 ### Trilinos Framework and Tools Issues
 
-+ [Collaborating through the publicTrilinos public git repository](https://github.com/trilinos/Trilinos/wiki/Trilinos-Public-Repository-Collaboration)
-
 + [Policies associated with and list of Trilinos repositories](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Trilinos-Repositories)
-
-+ [Updating publicTrilinos, filtering public_Trilinos, and modifying exclusions for the release tarball](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Updating-the-public-repository)
 
 + How to make feature requests for the Trilinos Framework
 
@@ -35,9 +31,9 @@ Below are some of the policies used by the Trilinos Project.
 
 ### Source Code Issues
 
-+ Treatment of primary stable code verses secondary stable code
++ [Treatment of primary tested (PT) code verses secondary tested (ST) code](https://trilinos.org/trac/trilinos/wiki/TribitsDevelopmentPractices#test_group_practices)
 
-+ Treatment of primary stable code verses experimental code
++ [Treatment of primary tested (PT) code verses experimental (EX) code](https://trilinos.org/trac/trilinos/wiki/TribitsDevelopmentPractices#test_group_practices)
 
 + Changing code in other packages for which you aren't a developer
 
@@ -49,7 +45,7 @@ Below are some of the policies used by the Trilinos Project.
 
 + [Remote testing and push process](https://software.sandia.gov//trilinos/developer/policies/checkin_test_remote.html)
 
-+ [Trilinos Developer Policy for Maintaining the Stability of Trilinos](https://software.sandia.gov//trilinos/developer/policies/developer_maintaining_stability.html)
++ [Developer policies for maintaining the stability of Trilinos](https://software.sandia.gov//trilinos/developer/policies/developer_maintaining_stability.html)
 
 + [Expectations for failed builds or tests](https://software.sandia.gov//trilinos/developer/policies/failed_builds_and_tests.html)
 
