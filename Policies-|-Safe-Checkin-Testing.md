@@ -1,5 +1,3 @@
-#Proper Safe Checkin Testing
-
 **NOTE: THIS PAGE WILL BE UPDATED SOON ONCE AN IMPROVED PRE-PUSH CI TESTING PROCESS IS ESTABLISHED!**
 
 In order to maintain the stability of "Primary Tested" packages and code on the 'develop' branch of Trilinos, the checkin-test.py script should always be used to test code before any push that changes source code. The script can be found inside of the Trilinos source tree at:
