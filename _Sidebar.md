@@ -2,7 +2,8 @@
 
 [Home](https://github.com/trilinos/Trilinos/wiki)  
 [Policies](https://github.com/trilinos/Trilinos/wiki/POLICIES)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Managing Issues](https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues) ([cheatsheet](https://github.com/trilinos/Trilinos/wiki/New-Issue-Cheat-Sheet))  
+&nbsp;&nbsp;&nbsp;&nbsp;[Managing Issues](https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues) ([cheatsheet](https://github.com/trilinos/Trilinos/wiki/New-Issue-Cheat-Sheet)) 
+&nbsp;&nbsp;&nbsp;&nbsp;[Software Quality Plan](https://github.com/trilinos/Trilinos/wiki/Software-Quality-Plan) 
 &nbsp;&nbsp;&nbsp;&nbsp;[Testing](https://github.com/trilinos/Trilinos/wiki/Policies--%7C-Testing)  
 [Tools](https://github.com/trilinos/Trilinos/wiki/TOOLS)  
 &nbsp;&nbsp;&nbsp;&nbsp;[git](https://github.com/trilinos/Trilinos/wiki/Tools--%7C-Git)  
