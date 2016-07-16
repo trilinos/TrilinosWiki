@@ -21,7 +21,7 @@ $ make -j10
 $ ctest -j10
  ```
 
-All of the TPLs supported by the loaded SEMS Dev Env will be automatically picked up and enabled (see `Final set of enabled TPLs` in the cmake STDOUT).  The same loaded SEMS Dev Env can be used for MPI or serial (non-MPI) builds and shared lib or static lib builds.  The SEMS Dev Env only needs to be changed when one wants a different compiler/version and/or MPI/version and/or CMake/version using , for example:
+All of the TPLs supported by the loaded SEMS Dev Env will be automatically picked up and enabled (see `Final set of enabled TPLs` in the cmake STDOUT).  The same loaded SEMS Dev Env can be used for MPI or serial (non-MPI) builds and shared lib or static lib builds.  The SEMS Dev Env only needs to be changed when one wants a different compiler/version and/or MPI/version and/or CMake/version using, for example:
 
 ```
 $ source $TRILINOS_DIR/cmake/load_sems_dev_env.sh \
