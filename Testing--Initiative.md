@@ -1,4 +1,4 @@
-Test writing is an essential auxiliary activities of software development.  Without adequate, independent and easily executed tests, software viability is at risk of breaking due changes in upstream dependencies, build environments, internal refactorings and enhancements.  Under-tested software is unsustainable.  
+Test writing is an essential software development auxiliary activities.  Without adequate, independent and easily executed tests, software viability is at risk of breaking due changes in upstream dependencies, build environments, internal refactorings and enhancements.  Under-tested software is unsustainable.  
 
 ### Trilinos Testing Policy:
 1. _**All functionality will be covered by testing:**_ Numerous approaches are possible. Chapter 22 of Steve McConnell's book _Code Complete_ is an excellent resource. Structured Basis Testing (having as many tests as there are logic paths through your code) is a good starting point.  Formal unit testing is even better.
