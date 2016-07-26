@@ -7,8 +7,9 @@ Test writing is an essential software development auxiliary activities.  Without
 
 ### Notes:
 1. _**Policy Scope:**_ This policy formally applies to any _Production Growth_ package development.  It is encouraged for packages in other phases (_Research Stable_ or _Production Maintenance_).
-2. _**Exceptions:**_ Yes, there will be exceptional circumstances where you need to commit some functionality without a corresponding test, but it should be the _exception_ and addressed as soon as possible.  Issues with management, user or client support for taking time to write tests should be forward to the Trilinos project leader.
+2. _**Exceptions:**_ Yes, there will be exceptional circumstances where you need to commit some functionality without a corresponding test, but it should be the _exception_ and addressed as soon as possible.  If you must commit code without testing coverage, file an issue.  Issues with management, user or client support for taking time to write tests should be forward to the Trilinos project leader.
 3. _**Test writing is part of your day job:**_ Time spent writing tests is a core job responsibility, justifiable as a normal part of your work day.
+4. _**Design for testability:**_ Without careful design, state variations can be so complicated that it becomes impossible to confidently test all, or even the most important software capabilities.
 4. _**Quick check for testing compliance:**_ While not sufficient, one simple indicator for testing compliance is whether or not a commit log message lists changes to both `src` and `test` directories.
 
 ### Questions?
