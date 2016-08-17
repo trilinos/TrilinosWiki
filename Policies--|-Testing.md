@@ -13,7 +13,7 @@ http://my.cdash.org/index.php?project=Trilinos
 Links to main Trilinos CDash dashboard results and query tools:
 
 + [Main projects dashboard page for the current day](http://testing.sandia.gov/cdash)
-+ [Subprojects (packages) dashboard page for Trilinos for the current day](http://testing.sandia.gov/cdash/index.php?project=Trilinos) [**Warning**: can be slow to come up]
++ [Subprojects (packages) dashboard page for Trilinos for the current day](http://testing.sandia.gov/cdash/viewSubProjects.php?project=Trilinos) [**Warning**: can be slow to come up]
   + Tip: To get a quick summary for all the packages that had configure, build, or test failures, sort the packages in descending order by holding down the Shift key and then click twice on the column headers **Configure: Error, Build: Error**, then **Test: Fail**.
 + [Subproject (package) dashboard page Trilinos package Teuchos for the current day](http://testing.sandia.gov/cdash/index.php?project=Trilinos&subproject=Teuchos)
    + Tip: To query other packages change 'Teuchos' in the URL to some another package name (e.g. 'Epetra', 'Tpetra', etc.)
