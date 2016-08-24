@@ -4,7 +4,7 @@
 [Policies](https://github.com/trilinos/Trilinos/wiki/POLICIES)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Productivity++](https://github.com/trilinos/Trilinos/wiki/Productivity-Initiative)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Managing Issues](https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues)  
-&nbsp;&nbsp;&nbsp;&nbsp;([cheatsheet](https://github.com/trilinos/Trilinos/wiki/New-Issue-Cheat-Sheet)) 
+&nbsp;&nbsp;&nbsp;&nbsp;([cheatsheet](https://github.com/trilinos/Trilinos/wiki/New-Issue-Cheat-Sheet))  
 &nbsp;&nbsp;&nbsp;&nbsp;[Software Quality Plan](https://github.com/trilinos/Trilinos/wiki/Software-Quality-Plan)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Testing Policy](https://github.com/trilinos/Trilinos/wiki/Trilinos-Testing-Policy)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Test Harness](https://github.com/trilinos/Trilinos/wiki/Policies--%7C-Testing)  
