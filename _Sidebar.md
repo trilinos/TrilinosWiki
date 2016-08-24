@@ -2,9 +2,10 @@
 
 [Home](https://github.com/trilinos/Trilinos/wiki)  
 [Policies](https://github.com/trilinos/Trilinos/wiki/POLICIES)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Managing Issues](https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues) ([cheatsheet](https://github.com/trilinos/Trilinos/wiki/New-Issue-Cheat-Sheet)) 
+&nbsp;&nbsp;&nbsp;&nbsp;[Productivity++](https://github.com/trilinos/Trilinos/wiki/Productivity-Initiative)  &nbsp;&nbsp;&nbsp;&nbsp;[Managing Issues](https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues) ([cheatsheet](https://github.com/trilinos/Trilinos/wiki/New-Issue-Cheat-Sheet)) 
 &nbsp;&nbsp;&nbsp;&nbsp;[Software Quality Plan](https://github.com/trilinos/Trilinos/wiki/Software-Quality-Plan)  
-&nbsp;&nbsp;&nbsp;&nbsp;[Testing](https://github.com/trilinos/Trilinos/wiki/Policies--%7C-Testing)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Testing Policy](https://github.com/trilinos/Trilinos/wiki/Trilinos-Testing-Policy)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Test Harness](https://github.com/trilinos/Trilinos/wiki/Policies--%7C-Testing)  
 [Tools](https://github.com/trilinos/Trilinos/wiki/TOOLS)  
 &nbsp;&nbsp;&nbsp;&nbsp;[git](https://github.com/trilinos/Trilinos/wiki/Tools--%7C-Git)  
 &nbsp;&nbsp;&nbsp;&nbsp;[CMake](https://github.com/trilinos/Trilinos/wiki/Tools-%7C--CMake)  
@@ -14,5 +15,3 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Initial git setup](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Initial-Git-Setup)  
 &nbsp;&nbsp;&nbsp;&nbsp;['develop'/'master'](https://github.com/trilinos/Trilinos/wiki/VC-%7C-'develop'-'master'-workflow) ([cheatsheet](https://github.com/trilinos/Trilinos/wiki/VC-|-'develop'-'master'-workfow-cheat-sheet))  
 &nbsp;&nbsp;&nbsp;&nbsp;[Simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow)  
-[Productivity++](https://github.com/trilinos/Trilinos/wiki/Productivity-Initiative)  
-[Testing++](https://github.com/trilinos/Trilinos/wiki/Trilinos-Testing-Policy)  
