@@ -20,6 +20,7 @@ The Trilinos build system is based on CMake. CTest, used for Trilinos testing, i
 + [Building, Testing, and Installing Trilinos](http://trilinos.org/docs/files/TrilinosBuildReference.html)
 + [TriBITS Developers Guide](https://tribits.org/doc/TribitsDevelopersGuide.html)
   + See "Howtos" section for performing common tasks like adding a new package dependency or adding a new TPL
+  + If any of that documentation is lacking, please create a new issue on the [TriBITS GitHub Site](https://github.com/tribitspub/tribits/issues) .
 + [Linking CMake-aware software against Trilinos libraries](http://trilinos.org/docs/files/Finding_Trilinos.txt)
 
 ### Installing CMake
