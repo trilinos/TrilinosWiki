@@ -14,10 +14,12 @@ is currently the fastest released version of CMake that works with Trilinos.
 
 The Trilinos build system is based on CMake. CTest, used for Trilinos testing, is included in the CMake distribution.
 
-### CMake Links
+### Trilinos CMake Links
 
 + [CMake homepage](https://cmake.org/)
-+ [Building Trilinos](http://trilinos.org/docs/files/TrilinosBuildReference.html)
++ [Building, Testing, and Installing Trilinos](http://trilinos.org/docs/files/TrilinosBuildReference.html)
++ [TriBITS Developers Guide](https://tribits.org/doc/TribitsDevelopersGuide.html)
+  + See "Howtos" section for performing common tasks like adding a new package dependency or adding a new TPL
 + [Linking CMake-aware software against Trilinos libraries](http://trilinos.org/docs/files/Finding_Trilinos.txt)
 
 ### Installing CMake
