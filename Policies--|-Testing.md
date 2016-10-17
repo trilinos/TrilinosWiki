@@ -10,6 +10,10 @@ NOTE: Many of the Trilinos Nightly builds are temporarily being sent to the foll
 
 http://my.cdash.org/index.php?project=Trilinos
 
+Some builds are also temporarily secondarily being submitted to the protected site:
+
+http://testing.sandia.gov/extended/cdash/index.php?project=Trilinos
+
 Links to main Trilinos CDash dashboard results and query tools:
 
 + [Main projects dashboard page for the current day](http://testing.sandia.gov/cdash)
