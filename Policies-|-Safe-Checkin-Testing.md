@@ -14,7 +14,7 @@ Then when one wants to test and push changes (and local git repo is "clean" with
 $ ./checkin-test-sems.sh --do-all --push
 ```
 
-That will automatically figure out what packages are changed and will enable those packages and all of their downstream packages and tests.  Then if everything passes, it will rebase the commits on top of `origin/develop` and push the commits.
+That will automatically figure out what packages are changed and will enable those packages and all of their downstream packages and tests.  Then if everything passes, it will rebase the commits on top of `origin/develop` and push the commits (i.e. it implements the [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow)).
 
 One can also test changes to any packages locally (with the local repo in any arbitrary state with modified or untracked files) using:
 
