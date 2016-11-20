@@ -1,35 +1,31 @@
-**NOTE: THIS PAGE WILL BE UPDATED SOON ONCE AN IMPROVED PRE-PUSH CI TESTING PROCESS IS ESTABLISHED!**
+**NOTE: THIS PAGE IS UNDER RECONSTRUCTION WHILE WE WORK ON AN UPDATED CI testing process.  See [Trilinos GitHub #482](https://github.com/trilinos/Trilinos/issues/482)**
 
-In order to maintain the stability of "Primary Tested" packages and code on the 'develop' branch of Trilinos, the checkin-test.py script should always be used to test code before any push that changes source code. The script can be found inside of the Trilinos source tree at:
-
-    $TRILINOS_HOME/checkin-test.py
-
-To see how to get started and access documentation type:
-
-    $TRILINOS_HOME/checkin-test.py --help
-
-See static copy of the ouptut [checking-test.py --help](https://tribits.org/doc/TribitsDevelopersGuide.html#checkin-test-py-help).
-
-If CMake can find BLAS, LAPACK, and MPI, doing a solid checkin test, along with the push, is as easy as:
+In order to maintain the stability of [Primary Tested](http://trac.trilinos.org/wiki/TribitsLifecycleModelOverview#test_categories) packages and code on the 'develop' branch of Trilinos, the checkin-test.py script should always be used to test code before any push that changes source code.  A standard environment for running the pre-push CI tests has been set up based on the [SEMS Development Environment](https://github.com/trilinos/Trilinos/wiki/SEMS-Dev-Env) encapsulated in the script [checkin-test-sems.sh](https://github.com/trilinos/Trilinos/blob/develop/cmake/std/sems/checkin-test-sems.sh).  This script makes it easy to run on any machine that has the SEMS Dev Env mounted.  To set up to use this script to test and push changes to Trilinos, do:
 
 ```
-$ cd $TRILINOS_HOME
-$ mkdir CHECKIN
-$ echo CHECKIN >> .git/info/exclude
-$ cd CHECKIN
-$ ../checkin-test.py --do-all -j8 --push
-```
+$ cd Trilinos/
+$ mkdir CHECKIN/  # Or put this anywhere you want on Linux systems
+$ ln -s ../cmake/std/sems/checkin-test-sems.sh .
+``` 
 
-If one has access to the [SEMS development environment](https://github.com/trilinos/Trilinos/wiki/SEMS-Dev-Env), then the wrapper script [checkin-test-sems.sh](https://github.com/trilinos/Trilinos/blob/develop/cmake/std/sems/checkin-test-sems.sh) should be used instead as:
+Then when one wants to test and push changes (and local git repo is "clean" with no modified or untracked files), one can do:
 
 ```
-$ cd $TRILINOS_HOME/CHECKIN/
-$ ln -s ../Trilinos/cmake/std/sems/checkin-test-sems.sh .
-$ ./checkin-test-sems.sh --do-all -j8 --push
+$ ./checkin-test-sems.sh --do-all --push
 ```
+
+That will automatically figure out what packages are changed and will enable those packages and all of their downstream packages and tests.  Then if everything passes, it will rebase the commits on top of `origin/develop` and push the commits.
+
+One can also test changes to any packages locally (with the local repo in any arbitrary state with modified or untracked files) using:
+
+```
+$ ./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,... --local-do-all
+```
+
+Many other use cases are also supported.  Some detailed documentation on the checkin-test.py script can be obtained using [checkin-test.py --help](https://tribits.org/doc/TribitsDevelopersGuide.html#checkin-test-py-help).
 
 NOTES:
-*  If nothing else, please at least run with the options '--enable-all-packages=off' '--no-enable-fwd-packages' '--without-serial-release'. That will enable only the packages you change and will only do an 'MPI_DEBUG' build. This should not take any longer than a regular test build that you should already be doing but at least we would be getting a consistent configuration between different Trilinos developers and the tested commits will get marked which will allow for [robust usage of git bisect](https://tribits.org/doc/TribitsDevelopersGuide.html#using-git-bisect-with-checkin-test-py-workflows).
-* To only do a local build and test without messing with git use '--local-do-all' instead of '--do-all'.
-
-A set of slides on the motivation and usage for the checkin-test.py script are available in PPT and PDF formats.
+* The `checkin-test-sems.sh` script, by default, runs a single build called `MPI_RELEASE_DEBUG_SHARED_PT` with the env defined by the source script [load_ci_sems_dev_env.sh](https://github.com/trilinos/Trilinos/blob/develop/cmake/load_ci_sems_dev_env.sh).  This is a build designed to best protect developers and users of Trilinos.  This build allows the enable of any Primary Tested (PT) packages and enables several TPLs provided by the SEMS env (see the exactly list produced by 'Final set of enabled TPLs' in CMake output).
+* The standard pre-push CI build is currently chosen to be the Sandia Linux RHEL 6 or 7 COE with the SEMS env.  If at all possible, one should only push to Trilinos from one of these machines, or ask someone else with access to one of these machines to push.  (Please contact trilinos-framework at software.sandia.gov if you do not have access and time on one of these systems.  Most Sandia staff can be given lab-support systems for this purpose.) 
+* The checkin-test-sems.sh script can also be used to test locally on Mac OSX machines, or any other machine with the SEMS Env mounted.  (It is just that we need a standard env to use for final pushing of changes.)
+* If nothing else, please at least run with the options `--enable-all-packages=off --no-enable-fwd-packages` . That will enable only the packages you change. This should not take any longer than a regular test build that you should already be doing but at least we would be getting a consistent configuration between different Trilinos developers and the tested commits will get marked which will allow for [robust usage of git bisect](https://tribits.org/doc/TribitsDevelopersGuide.html#using-git-bisect-with-checkin-test-py-workflows).
