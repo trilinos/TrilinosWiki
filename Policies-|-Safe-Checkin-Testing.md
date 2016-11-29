@@ -1,5 +1,3 @@
-**NOTE: THIS PAGE IS UNDER RECONSTRUCTION WHILE WE WORK ON AN UPDATED CI testing process.  See [Trilinos GitHub #482](https://github.com/trilinos/Trilinos/issues/482)**
-
 In order to maintain the stability of [Primary Tested](http://trac.trilinos.org/wiki/TribitsLifecycleModelOverview#test_categories) packages and code on the 'develop' branch of Trilinos, the checkin-test.py script should always be used to test code before any push that changes source code.  A standard environment for running the pre-push CI tests has been set up based on the [SEMS Development Environment](https://github.com/trilinos/Trilinos/wiki/SEMS-Dev-Env) encapsulated in the script [checkin-test-sems.sh](https://github.com/trilinos/Trilinos/blob/develop/cmake/std/sems/checkin-test-sems.sh).  This script makes it easy to run on any machine that has the SEMS Dev Env mounted.  To set up to use this script to test and push changes to Trilinos, do:
 
 ```
@@ -19,7 +17,8 @@ That will automatically figure out what packages are changed and will enable tho
 One can also test changes to any packages locally (with the local repo in any arbitrary state with modified or untracked files) using:
 
 ```
-$ ./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,... --local-do-all
+$ ./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,... \
+    --local-do-all
 ```
 
 Many other use cases are also supported.  Some detailed documentation on the checkin-test.py script can be obtained using [checkin-test.py --help](https://tribits.org/doc/TribitsDevelopersGuide.html#checkin-test-py-help).
