@@ -9,6 +9,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Software Quality Plan](https://github.com/trilinos/Trilinos/wiki/Software-Quality-Plan)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Test Harness](https://github.com/trilinos/Trilinos/wiki/Policies--%7C-Testing)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Testing Policy](https://github.com/trilinos/Trilinos/wiki/Trilinos-Testing-Policy)  
+&nbsp;&nbsp;&nbsp;&nbsp;[Pre-push Testing](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing)  
 [Tools](https://github.com/trilinos/Trilinos/wiki/TOOLS)  
 &nbsp;&nbsp;&nbsp;&nbsp;[git](https://github.com/trilinos/Trilinos/wiki/Tools--%7C-Git)  
 &nbsp;&nbsp;&nbsp;&nbsp;[CMake](https://github.com/trilinos/Trilinos/wiki/Tools-%7C--CMake)  
