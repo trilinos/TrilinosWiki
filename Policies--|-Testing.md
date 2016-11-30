@@ -60,21 +60,21 @@ NOTE: By default, all pushes done through `checkin-test.py [other options] --pus
 
 The default test category set by the Trilinos checkin-test.py script is `Trilinos_TEST_CATEGORIES=BASIC` which matches to the `CATEGORIES` option `BASIC` only (not `NIGHTLY`) passed into [`TRIBITS_ADD_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-test) and [`TRIBITS_ADD_ADVANCED_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-advanced-test) in the test CMakeLists.txt files.
 
-**Continuous Integration Testing**: Primary Tested Code [[Continuous Integration Build](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=2&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=buildstarttime&compare2=84&value2=now)]
+**Continuous Integration Testing**: Primary Tested Code [[Continuous Integration Build](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now)]
 
-A Continuous Integration (CI) server is set up that run the build [Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=2&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=buildstarttime&compare2=84&value2=now) in a continuous loop looking for updates to the global repository and when it finds them, it enables the affected packages and runs the builds and tests.  This build is an exact duplicate of the default build MPI_RELEASE_DEBUG_SHARED_PT_CI which is run by the checkin-test-sems.sh script.
+A Continuous Integration (CI) server is set up that run the build [Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now) in a continuous loop looking for updates to the global repository and when it finds them, it enables the affected packages and runs the builds and tests.  This build is an exact duplicate of the default build MPI_RELEASE_DEBUG_SHARED_PT_CI which is run by the checkin-test-sems.sh script.
 
 Emails are sent out by CDash to the different package lists `PACKAGE-regression@software.sandia.gov` when errors are detected. The first build of the day is a build from scratch while every subsequent CI iteration is a rebuild and retesting of only the affected packages.  (This greatly speeds up the response time of the CI server compared to always building and testing of of Trilinos at every iteration.)
 
 The main purposes for having a post-push CI server running in addition to pre-push CI testing are to: a) quickly catch errors from sloppy (or absent) checkin testing, b) catch violations of the [additive test assumption of branches](https://docs.google.com/document/d/1uVQYI2cmNx09fDkHDA136yqDTqayhxqfvjFiuUue7wo/edit#bookmark=id.d1jneh8ubsyn) which can occur when multiple test/pushes overlap, c) catch problems so they can be fixed before the nightly or weekly tests fire off.
 
-**Nightly Regression Testing**: Secondary Tested Code [[Nightly Regression Dashboard](http://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project&filtercount=1&showfilters=1&field1=groupname/string&compare1=61&value1=Nightly)]
+**Nightly Regression Testing**: Secondary Tested Code [[Nightly Regression Dashboard](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=1&showfilters=1&field1=groupname&compare1=61&value1=Nightly)]
 
 Each night starting at 12 Midnight MST/MDT, a wide range of configurations of Trilinos are tested on a variety of different platforms for [Secondary Tested (PT) Code](http://trac.trilinos.org/wiki/TribitsLifecycleModelOverview#test_categories). MPI and SERIAL are varied along with DEBUG and RELEASE. Different compilers are used. Builds are performed with shared or static libraries.
 
 The test category set for nightly testing is `Trilinos_TEST_CATEGORIES=NIGHTLY` which matches to the `CATEGORIES` options `BASIC` or `NIGHTLY` passed into passed into [`TRIBITS_ADD_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-test) and [`TRIBITS_ADD_ADVANCED_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-advanced-test) in the test CMakeLists.txt files.
 
-**Nightly Performance Testing**: Secondary Tested Code [[ Nightly Performance Dashboard](http://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildname/string&compare1=63&value1=PERF&field2=groupname/string&compare2=61&value2=Nightly)]
+**Nightly Performance Testing**: Secondary Tested Code [[Nightly Performance Dashboard](http://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildname/string&compare1=63&value1=PERF&field2=groupname/string&compare2=61&value2=Nightly)]
 
 Performance tests are specially designed and specially run tests to assess the serial performance of code. These tests do timing of different types of operations and have strong timing pass/fail test success criteria. If the relative or absolute time limit is violated, then the test fails. These tests must typically be targeted to a specific computer and manually verified on the machine before they can set as nightly tests.
 
@@ -92,15 +92,17 @@ The second build will not compile Trilinos libraries, but rather link against th
 
 The first build can be based directly on a git clone, rather than a release-like tarball, but some errors will only be detected when building from a tarball.
 
-**Experimental Testing**: Experimental Code [[Experimental Dashboard](http://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project&filtercount=1&showfilters=1&field1=groupname/string&compare1=61&value1=Experimental)]
+**Experimental Testing**: Experimental Code [[Experimental Dashboard](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=1&showfilters=1&field1=groupname&compare1=61&value1=Experimental)]
 
-The experimental dashboard contains a host of experimental builds where no emails are sent out for failed builds. Some of these experimental builds are run by cron jobs every night. Regularly scheduled builds that are run as experimental builds usually have some issues that result in several failed package builds or test failures and are not ready for "prime time" yet. he goal is to get these builds to a state where they can be moved over to regular nightly builds where emails will be sent out reporting failures.
+The experimental dashboard contains a host of experimental builds where no emails are sent out for failed builds. Some of these experimental builds are run by cron jobs every night. Regularly scheduled builds that are run as experimental builds usually have some issues that result in several failed package builds or test failures and are not ready for "prime time" yet. The goal is to get these builds to a state where they can be moved over to regular "Nightly" builds where emails will be sent out reporting failures.
 
-Other experimental builds are run by individual developers (for running coverage testing for instance). A good way to post experimental builds is with the 'dashbaord' target run with [`make dashboard`](https://trilinos.org/docs/files/TrilinosBuildReference.html#dashboard-submissions).
+Other experimental builds are run by individual developers (for running coverage testing for instance). A good way to post experimental builds from a local git repo and build directory is to use the 'dashbaord' target run with [`make dashboard`](https://trilinos.org/docs/files/TrilinosBuildReference.html#dashboard-submissions).
 
-By default, the test category set for nightly testing is `Trilinos_TEST_CATEGORIES=NIGHTLY` which matches to the `CATEGORIES` options `BASIC` or `NIGHTLY` passed into [`TRIBITS_ADD_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-test) and [`TRIBITS_ADD_ADVANCED_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-advanced-test) in the test CMakeLists.txt files.
+By default, the test category set for experimental testing is `Trilinos_TEST_CATEGORIES=NIGHTLY` which matches to the `CATEGORIES` options `BASIC` or `NIGHTLY` passed into [`TRIBITS_ADD_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-test) and [`TRIBITS_ADD_ADVANCED_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-advanced-test) in the test CMakeLists.txt files.
 
 **Weekly Coverage Testing**: Secondary Tested Code [[Current coverage results](http://testing.sandia.gov/extended/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildstarttime/date&compare1=83&value1=7%20days%20ago&field2=buildname/string&compare2=66&value2=_COV) (as of last Saturday)]
+
+**NOTE: REGULAR COVERAGE TESTING IS CURRENTLY DISABLED!!!**
 
 Every Saturday morning, a set of coverage tests is run after the other nightly tests are finished. An MPI and a SERIAL build are performed where the coverage for each package is accumulated after running each of the package's test suite.
 
@@ -112,7 +114,9 @@ Note that coverage results are reported to a separate dashboard. Developers requ
 
 **Memory Testing**: Most Secondary Tested Code [ [Current Memory testing Results](https://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildname/string&compare1=66&value1=_MEMCHECK&field2=buildstarttime/date&compare2=83&value2=1%20days%20ago&collapse=0)]
 
-Every day a subset of Trilinos packages and tests are run through Valgrind to find some forms of memory issues. Note that the memory checking tests can be quite long which is the reason why only a portion of memory issues are being checked currently.
+**NOTE: REGULAR MEMORY/VALGRIND TESTING IS CURRENTLY DISABLED!!!**
+
+Every day a subset of Trilinos packages and tests are run through Valgrind and posed to CDash to find some forms of memory issues. Note that the memory checking tests can be quite long which is the reason why only a portion of memory issues are being checked currently.
 
 Currently the test category used for Memory testing is `Trilinos_TEST_CATEGORIES=NIGHTLY` which matches to the `CATEGORIES` options `BASIC` or` NIGHTLY` passed into [`TRIBITS_ADD_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-test) and [`TRIBITS_ADD_ADVANCED_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-advanced-test) in the test CMakeLists.txt files.
 
