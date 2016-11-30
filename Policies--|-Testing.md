@@ -24,8 +24,8 @@ Links to main Trilinos CDash dashboard results and query tools:
 + [Summary of Trilinos builds for the current day](http://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project)
    + Tip: To get a quick summary for all the build groups that had configure, build, or test failures, sort the build group rows in descending order by holding down the Shift key and then click twice on the column headers **Configure: Error, Build: Error**, then **Test: Fail**.
    + Tip: To see the individual package builds/tests, click on the name of the build in the **Build Name** field.
-   + Tip: To see what files got updated, see the **Update** for the first package (usually Teuchos)
-   + Tip: To exclude bad packages (i.e. packages with build and/or test failures) from the build summaries, click [Show Filters] and then select the filter ('Label', 'is not', 'BADPACKAGE').
+   + Tip: To see what files got updated, click the number in the **Update** field.
+   + Tip: To exclude bad packages (i.e. packages with build and/or test failures) from the build summaries, click [Show Filters] and then select the filter ('Subprojects', 'exclude', '<BAD_PACKAGE_NAME>').
 + Test query page:
  + [All tests for current day](http://testing.sandia.gov/cdash/queryTests.php?project=Trilinos&showfilters=1) (allows any type of query) [**Warning**: very slow to come up]
  + [Failing tests for current day](http://testing.sandia.gov/cdash/queryTests.php?project=Trilinos&filtercount=1&showfilters=1&field1=status/string&compare1=61&value1=failed) (can only query failed tests) [Comes up fast]
