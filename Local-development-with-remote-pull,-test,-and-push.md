@@ -49,7 +49,7 @@ $ git remote add <local-machine> <local-machine>:$TRILNIOS_DIR
 ```
 
 <a name="local_dev_remote_pull_test_push"/>
-### Local development then remote pull/test/push (after initial setup)
+### Local development then remote pull/test/push
 
 **1) Do development on `<local-machine>` to `$TRILNIOS_DIR/` and make commits to local 'develop' branch**
 
