@@ -10,8 +10,8 @@ For the below instructions:
 ## Process
 
 * [Initial setup on `<remote-machine>` and `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup)
-* ???
-* ???
+* [Local development then remote pull/test/push](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push)
+* [Resolving problems on `<remote-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#resolving_problems)
 
 <a name="initial_setup"/>
 ### Initial setup on `<remote-machine>` and `<local-machine>`
