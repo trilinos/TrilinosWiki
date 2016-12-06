@@ -23,9 +23,9 @@ Another description is the [“Simple Centralized CI Workflow”](https://docs.g
 
 The key to keeping a nice linear history is the `--rebase` argument in the `git pull --rebase` command right before the final `git push` command.  That is always safe if these commits are created locally and were not shared with any other repo (which is the typical SVN workflow depicted above).
 
-NOTE: The checkin-test.py script performs all of the steps starting with "Test changes locally" automatically by default.
+NOTE: The [checkin-test.py](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing) script performs all of the steps starting with "Test changes locally" automatically by default.
 
-To avoid having to address the same merge conflicts more than once on the subsequent rebase, just enable “git rerere” using:
+To avoid having to address the same merge conflicts more than once on the subsequent rebase, then enable “git rerere” using:
 
 ```
 $ git config --global rerere.enabled 1
