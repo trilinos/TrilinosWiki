@@ -7,7 +7,14 @@ For the below instructions:
 * Let `<local-machine>` be the name of any machine (i.e. Mac OSX laptop, nonstandard Linux workstation, etc.) where you regularly do some Trilinos development and that can be reached by SSH from `<remote-machine>`.
 * Let `$TRILNIOS_DIR` be the location of the Trilinos git repo on `<local-machine>`.
 
-## Initial setup on `<remote-machine>` and `<local-machine>`
+## Process
+
+* [Initial setup on `<remote-machine>` and `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup)
+* ???
+* ???
+
+<a name="initial_setup"/>
+### Initial setup on `<remote-machine>` and `<local-machine>`
 
 **1) Set up a Trilinos clone and checkin build directory on the remote machine:**
 
@@ -41,7 +48,8 @@ $ ssh Trilinos/
 $ git remote add <local-machine> <local-machine>:$TRILNIOS_DIR
 ```
 
-## Local development then remote pull/test/push (after initial setup)
+<a name="local_dev_remote_pull_test_push"/>
+### Local development then remote pull/test/push (after initial setup)
 
 **1) Do development on `<local-machine>` to `$TRILNIOS_DIR/` and make commits to local 'develop' branch**
 
@@ -63,7 +71,8 @@ NOTES:
 * When pulling on `<local-machine>`, it is a good idea to use `git pull --rebase` to remove duplicate commits that were pushed from `<remote-machine>` in case the checkin-test.py script rebased or amended the top commit (which it does by default).
 * If everything passes, the checkin-test script will push to the GitHub 'develop' branch and send you an email about what happened.  However, if there are any failures, then they need to be resolved as described below.
 
-## Resolving problems on `<remote-machine>`
+<a name="resolving_problems"/>
+### Resolving problems on `<remote-machine>`
 
 If the configure, build, or any tests fail, then the errors much be resolved.  That can either be done on `<local-machine>` **or** on `<remote-machine>`.  If fixed on the `<local-machine>`, just make new commits there and then repeat the above remote pull/test/push commands.  However, below, we will describe how to fix the problems on the `<remote-machine>` where the are guaranteed to be reproduced.
 
