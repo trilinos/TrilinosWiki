@@ -35,6 +35,8 @@ Note [Alternative branch workflow involving GitHub repo](https://github.com/tril
 $ ssh <remote-machine>
 $ git clone git@github.com:trilinos/Trilinos.git
 $ cd Trilinos/
+$ git checkout --track origin/develop
+$ git branch -d master
 $ mkdir CHECKIN
 $ cd CHECKIN/
 $ ln -s ../cmake/std/sems/checkin-test-sems.sh .
