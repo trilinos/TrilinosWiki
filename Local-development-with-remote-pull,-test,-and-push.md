@@ -142,6 +142,6 @@ A brief outline of this alternative workflow involving the GitHub fork is:
 * One-time setup
   * Create remote `my-github` from the local Trilinos repos on `<local-machine>` and `<remote-machine>` pointing to your GitHub fork of Trilinos.
 * Local development then remote pull, test, and push:
-  * Push changes from local branch on `<local-machine>` to GitHub fork `my-github` with branch name `<branch-name>` (e.g. 'develop' is fine but a unique topic branch name is usually good.)
+  * Push changes from local branch on `<local-machine>` to GitHub fork `my-github` with branch name `<branch-name>` ('develop' is okay but typically a unique topic branch name is better).
   * On `<remote-machine>` run the `checkin-test-sems.sh` script as described [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push) but instead use `--extra-pull-from=my-github:<branch-name>`.
   * Once the push is complete, remove the temp branch on github with `git push my-github --delete <branch-name>`
