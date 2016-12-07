@@ -11,17 +11,20 @@ Another description is the [“Simple Centralized CI Workflow”](https://docs.g
 
 | Step                                          | Git Commands |
 | ---                                           | --- |
-| **Get latest updates from the central repo:** | `$ git pull` (from `origin/<branch>`) |
+| **Get latest updates from the central repo:** | `$ git pull --rebase` (from `origin/<branch>`) |
 | **Make local changes and create commits:**    | `$ emacs <files>`   (or other editor) |
 |                                               | `$ git commit -a` |
+| **Build and test:**                           | `cd <build-dir>; make ; ctest` |
+| ... Iterate above ...                         | |
 | **Examine state of local branch:**            | `$ git status` |
 |                                               | `$ git log --name-status @{u}..HEAD` |
+| **Final cleanup (optional)**                  | `$ git rebase -i @{u}` |
 | **Test changes locally:**                     | `$ git pull` (from `origin/<branch>`) |
 |                                               | ... Test changes ( using checkin-test.py) ... |
 | **Push changes to central repo:**             | `$ git pull --rebase` (from `origin/<branch>`) |
 |                                               | `$ git push`  (to `origin/<branch>`) |
 
-The key to keeping a nice linear history is the `--rebase` argument in the `git pull --rebase` command right before the final `git push` command.  That is always safe if these commits are created locally and were not shared with any other repo (which is the typical SVN workflow depicted above).
+The key to keeping a nice linear history is the `--rebase` argument in the `git pull --rebase` commands.  The rebase right before the final `git push` command is often needed to keep a linear history.  Such a rebase is always safe if these commits are created locally and were not shared with other repos or developers (which is the typical SVN workflow depicted above). (Note the special exception that occur with the [remote pull, test, and push workflow](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push) where rebasing is encouraged.)  The initial `git pull --rebase` is a good idea to avoid lots of merge commits from `origin/<branch>` that clutter up local history.  The optional `git rebase -i @{u}` command is very useful for cleaning up commits (i.e. amending, squashing, rearranging) before finally publishing them (see [Interactive Rebase](https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history)).
 
 NOTE: The [checkin-test.py](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing) script performs all of the steps starting with "Test changes locally" automatically by default.
 
