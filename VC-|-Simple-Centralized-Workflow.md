@@ -29,6 +29,7 @@ The key to keeping a nice linear history is the `--rebase` argument in the `git 
 
 NOTE: The [checkin-test.py](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing) script performs all of the steps starting with "Test changes locally" automatically by default.
 
+<a name="git_rerere"/>
 To avoid having to address the same merge conflicts more than once on the subsequent rebase, then enable “git rerere” using:
 
 ```
