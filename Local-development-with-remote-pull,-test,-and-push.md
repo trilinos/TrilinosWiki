@@ -14,8 +14,8 @@ $ ./checkin-test-sems.sh --extra-pull-from=<local-machine>:develop \
 (see [below](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push)).  And this set of remote commands can be performed in an SSH invocation script as a single command from the local machine.
 
 For these instructions, define:
-* `<remote-machine>`: name of a standard SNL Linux COE RHEL 6 machine with the SEMS env.
-* `<local-machine>`: name of any machine (i.e. Mac OSX laptop, nonstandard Linux workstation, etc.) where you regularly do some Trilinos development and that can be reached by SSH from `<remote-machine>`.
+* `<remote-machine>`: name (and URL) of a standard SNL Linux COE RHEL 6 machine with the SEMS env.
+* `<local-machine>`: name (and URL) of any machine (i.e. Mac OSX laptop, nonstandard Linux workstation, etc.) where you regularly do some Trilinos development and that can be reached by SSH from `<remote-machine>` (see relaxation of this requirement described below in [Alternative branch workflow involving GitHub repo.](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#alternative_branch_workflow))
 * `$TRILNIOS_DIR`: location of the Trilinos git repo on `<local-machine>`.
 
 ## Process
