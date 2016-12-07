@@ -2,6 +2,17 @@
 
 With a little setup and some basic comfort with git workflows involving multiple repositories, one can do development of Trilinos on any machine with any environment they want and then use a different standard Linux COE RHEL 6 machine with the SEMS Env to pull, test, and push the changes to the Trilinos GitHub 'develop' branch using the [checkin-test-sems.sh](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing) script.
 
+Once a [one-time initial setup](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#nitial_setup) is performed, the only extra commands that a developer must run in order to safely test and push from the remote machine is:
+
+```
+$ ssh <remote-machine>
+$ cd Trilinos/CHECKIN/
+$ ./checkin-test-sems.sh --extra-pull-from=<local-machine>:develop \
+  --no-rebase --do-all --push
+```
+
+(see [below](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push)).  And this set of remote commands can be performed in an SSH invocation script as a single command from the local machine.
+
 For these instructions, define:
 * `<remote-machine>`: name of a standard SNL Linux COE RHEL 6 machine with the SEMS env.
 * `<local-machine>`: name of any machine (i.e. Mac OSX laptop, nonstandard Linux workstation, etc.) where you regularly do some Trilinos development and that can be reached by SSH from `<remote-machine>`.
@@ -16,7 +27,7 @@ For these instructions, define:
 <a name="initial_setup"/>
 ### Initial setup on `<remote-machine>` and `<local-machine>`
 
-**1) Set up a Trilinos clone and CHECKIN build directory on the remote machine:**
+**1) Set up a Trilinos clone and CHECKIN build directory on `<remote machine>`:**
 
 ```
 $ ssh <remote-machine>
@@ -74,7 +85,7 @@ NOTES:
 * The `--no-rebase` option avoids rebasing that might otherwise result in merge conflicts (i.e. git rerere info does not automatically transfer from your Trilinos repo on `<local-machine>` to `<remote-machine>`).  (However, if one is not concerned about merge conflicts or if one did the `git rebase -i @{u}` cleanup as described above, then one can leave off the `--no-rebase` option and let the checkin-test script rebase, keeping a nice linear history.)
 * Once the pull has been completed by the checkin-test script, then while the configure, build, and testing is being performed, you can go back to `<local-machine>` and keep developing and adding new commits (but not modifying any existing commits).
 * If everything passes, the checkin-test script will push to the GitHub 'develop' branch and send you an email about what happened.  However, if there are any failures (reported by an auto email), then they need to be resolved as described below.
-* When pulling on `<local-machine>`, it is a good idea to use `git pull --rebase` to remove duplicate commits that were pushed from `<remote-machine>` in case the checkin-test.py script rebased or amended the top commit (which it does by default).
+* When later pulling on `<local-machine>` to continue development, it is a good idea to use `git pull --rebase` to remove duplicate commits that were pushed from `<remote-machine>` in case the checkin-test.py script rebased or amended the top commit (which it does by default).
 
 <a name="resolving_problems"/>
 ### Resolving problems on `<remote-machine>`
@@ -105,7 +116,7 @@ NOTES:
 * For simplicity, you should fix the problems by adding new commits, not amending old commits.  (Amending existing commits will result in merge conflicts when pulling the `develop` branch from GitHub back on `<local-machine>` using `git pull` or `git pull --rebase`.)
 * However, if you are conformable with git, you can amend, squash and otherwise alter commits not yet pushed to GitHub 'develop' all you want. (Then one will just need to make the necessary adjustments back on `<local-machine>` when pulling the updated GitHub 'develop' branch.)
 
-**3) Run final remote test/push:**
+**3) Run final remote test/push on `<remote-machine>`:**
 
 ```
 $ cd Trilinos/CHECKIN/
