@@ -115,7 +115,7 @@ $ git commit -m "Blah blah blah (#1234)"
 
 NOTES:
 * Obviously one would iteratively make changes, run the build, and run the affected tests in the build dir over and over until the problem was fixed before making the final commits.
-* For simplicity, you should fix the problems by adding new commits, not amending old commits.  (Amending existing commits will result in merge conflicts when pulling the `develop` branch from GitHub back on `<local-machine>` using `git pull` or `git pull --rebase`.)
+* For simplicity, you should fix the problems by **adding new commits, not amending old commits**.  (Amending existing commits will result in merge conflicts when pulling the `develop` branch from GitHub back on `<local-machine>` using `git pull` or `git pull --rebase`.)
 * However, if you are conformable with git, you can amend, squash and otherwise alter commits not yet pushed to GitHub 'develop' all you want. (Then one will just need to make the necessary adjustments back on `<local-machine>` when pulling the updated GitHub 'develop' branch.)
 
 **3) Run final remote test/push on `<remote-machine>`:**
