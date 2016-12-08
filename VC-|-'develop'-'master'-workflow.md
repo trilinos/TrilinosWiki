@@ -36,9 +36,9 @@ $ cd Trilinos/
 [(develop)]$ 
 ```
 
-Once on the local 'develop' branch which is tracking the remote 'origin/develop' branch, simply use standard `git pull`, `git commit` and `git push` commands. The only difference is these commands are performed while on the 'develop' rather than 'master' branch.
+Once on the local 'develop' branch which is tracking the remote 'origin/develop' branch, simply use standard `git pull`, `git commit` and `git push` commands. The only difference is these commands are performed while on the 'develop' rather than 'master' branch as part of the [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow).
 
-NOTE: The checkin-test.py script can be used on the 'develop' branch to robustly push committed modifications, just as it could be used previously for the 'master' branch.
+NOTE: The [checkin-test-sems.sh](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing) script can be used on the 'develop' branch to robustly push committed modifications.
 
 <a name="move_to_develop"/>
 # Move local changes to the 'develop' branch
