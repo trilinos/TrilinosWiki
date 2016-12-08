@@ -90,6 +90,7 @@ $ ./checkin-test-sems.sh --extra-pull-from=<local-machine>:develop \
 
 NOTES:
 * The `--no-rebase` option avoids rebasing that might otherwise result in merge conflicts (i.e. [git rerere](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow#git_rerere) info does not automatically transfer from your Trilinos repo on `<local-machine>` to `<remote-machine>`).
+<a name="rebase_okay"/>
 * However, if your is not concerned about merge conflicts or if you did the `git rebase -i @{u}` cleanup as described above, then you can leave off the `--no-rebase` option and let the checkin-test script rebase, keeping a nice linear history.
 * Once the pull has been completed by the checkin-test script, then (while the configure, build, and testing is being performed on `<remote-machine>`) you can go back to `<local-machine>` and keep developing and adding new commits (but not modifying any existing commits).
 * If everything passes, the checkin-test script will push to the GitHub 'develop' branch and send you an email.  However, if there are any failures (reported to you by email), then they need to be resolved as described below.
