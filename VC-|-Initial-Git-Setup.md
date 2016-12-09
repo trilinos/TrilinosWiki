@@ -1,5 +1,6 @@
 Before getting started using git with Trilinos (or any other project that uses git), one should perform a basic setup of git (see [How to Do Version Control with Git in Your CSE Project](http://ideas-productivity.org/wordpress/wp-content/uploads/2015/04/IDEAS-VCHowToVersionControlwithGit-V0.2.pdf), an [IDEAS Productivity "How To" Document](https://ideas-productivity.org/resources/howtos/)):
 
+<a name="minimal_git_settings"/>
 **1) Set up minimal Git settings for your account**, including “user.name,” “user.email,” “color.ui,” “push.default,” and “rerere.enabled”:
 
 ```
