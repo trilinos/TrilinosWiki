@@ -29,7 +29,19 @@ Note [Alternative branch workflow involving GitHub repo](https://github.com/tril
 <a name="initial_setup"/>
 ### Initial setup on `<remote-machine>` and `<local-machine>`
 
-**1) Set up a Trilinos clone and CHECKIN build directory on `<remote machine>`:**
+To get started, one needs to do a one-time minimal setup.  Once this setup is complete, it never needs to be done again.
+
+**1) Set up [minimal Git settings](https://github.com/trilinos/Trilinos/wiki/VC-|-Initial-Git-Setup#minimal_git_settings) for your account on `<remote-machine>`:**
+
+```
+$ git config --global user.name "First M. Last"
+$ git config --global user.email "youremail@someurl.com"
+$ git config --global color.ui true         # Use color in git output to terminal
+$ git config --global push.default simple   # or 'tracking' with older versions of git
+$ git config --global rerere.enabled 1      # auto resolve of same conflicts on rebase!
+```
+
+**2) Set up a Trilinos clone and CHECKIN build directory on `<remote machine>`:**
 
 ```
 $ ssh <remote-machine>
@@ -44,7 +56,7 @@ $ ln -s ../cmake/std/sems/checkin-test-sems.sh .
 
 NOTE: You can use any directory structure you want, just make the same modifications in the below steps.
 
-**2) Set up SSH key access from `<remote-machine>` to `<local-machine>`:**
+**3) Set up SSH key access from `<remote-machine>` to `<local-machine>`:**
 
 ```
 $ ssh <remote-machine>
@@ -54,9 +66,11 @@ $ cd ~/.ssh
 $ cat id_rsa.pub.<remote-machine> >> authorized_keys
 ```
 
-NOTE: This allows you to SSH from `<remote-machine>` to `<local-machine>` without requiring a password.
+NOTES:
+* This allows you to SSH from `<remote-machine>` to `<local-machine>` without requiring a password.
+* This step needs to be performed for each new `<local-machine>` that will use `<remote-machine>` as a remote pull, test, and push machine.
 
-**3) Set up git remote from `<remote-machine>` to `<local-machine>`**
+**4) Set up git remote from `<remote-machine>` to `<local-machine>`**
 
 ```
 $ ssh <remote-machine>
@@ -67,9 +81,12 @@ $ git remote add <local-machine> <local-machine>:$TRILNIOS_DIR
 NOTES:
 * You many need to use the full URL for the machine when setting up the remote depending on your network connection between `<remote-machine>` and `<local-machine>`.  For example `git remote add crf450 crf450.srn.sandia.gov:Trilinos.base/Trilinos`.
 * You can test that passwordless remote repo access works by running `git fetch <local-machine>`.
+* This step needs to be performed for each new `<local-machine>` that will use `<remote-machine>` as a remote pull, test, and push machine.
 
 <a name="local_dev_remote_pull_test_push"/>
 ### Local development then remote pull, test, and push
+
+Once the above one-time [initial setup](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup) is performed, you can use the following process to develop changes on your local machine and use the remote machine to pull, test, and push your new commits.
 
 **1) Do development of Trilinos on `<local-machine>` on local 'develop' branch**
 
@@ -95,6 +112,7 @@ NOTES:
 * Once the pull has been completed by the checkin-test script, then (while the configure, build, and testing is being performed on `<remote-machine>`) you can go back to `<local-machine>` and keep developing and adding new commits (but not modifying any existing commits).
 * If everything passes, the checkin-test script will push to the GitHub 'develop' branch and send you an email.  However, if there are any failures (reported to you by email), then they need to be resolved as described below.
 * When later pulling on `<local-machine>` to continue development, it is a good idea to use [`git pull --rebase`](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow#anchor) to remove duplicate commits that were pushed from `<remote-machine>` in case the checkin-test.py script rebased or amended the top commit (which it does by default).
+* **WARNING**: Until the `checkin-test-sems.sh` script finishes running on `<remote-machine>` do not try to run it again.  (Otherwise, the two `checkin-test-sems.sh` process will run on top of each other and create a huge mess.)
 
 <a name="resolving_problems"/>
 ### Resolving problems on `<remote-machine>`
