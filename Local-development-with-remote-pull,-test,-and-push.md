@@ -126,8 +126,9 @@ $ ssh <remote-machine>
 $ cd Trilinos/CHECKIN/
 $ source ../cmake/load_ci_sems_dev_env.sh
 $ cd MPI_RELEASE_DEBUG_SHARED_PT/
-$ make -j<N>                   # Reproduce the build failure
-$ ctest -j<N> -R <test-name>   # Reproduce the test failure(s)
+$ ./do-configure               # Reproduce configure failure
+$ make -j<N>                   # Reproduce build failure
+$ ctest -j<N> -R <test-name>   # Reproduce failing test(s)
 ```
 
 **2) Add new fixing commits on `<remote-machine>`**
