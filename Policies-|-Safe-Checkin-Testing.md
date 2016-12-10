@@ -12,23 +12,39 @@ Then when one wants to test and push changes (and local git repo is "clean" with
 $ ./checkin-test-sems.sh --do-all --push
 ```
 
-That will automatically figure out what packages are changed and will enable those packages and all of their downstream packages and tests.  Then if everything passes, it will rebase the commits on top of `origin/develop` and push the commits (i.e. it implements the [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow)).
+That will automatically figure out what packages are changed and will enable those packages and all of their downstream packages and tests.  Then if everything passes, it will rebase the commits on top of `origin/develop`, amend the top commit message with the test results summary, and push the commits (i.e. it implements the [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow)).
 
-One can also test changes to any packages locally (with the local repo in any arbitrary state with modified or untracked files) using:
+If one only changes for a given Trilinos package, and one knows that it only impacts that one package, one can run the build and tests for only the directly modified packages with:
+
+```
+$ ./checkin-test-sems.sh --enable-all-packages=off --no-enable-fwd-packages --do-all --push
+```
+
+Also, one can also test changes to any packages locally (with the local repo in any arbitrary state with modified or untracked files) using:
 
 ```
 $ ./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,... \
     --local-do-all
 ```
 
+If the configure, build or any tests fail, then one can easily reproduce them just like for any regular build of Trilinos by doing (in an `sh` compatible shell, not (t)csh):
+
+```
+$ cd Trilinos/CHECKIN/
+$ source ../cmake/load_ci_sems_dev_env.sh
+$ cd MPI_RELEASE_DEBUG_SHARED_PT/
+$ ./do-configure               # Reproduce configure failure
+$ make -j<N>                   # Reproduce build failure
+$ ctest -j<N> -R <test-name>   # Reproduce failing test(s)
+```
+
 Many other use cases are also supported.  Some detailed documentation on the checkin-test.py script can be obtained using [checkin-test.py --help](https://tribits.org/doc/TribitsDevelopersGuide.html#checkin-test-py-help).
 
 NOTES:
-* The `checkin-test-sems.sh` script, by default, runs a single build called `MPI_RELEASE_DEBUG_SHARED_PT` with the env defined by the source script [load_ci_sems_dev_env.sh](https://github.com/trilinos/Trilinos/blob/develop/cmake/load_ci_sems_dev_env.sh).  This is a build designed to best protect developers and users of Trilinos.  This build allows the enable of any Primary Tested (PT) packages and enables several TPLs provided by the SEMS env (see the exactly list produced by 'Final set of enabled TPLs' in CMake output).
-* One can manually re-run the configure, build, and any tests by sourcing the script `source ../cmake/load_ci_sems_dev_env.sh` and then running `do-configure`, `make` and `ctest` commnds in the `MPI_RELEASE_DEBUG_SHARED_PT/` subdirectory, just like any normal Trilinos build directory.
+* Using the checkin-test-sems.sh script to push is critical in order to mark known tested commits to allow for [robust usage of git bisect](https://tribits.org/doc/TribitsDevelopersGuide.html#using-git-bisect-with-checkin-test-py-workflows).  Without this, git bisection is very hard to do with Trilinos.
+* The `checkin-test-sems.sh` script, by default, runs a single build called `MPI_RELEASE_DEBUG_SHARED_PT` (see CMake options in `MPI_RELEASE_DEBUG_SHARED_PT/do-configure.base`) with the env defined by the source script [load_ci_sems_dev_env.sh](https://github.com/trilinos/Trilinos/blob/develop/cmake/load_ci_sems_dev_env.sh).  This is a build designed to best protect developers and users of Trilinos.  This build allows the enable of any Primary Tested (PT) packages and enables several TPLs provided by the SEMS env (see `Final set of enabled TPLs` in `MPI_RELEASE_DEBUG_SHARED_PT/configure.out`).
 * The standard pre-push CI build is currently chosen to be the Sandia Linux RHEL 6 or 7 COE with the SEMS env.  If at all possible, one should only push to Trilinos from one of these machines, or ask someone else with access to one of these machines to push.  (Please contact trilinos-framework at software.sandia.gov if you do not have access and time on one of these systems.  Most Sandia staff can be given lab-support systems for this purpose.) 
 * One can do development on any machine with any env one wishes and then use a remote SNL Linux RHEL 6 machine with the SEMS env to do a [remote pull, test, and push](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push) of the commits.
-* If nothing else, please at least run with the options `--enable-all-packages=off --no-enable-fwd-packages` . That will enable only the packages you change. This should not take any longer than a regular test build that you should already be doing but at least we would be getting a consistent configuration between different Trilinos developers and the tested commits will get marked which will allow for [robust usage of git bisect](https://tribits.org/doc/TribitsDevelopersGuide.html#using-git-bisect-with-checkin-test-py-workflows).
-* You can see if the CI build is currently clean by [looking at the CI build on CDash](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now).  If you see failing tests then you can disable those tests when invoking the checkin-test-sems.sh script by passing in `--extra-cmake-options="-D<failing_test_0>_DISABLE=ON -D<failing_test_1>_DISABLE=ON ..."`.  That will allow you to push by ignoring those failing tests.
+* You can see if the CI build is currently clean by [looking at the CI build on CDash](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now).  If you see failing tests then you can disable those tests when invoking the checkin-test-sems.sh script by passing in `--extra-cmake-options="-D<failing_test_0>_DISABLE=ON -D<failing_test_1>_DISABLE=ON ..."`.  That will allow you to push by ignoring those failing tests.  If entire packages are failing to build or have catastrophic test failures, then you can disable those using `--disable-packages=<pkg0>,<pkg1>,...". 
 <a name="raw_checkin_test_py"/>
 * The raw `checkin-test.py` script under `Trilinos/cmake/tribits/ci_support/checkin-test.py` can still be used for doing local development work and testing or any workflow other than pushing to the main Trilinos 'develop' branch.  (Use the checkin-test-sems.sh script as an example template.)
