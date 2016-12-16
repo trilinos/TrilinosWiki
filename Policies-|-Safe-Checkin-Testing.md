@@ -24,8 +24,8 @@ $ ./checkin-test-sems.sh --enable-all-packages=off --no-enable-fwd-packages --do
 Also, one can test any set of packages `<pkg0>`, `<pkg1>`, etc. (and not downstream packages) with the local git repo in any arbitrary state (i.e. has modified or untracked files, is in a detached-head state, etc.) using:
 
 ```
-$ ./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,... --no-enable-fwd-packages \
-    --local-do-all
+$ ./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,...
+   --no-enable-fwd-packages --local-do-all
 ```
 
 One can also run any individual step by replacing `--do-all` and `--local-do-all` with the action commands `--pull`, `--configure`, `--build`, and/or `--test` (the script keep memory of what steps have been performed already).
