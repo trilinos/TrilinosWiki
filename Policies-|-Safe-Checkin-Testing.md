@@ -13,6 +13,8 @@ $ cd Trilinos/CHECKIN/
 $ ./checkin-test-sems.sh --do-all --push
 ```
 
+(see other default options in [local-checkin-test-defaults.py](https://github.com/trilinos/Trilinos/wiki/Policies-|-Safe-Checkin-Testing#local-checkin-test-defaults.py))
+
 That will automatically figure out what packages are changed and will enable those packages and all of their downstream packages and [BASIC](https://tribits.org/doc/TribitsDevelopersGuide.html#test-test-category) tests.  Then if everything passes, it will rebase the commits on top of `origin/develop`, amend the top commit message with the test results summary, and push the commits (i.e. it implements the [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow) by default).
 
 If one changes a given Trilinos package and one knows that it only impacts that one package (such as when only modifying tests but no changes to library code), then one can run the build and tests for only the directly modified packages with:
@@ -44,6 +46,7 @@ $ ctest -j<N> -R <test-name>   # Reproduce failing test(s)
 Many other use cases are also supported.  Some detailed documentation on the checkin-test.py script can be obtained using [checkin-test.py --help](https://tribits.org/doc/TribitsDevelopersGuide.html#checkin-test-py-help).
 
 NOTES:
+<a name="local-checkin-test-defaults.py"/>
 * After the first time `checkin-test-sems.sh` is run, optionally edit the file `local-checkin-test-defaults.py` for your machine (see comments in the script `checkin-test-sems.sh` itself).
 * Using the checkin-test-sems.sh script to push is critical in order to mark known-tested commits to allow for [robust usage of git bisect](https://tribits.org/doc/TribitsDevelopersGuide.html#using-git-bisect-with-checkin-test-py-workflows).  Without this, git bisection is very hard to do with Trilinos.
 * The `checkin-test-sems.sh` script, by default, runs a single build called `MPI_RELEASE_DEBUG_SHARED_PT` (see CMake options in `MPI_RELEASE_DEBUG_SHARED_PT/do-configure.base`) with the env defined by the source script [load_ci_sems_dev_env.sh](https://github.com/trilinos/Trilinos/blob/develop/cmake/load_ci_sems_dev_env.sh).  This is a build designed to best protect developers and users of Trilinos.  This build allows the enable of any Primary Tested (PT) packages and enables several TPLs provided by the SEMS env (see `Final set of enabled TPLs` in `MPI_RELEASE_DEBUG_SHARED_PT/configure.out`).
