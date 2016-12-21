@@ -36,7 +36,7 @@ If the configure, build or any tests fail, then one can easily reproduce them ju
 
 ```
 $ cd Trilinos/CHECKIN/
-$ source ../cmake/load_ci_sems_dev_env.sh     # NOTE: Does 'module purge' then loads new env!
+$ source ../cmake/load_ci_sems_dev_env.sh   # NOTE: Does 'module purge' then loads new env!
 $ cd MPI_RELEASE_DEBUG_SHARED_PT/
 $ ./do-configure               # Reproduce configure failure
 $ make -j<N>                   # Reproduce build failure
