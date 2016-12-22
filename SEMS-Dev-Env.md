@@ -5,7 +5,18 @@ $ cd <some-build-dir>/
 $ source $TRILINOS_DIR/cmake/load_sems_dev_env.sh
 ``` 
 
-(where `TRILINOS_DIR` points to the base Trilinos git repo source dir, e.g. `$HOME/Trilinos`).  This does a `module purge` then loads SEMS modules for compilers, MPI, CMake, Python, and several key TPLs that can be used by Trilinos like Boost, Zlib, HDF5, Netcdf, ParMETIS, and SuperLU (run `module list` to see what is loaded).
+(where `TRILINOS_DIR` points to the base Trilinos git repo source dir, e.g. `$HOME/Trilinos`).  This does a `module purge` then loads SEMS modules for compilers, MPI, CMake, Python, and several key TPLs that can be used by Trilinos like Boost, Zlib, HDF5, Netcdf, ParMETIS, and SuperLU.  To see what is loaded, run `module list`.  This should return something similar to:
+
+```
+$ module list
+Currently Loaded Modulefiles:
+  1) sems-env                       5) sems-gcc/4.8.4                 9) sems-hdf5/1.8.12/parallel
+  2) sems-python/2.7.9              6) sems-openmpi/1.8.7            10) sems-netcdf/4.3.2/parallel
+  3) sems-cmake/3.5.2               7) sems-boost/1.55.0/base        11) sems-parmetis/4.0.3/parallel
+  4) sems-git/2.10.1                8) sems-zlib/1.2.8/base          12) sems-superlu/4.3/base
+```
+
+(NOTE: Actual modules and versions may be different.)
 
 Once a SEMS Dev Env has been loaded, then one can configure, build, and test as (for example):
 
