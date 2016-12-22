@@ -10,10 +10,12 @@ $ source $TRILINOS_DIR/cmake/load_sems_dev_env.sh
 ```
 $ module list
 Currently Loaded Modulefiles:
-  1) sems-env                       5) sems-gcc/4.8.4                 9) sems-hdf5/1.8.12/parallel
-  2) sems-python/2.7.9              6) sems-openmpi/1.8.7            10) sems-netcdf/4.3.2/parallel
-  3) sems-cmake/3.5.2               7) sems-boost/1.55.0/base        11) sems-parmetis/4.0.3/parallel
-  4) sems-git/2.10.1                8) sems-zlib/1.2.8/base          12) sems-superlu/4.3/base
+  1) sems-env                       7) sems-boost/1.55.0/base
+  2) sems-python/2.7.9              8) sems-zlib/1.2.8/base
+  3) sems-cmake/3.5.2               9) sems-hdf5/1.8.12/parallel
+  4) sems-git/2.10.1               10) sems-netcdf/4.3.2/parallel
+  5) sems-gcc/4.8.4                11) sems-parmetis/4.0.3/parallel
+  6) sems-openmpi/1.8.7            12) sems-superlu/4.3/base
 ```
 
 (NOTE: Actual modules and versions may be different.)
