@@ -3,6 +3,7 @@ In order to maintain the stability of [Primary Tested](http://trac.trilinos.org/
 ```
 $ cd Trilinos/
 $ mkdir CHECKIN/  # Or put this anywhere you want on Linux systems
+$ cd CHECKIN
 $ ln -s ../cmake/std/sems/checkin-test-sems.sh .
 ``` 
 
