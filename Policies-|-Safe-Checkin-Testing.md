@@ -62,13 +62,13 @@ NOTES:
 <a name="raw_checkin_test_py"/>
 * To run the `checkin-test-sems.sh` script on RHEL 7 systems, it is necessary to load cmake in version 2.8.12. Use the following commands:
 
-```
-$ source ../cmake/load_ci_sems_dev_env.sh   # Does 'module purge' first!
-$ module unload sems-cmake/3.5.2
-$ module load sems-cmake/2.8.12
-$ env TRILINOS_CHECKIN_TEST_SEMS_SKIP_MODULE_LOAD=1 \
-  ./checkin-test-sems.sh --do-all --push
-```
+   ```
+   $ source ../cmake/load_ci_sems_dev_env.sh   # Does 'module purge' first!
+   $ module unload sems-cmake/3.5.2
+   $ module load sems-cmake/2.8.12
+   $ env TRILINOS_CHECKIN_TEST_SEMS_SKIP_MODULE_LOAD=1 \
+     ./checkin-test-sems.sh --do-all --push
+   ```
 * The raw script `Trilinos/checkin-test.py` can still be used for doing local development work and testing or driving any workflow.  It can even be used for pushing (but please prefer to use the `checkin-test-sems.sh` script on a RHEL 6 machine with the SEMS env when pushing to the main Trilinos 'develop' branch).  However, unless you can define the `MPI_RELEASE_DEBUG_SHARED_PT.config` file to support the full set of PT packages and TPLs, then just disable that build by running with your own pre-defined builds (i.e. creating `<build0>.config`, `<build1>.config`) by passing in `--default-builds= --st-extra-builds=<build0>,<build1>,...`.  (See the checkin-test-sems.sh script for an example of how to do this.)
 <a name="disable_already_failing"/>
 * You can see if the CI build is currently clean by [looking at the CI build on CDash](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now).  If you see failing tests then you can disable those tests when invoking the checkin-test-sems.sh script by passing in `--extra-cmake-options="-D<failing_test_0>_DISABLE=ON -D<failing_test_1>_DISABLE=ON ..."`.  That will allow you to push by ignoring those failing tests.  If entire packages are failing to build or have catastrophic test failures, then you can disable those using `--disable-packages=<pkg0>,<pkg1>,...`. 
