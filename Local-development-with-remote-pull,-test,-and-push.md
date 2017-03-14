@@ -27,6 +27,7 @@ For these instructions, define:
 Note [Alternative branch workflow involving GitHub repo](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#alternative_branch_workflow).
 
 <a name="initial_setup"/>
+
 ### Initial setup on `<remote-machine>` and `<local-machine>`
 
 To get started, one needs to do a one-time minimal setup.  Once this setup is complete, it never needs to be done again.
@@ -84,6 +85,7 @@ NOTES:
 * This step needs to be performed for each new `<local-machine>` that will use `<remote-machine>` as a remote pull, test, and push machine.
 
 <a name="local_dev_remote_pull_test_push"/>
+
 ### Local development then remote pull, test, and push
 
 Once the above one-time [initial setup](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup) is performed, you can use the following process to develop changes on your local machine and use the remote machine to pull, test, and push your new commits.
@@ -96,6 +98,7 @@ Once the above one-time [initial setup](https://github.com/trilinos/Trilinos/wik
 NOTE: Doing `git rebase -i @{u}` removes all of the merge commits that might have been created when doing `git pull` to keep your local branch up to date and avoid a merge conflict on `<remote-machine>` when not using the `--no-rebase` argument with checkin-test-sems.sh below.
 
 <a name="remote_pull_test_push"/>
+
 **2) SSH to `<remote-machine>` and invoke checkin-test script to pull, test, and push:**
 
 ```
@@ -106,15 +109,22 @@ $ ./checkin-test-sems.sh --extra-pull-from=<local-machine>:develop \
 ```
 
 NOTES:
+
 * The `--no-rebase` option avoids rebasing that might otherwise result in merge conflicts (i.e. [git rerere](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow#git_rerere) info does not automatically transfer from your Trilinos repo on `<local-machine>` to `<remote-machine>`).
+
 <a name="rebase_okay"/>
+
 * However, if your is not concerned about merge conflicts or if you did the `git rebase -i @{u}` cleanup as described above, then you can leave off the `--no-rebase` option and let the checkin-test script rebase, keeping a nice linear history.
 * Once the pull has been completed by the checkin-test script, then (while the configure, build, and testing is being performed on `<remote-machine>`) you can go back to `<local-machine>` and keep developing and adding new commits (but not modifying any existing commits).
+
 * If everything passes, the checkin-test script will push to the GitHub 'develop' branch and send you an email.  However, if there are any failures (reported to you by email), then they need to be resolved as described below.
+
 * When later pulling on `<local-machine>` to continue development, it is a good idea to use [`git pull --rebase`](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow#anchor) to remove duplicate commits that were pushed from `<remote-machine>` in case the checkin-test.py script rebased or amended the top commit (which it does by default).
+
 * **WARNING**: Until the `checkin-test-sems.sh` script finishes running on `<remote-machine>` do not try to run it again.  (Otherwise, the two `checkin-test-sems.sh` process will run on top of each other and create a huge mess.)
 
 <a name="resolving_problems"/>
+
 ### Resolving problems on `<remote-machine>`
 
 If the configure, build, or any tests failed in the invocation of `checkin-test-sems.sh` on `<remote-machine>`, then the errors must be resolved before a final push can occur.  Problems can either be resolved on `<local-machine>` **or** on `<remote-machine>`.  If working on `<local-machine>`, just make new commits there and then repeat the above [remote pull, test, push command](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push).  However, below, we will describe how to fix the problems on `<remote-machine>` where they are guaranteed to be reproduced.
@@ -155,6 +165,7 @@ NOTES:
 * Again, one can remove the `--no-rebase` option to allow the rebase in case where merge conficts are not a concern or with a `git rebase -i @{u}` cleanup has recently been done.  (Doing a final rebase creates a nice linear history on the 'develop' branch.)
 
 <a name="alternative_branch_workflow"/>
+
 ## Alternative branch workflow involving GitHub repo
 
 The above workflow assumes that commits will be pulled directly from `<local-machine>` to `<remote-machine>`.  However, one can accomplish the move of commits by pushing the 'develop' branch (or perhaps well-named topic branch `<branch-name>`) to the developer's own Trilinos GitHub fork from `<local-machine>` and then pulling from the GitHub fork to `<remote-machine>`.  The advantages of this approach is that it provides a backup on the branch on GitHub and it works for cases where `<remote-machine>` can't SSH to `<local-machine>` but both `<remote-machine>` and `<local-machine>` can reach GitHub.
@@ -162,8 +173,8 @@ The above workflow assumes that commits will be pulled directly from `<local-mac
 A brief outline of this alternative workflow involving the GitHub fork is:
 
 * One-time setup
-  * Create remote `my-github` from the local Trilinos repos on `<local-machine>` and `<remote-machine>` pointing to your GitHub fork of Trilinos.
+  * Create remote `intermediate-repo` from the local Trilinos repos on `<local-machine>` and `<remote-machine>` pointing to your GitHub fork of Trilinos.
 * Local development then remote pull, test, and push:
-  * Push changes from local branch on `<local-machine>` to GitHub fork `my-github` with branch name `<branch-name>` ('develop' is okay but typically a unique topic branch name is better).
-  * On `<remote-machine>` run the `checkin-test-sems.sh` script as described [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push) but instead use `--extra-pull-from=my-github:<branch-name>`.
-  * Once the push is complete, remove the temp branch on github with `git push my-github --delete <branch-name>`
+  * Push changes from local branch on `<local-machine>` to GitHub fork `intermediate-repo` with branch name `<branch-name>` ('develop' is okay but typically a unique topic branch name is better).
+  * On `<remote-machine>` run the `checkin-test-sems.sh` script as described [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push) but instead use `--extra-pull-from=intermediate-repo:<branch-name>`.
+  * Once the push is complete, remove the temp branch on github with `git push intermediate-repo --delete <branch-name>`
