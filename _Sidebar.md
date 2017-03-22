@@ -1,4 +1,4 @@
-<!-- NOTE: This sidebar is using two spaces after each line to force a newline.  Then we use force HTML spaces to indent.  This allows us to avoid using list bullets which take up valuable horizontal space.  The end result is a very compact sidebar. -->
+<!-- NOTE: This sidebar is using two spaces after each line to force a newline.  Then we use four HTML spaces to indent.  This allows us to avoid using list bullets which take up valuable horizontal space.  The end result is a very compact sidebar. -->
 
 [Home](https://github.com/trilinos/Trilinos/wiki)  
 [Policies](https://github.com/trilinos/Trilinos/wiki/POLICIES)  
@@ -10,6 +10,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[Testing Policy](https://github.com/trilinos/Trilinos/wiki/Trilinos-Testing-Policy)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Test Harness](https://github.com/trilinos/Trilinos/wiki/Policies--%7C-Testing)  
 &nbsp;&nbsp;&nbsp;&nbsp;[Pre-push (Checkin) Testing](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Remote pull/test/push](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push)   
 [Tools](https://github.com/trilinos/Trilinos/wiki/TOOLS)  
 &nbsp;&nbsp;&nbsp;&nbsp;[git](https://github.com/trilinos/Trilinos/wiki/Tools--%7C-Git)  
 &nbsp;&nbsp;&nbsp;&nbsp;[CMake](https://github.com/trilinos/Trilinos/wiki/Tools-%7C--CMake)  
