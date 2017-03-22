@@ -8,7 +8,33 @@ After a [one-time initial setup](https://github.com/trilinos/Trilinos/wiki/Local
 $ ./remote-pull-test-push-<remote-machine>.sh
 ```
 
-(see details [below](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push)).  If all goes well, it will automatically merge in your branch and push to the Trilinos 'develop' branch.  If anything fails, it will send you email messages about the failures.  If that happens, you can SSH to `<remote-machine>` and inspect the configure, build, or test failures yourself.
+(see details [below](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push)).
+
+The basic process is:
+
+1. Create commits on your local machine (on the 'develop' branch or a topic branch)
+2. Push the local branch from the local machine to an intermediate git repo (e.g. your GitHub fork of Trilinos)
+3. Pull and merge your branch from intermediate git repo to Trilinos git repo 'develop' branch on remote machine
+4. Run `checkin-test-sems.sh` script on remote machine to test and push your branch to the Trilinos 'develop' branch.
+
+If all goes well, this will automatically merge in your branch and push to the Trilinos 'develop' branch.  If anything fails, it will send you email messages about the failures.  If that happens, you can SSH to `<remote-machine>` and inspect the configure, build, or test failures yourself.
+
+The advantages of using this process are:
+
+* You can develop Trilinos on any machine you want but still do a solid pre-push test with the standard CI build to avoid breaking things for other developers and customers.
+* As soon as your local commits are pushed to the intermediate git repo from your local machine, you can keep working.
+* Your local machine is not loaded down running the full Trilinos CI build.
+* If anything fails on the remote machine, you can quickly examine the failures, rerun the configure, build, or individual tests since these artifacts live in your own directory on the remote machine.
+
+## Process
+
+Process Outline
+
+* [A) Initial setup on `<remote-machine>` and `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup)
+
+* [B) Local development then remote pull, test, and push](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push)
+
+* [C) Resolving problems on `<remote-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#resolving_problems)
 
 For these instructions, define the following:
 
@@ -21,16 +47,6 @@ For these instructions, define the following:
 * `<remote_trilinos_base_dir>`: Location of base Trilinos git repo on the remote pull/test/push server `<remote-machine>`. (e.g. on a CEE LAN machine, this can be `/scratch/$USER/TRILINOS_PUSH_SERVER`).  (**WARNING**: Don't use this Trilinos repo `<remote-machine>` for development.  Instead, make this dedicated to servicing remote pull/test/push processes.)
 
 * `intermediate-repo`: A git remote repo name which is used to push and pull your local branch to communicate between your Trilinos git repos on `<local-machine>` and `<remote-machine>`.  (The easiest thing to use is your own fork of the Trilinos GitHub repo your GitHub account `<your-github-id>`, and this is what is assumed below in the setup but it can be changed to anything you want.)
-
-## Process
-
-Process Outline
-
-* [A) Initial setup on `<remote-machine>` and `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup)
-
-* [B) Local development then remote pull, test, and push](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push)
-
-* [C) Resolving problems on `<remote-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#resolving_problems)
 
 <a name="initial_setup"/>
 
