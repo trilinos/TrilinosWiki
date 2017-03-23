@@ -30,17 +30,19 @@ Links to main Trilinos CDash dashboard results and query tools:
 
 ## Categories of Tests
 
-+ Pre-checkin Testing
-+ Continuous Integration Testing
-+ Nightly Regression Testing
-+ Nightly Performance Testing
-+ Installation Testing
-+ Experimental Testing
-+ Weekly Coverage Testing
-+ Memory Testing
-+ Weekly Scalability Testing
+The different categories of Trilinos testing are:
 
-There are many different types of testing that are performed:
++ [Pre-push Continuous Integration Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#pre_push_ci_testing)
++ [Post-push Continuous Integration Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#post_push_ci_testing)
++ [Nightly Regression Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#nightly_regression_testing)
++ [Performance Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#performance_testing)
++ [Installation Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#installation_testing)
++ [Experimental Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#experimental_testing)
++ [Coverage Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#coverage_testing)
++ [Memory Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#memory_testing)
++ [Scalability Testing](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#scalability_testing)
+
+These different categories of testing are described in more detail below.
 
 <a name="pre_push_ci_testing"/>
 
@@ -76,6 +78,8 @@ The test category set for nightly testing is `Trilinos_TEST_CATEGORIES=NIGHTLY` 
 
 **Performance Testing**: Secondary Tested Code [[Nightly Performance Dashboard](http://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildname/string&compare1=63&value1=PERF&field2=groupname/string&compare2=61&value2=Nightly)]
 
+!!! **NOTE: PERFORMANCE TESTING IS CURRENTLY DISABLED** !!!
+
 Performance tests are specially designed and specially run tests to assess the serial performance of code. These tests do timing of different types of operations and have strong timing pass/fail test success criteria. If the relative or absolute time limit is violated, then the test fails. These tests must typically be targeted to a specific computer and manually verified on the machine before they can set as nightly tests.
 
 The test category set for performance testing is `Trilinos_TEST_CATEGORIES=PERFORMANCE` which matches to the `CATEGORIES` option `PERFORMANCE` only passed into [`TRIBITS_ADD_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-test) and [`TRIBITS_ADD_ADVANCED_TEST()`](https://tribits.org/doc/TribitsDevelopersGuide.html#tribits-add-advanced-test) in the test CMakeLists.txt files.
@@ -84,7 +88,7 @@ The test category set for performance testing is `Trilinos_TEST_CATEGORIES=PERFO
 
 **Installation Testing**: Primary Tested Code
 
-**NOTE: INSTALLATION TESTING IS CURRENTLY DISABLED!!!**
+!!! **NOTE: INSTALLATION TESTING IS CURRENTLY DISABLED** !!!
 
 Installation testing is currently done on Primary Tested code to test whether or not an installation contains all necessary files. It does this by compiling Trilinos package tests against an installation of Trilinos that was built from a release-like tarball generated from the development branch. This helps ensure that both the installation and the tarball are not missing critical files.
 
@@ -108,7 +112,7 @@ By default, the test category set for experimental testing is `Trilinos_TEST_CAT
 
 **Coverage Testing**: Secondary Tested Code [[Current coverage results](http://testing.sandia.gov/extended/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildstarttime/date&compare1=83&value1=7%20days%20ago&field2=buildname/string&compare2=66&value2=_COV) (as of last Saturday)]
 
-**NOTE: REGULAR COVERAGE TESTING IS CURRENTLY DISABLED!!!**
+!!!**NOTE: REGULAR COVERAGE TESTING IS CURRENTLY DISABLED** !!!
 
 Every Saturday morning, a set of coverage tests is run after the other nightly tests are finished. An MPI and a SERIAL build are performed where the coverage for each package is accumulated after running each of the package's test suite.
 
@@ -122,7 +126,7 @@ Note that coverage results are reported to a separate dashboard. Developers requ
 
 **Memory Testing**: Most Secondary Tested Code [ [Current Memory testing Results](https://testing.sandia.gov/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildname/string&compare1=66&value1=_MEMCHECK&field2=buildstarttime/date&compare2=83&value2=1%20days%20ago&collapse=0)]
 
-**NOTE: REGULAR MEMORY/VALGRIND TESTING IS CURRENTLY DISABLED!!!**
+!!! **NOTE: REGULAR MEMORY/VALGRIND TESTING IS CURRENTLY DISABLED** !!!
 
 Every day a subset of Trilinos packages and tests are run through Valgrind and posed to CDash to find some forms of memory issues. Note that the memory checking tests can be quite long which is the reason why only a portion of memory issues are being checked currently.
 
@@ -132,4 +136,4 @@ Currently the test category used for Memory testing is `Trilinos_TEST_CATEGORIES
 
 **Scalability Testing**: Secondary Tested Code
 
-**NOT DEFINED YET:** There is currently no support for automated scalability testing in the Trilinos CMake/CTest/CDash system.
+!!! **NOT DEFINED YET** !!! There is currently no support for automated scalability testing in the Trilinos CMake/CTest/CDash system.
