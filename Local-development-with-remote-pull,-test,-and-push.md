@@ -272,8 +272,11 @@ $ ssh <remote-machine>
 $ cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
 $ source ../cmake/load_ci_sems_dev_env.sh
 $ cd MPI_RELEASE_DEBUG_SHARED_PT/
+$ less configure.out           # View cmake configure output/errors
 $ ./do-configure               # Reproduce configure failure
+$ less make.out                # View make build output/errors
 $ make -j<N>                   # Reproduce build failure
+$ less ctest.out               # View ctest output/failures
 $ ctest -j<N> -R <test-name>   # Reproduce failing test(s)
 ```
 
