@@ -113,7 +113,16 @@ Test that the access to `intermediate-repo` is working correctly:
 $ git fetch intermediate-repo
 ```
 
-Create a driver script for the remote pull/test/push process `remote-pull-test-push-<remote-machine>.sh` on `<local-machine>` in base directory `<local_trilinos_base_dir>`: 
+Create a driver script for the remote pull/test/push process `remote-pull-test-push-<remote-machine>.sh` on `<local-machine>` in base directory `<local_trilinos_base_dir>`:
+
+```
+$ cd <local_trilinos_base_dir>/
+$ touch remote-pull-test-push-<remote-machine>.sh
+$ chmod u+x remote-pull-test-push-<remote-machine>.sh
+$ emacs -nw remote-pull-test-push-<remote-machine>.sh   # or use vi
+```
+
+This script `remote-pull-test-push-<remote-machine>.sh` should have the contents:
 
 ```
 #!/bin/bash -e
@@ -122,7 +131,19 @@ cd <local_trilinos_base_dir>/
 
 ./Trilinos/cmake/std/sems/remote-pull-test-push.sh \
   <remote-machine> \
-  <remote_trilinos_base_dir>
+  <remote_trilinos_base_dir>    # Abs dir!
+```
+
+For example, a script using remote machine `ceerws1113` called `remote-pull-test-push-ceerws1113.sh` might look like:
+
+```
+#!/bin/bash -e
+
+cd $HOME/Trilinos.base/
+
+./Trilinos/cmake/std/sems/remote-pull-test-push.sh \
+  ceerws1113 \
+  /scratch/$USER/TRILINOS_PUSH_SERVER
 ```
 
 **A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>`:**
