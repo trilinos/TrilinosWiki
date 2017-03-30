@@ -176,7 +176,7 @@ Once the above one-time [initial setup](https://github.com/trilinos/Trilinos/wik
 **B.1) Do development of Trilinos on `<local-machine>`**
 
 * Do development, make commits, do local testing as you normally would to the git repo on `<local-machine>` (see [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow) except for the push).  (NOTE: This can be done on the local 'develop' branch or in a local topic branch.  It works either way.)
-* Clean up your local branch commits on `<local-machine>` with `git rebase -i origin/develop` **[Optional but Recommended]**.
+* Clean up your local branch commits on `<local-machine>` with `git fetch ; git rebase -i origin/develop` **[Optional but Recommended]**.
 
 NOTE: Doing `git rebase -i` removes all of the merge commits that might have been created when doing `git pull` to keep your local branch up to date and avoid a merge conflict on `<remote-machine>`.
 
