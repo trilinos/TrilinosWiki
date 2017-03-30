@@ -81,9 +81,11 @@ $ cd CHECKIN/
 $ ln -s ../cmake/std/sems/checkin-test-sems.sh .
 ```
 
-(NOTE: You can use a different remote git repo for `intermediate-repo` other than your GitHub fork of Trilinos.)
+NOTES:
+* You can use a different remote git repo for `intermediate-repo` other than your GitHub fork of Trilinos.
+* Other special considerations and tips for setting up a remote pull/test/push server using a Sandia CEE LAN machine are given at [Development and Testing on CEE LAN Machines](https://snl-wiki.sandia.gov/display/TRIL/Development+and+Testing+on+CEE+LAN+machines).
 
-Test that remote `intermediate-repo` is set up correctly and is accessible
+Test that remote `intermediate-repo` is set up correctly and is accessible:
 
 ```
 $ cd <remote_trilinos_base_dir>/Trilinos/
