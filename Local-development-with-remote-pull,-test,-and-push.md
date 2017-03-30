@@ -107,13 +107,20 @@ $ cd <local_trilinos_base_dir>/Trilinos/
 $ git remote add intermediate-repo git@github.com:<your-github-id>/Trilinos.git  # e.g. your Trilinos fork
 ```
 
+If you have not already, get on a local `develop` branch:
+
+```
+git checkout --track origin/develop
+git branch -d master
+```
+
 Test that the access to `intermediate-repo` is working correctly:
 
 ```
 $ git fetch intermediate-repo
 ```
 
-Create a driver script for the remote pull/test/push process `remote-pull-test-push-<remote-machine>.sh` on `<local-machine>` in base directory `<local_trilinos_base_dir>`:
+Now that your local Trilinos git repo is set up, create a driver script for the remote pull/test/push process `remote-pull-test-push-<remote-machine>.sh` on `<local-machine>` in base directory `<local_trilinos_base_dir>`:
 
 ```
 $ cd <local_trilinos_base_dir>/
@@ -134,7 +141,7 @@ cd <local_trilinos_base_dir>/
   <remote_trilinos_base_dir>    # Abs dir!
 ```
 
-For example, a script using remote machine `ceerws1113` called `remote-pull-test-push-ceerws1113.sh` might look like:
+For example, a script using remote machine `ceerws1113` called `remote-pull-test-push-ceerws1113.sh` would look something like:
 
 ```
 #!/bin/bash -e
