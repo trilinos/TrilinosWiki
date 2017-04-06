@@ -60,9 +60,9 @@ To get started, one needs to do a minimal one-time setup.  Once this setup is co
 ssh <remote-machine>
 git config --global user.name "First M. Last"
 git config --global user.email "youremail@someurl.com"
-git config --global color.ui true         # Use color in git output to terminal
-git config --global push.default simple   # Or 'tracking' with older versions of git
-git config --global rerere.enabled 1      # Auto resolve of same conflicts on rebase!
+git config --global color.ui true          # Use color in git output to terminal
+git config --global push.default tracking  # Or 'simpler' with git 2.0+
+git config --global rerere.enabled 1       # Auto resolve of same conflicts on rebase!
 ```
 
 **A.2) Set up a Trilinos clone and CHECKIN build directory on `<remote machine>`:**
