@@ -5,7 +5,7 @@ With a little setup and some basic comfort with git workflows involving multiple
 After a [one-time initial setup](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup) is performed, you can invoke a remote pull/test/push process using a local script on your local machine as:
 
 ```
-$ ./remote-pull-test-push-<remote-machine>.sh
+./remote-pull-test-push-<remote-machine>.sh
 ```
 
 (see details [below](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push)).
@@ -57,28 +57,28 @@ To get started, one needs to do a minimal one-time setup.  Once this setup is co
 **A.1) Set up [minimal Git settings](https://github.com/trilinos/Trilinos/wiki/VC-|-Initial-Git-Setup#minimal_git_settings) for your account on `<remote-machine>`:**
 
 ```
-$ ssh <remote-machine>
-$ git config --global user.name "First M. Last"
-$ git config --global user.email "youremail@someurl.com"
-$ git config --global color.ui true         # Use color in git output to terminal
-$ git config --global push.default simple   # Or 'tracking' with older versions of git
-$ git config --global rerere.enabled 1      # Auto resolve of same conflicts on rebase!
+ssh <remote-machine>
+git config --global user.name "First M. Last"
+git config --global user.email "youremail@someurl.com"
+git config --global color.ui true         # Use color in git output to terminal
+git config --global push.default simple   # Or 'tracking' with older versions of git
+git config --global rerere.enabled 1      # Auto resolve of same conflicts on rebase!
 ```
 
 **A.2) Set up a Trilinos clone and CHECKIN build directory on `<remote machine>`:**
 
 ```
-$ ssh <remote-machine>
-$ mkdir <remote_trilinos_base_dir>
-$ cd <remote_trilinos_base_dir>/
-$ git clone git@github.com:trilinos/Trilinos.git
-$ cd Trilinos/
-$ git checkout --track origin/develop
-$ git branch -d master
-$ git remote add intermediate-repo git@github.com:<your-github-id>/Trilinos.git  # e.g. your Trilinos fork
-$ mkdir CHECKIN
-$ cd CHECKIN/
-$ ln -s ../cmake/std/sems/checkin-test-sems.sh .
+ssh <remote-machine>
+mkdir <remote_trilinos_base_dir>
+cd <remote_trilinos_base_dir>/
+git clone git@github.com:trilinos/Trilinos.git
+cd Trilinos/
+git checkout --track origin/develop
+git branch -d master
+git remote add intermediate-repo git@github.com:<your-github-id>/Trilinos.git  # e.g. your Trilinos fork
+mkdir CHECKIN
+cd CHECKIN/
+ln -s ../cmake/std/sems/checkin-test-sems.sh .
 ```
 
 NOTES:
@@ -88,16 +88,16 @@ NOTES:
 Test that remote `intermediate-repo` is set up correctly and is accessible:
 
 ```
-$ cd <remote_trilinos_base_dir>/Trilinos/
-$ git fetch intermediate-repo
+cd <remote_trilinos_base_dir>/Trilinos/
+git fetch intermediate-repo
 ```
 
 Run the checkin-test-sems.sh script once and then adjust the number of processors to use for builds and testing:
 
 ```
-$ cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
-$ ./checkin-test-sems.sh --help
-$ emacs -nw local-checkin-test-defaults.py  # e.g. change -j4 to -j16
+cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
+./checkin-test-sems.sh --help
+emacs -nw local-checkin-test-defaults.py  # e.g. change -j4 to -j16
 ```
 
 **A.3) Set up local git repo on `<local-machine>`:**
@@ -105,8 +105,8 @@ $ emacs -nw local-checkin-test-defaults.py  # e.g. change -j4 to -j16
 Add git remote `intermediate-repo` (e.g. your Trilinos GitHub fork for your account `<your-github-id>`) in your local git repo:
 
 ```
-$ cd <local_trilinos_base_dir>/Trilinos/
-$ git remote add intermediate-repo git@github.com:<your-github-id>/Trilinos.git  # e.g. your Trilinos fork
+cd <local_trilinos_base_dir>/Trilinos/
+git remote add intermediate-repo git@github.com:<your-github-id>/Trilinos.git  # e.g. your Trilinos fork
 ```
 
 If you have not already, get on a local `develop` branch:
@@ -119,16 +119,16 @@ git branch -d master
 Test that the access to `intermediate-repo` is working correctly:
 
 ```
-$ git fetch intermediate-repo
+git fetch intermediate-repo
 ```
 
 Now that your local Trilinos git repo is set up, create a driver script for the remote pull/test/push process `remote-pull-test-push-<remote-machine>.sh` on `<local-machine>` in base directory `<local_trilinos_base_dir>`:
 
 ```
-$ cd <local_trilinos_base_dir>/
-$ touch remote-pull-test-push-<remote-machine>.sh
-$ chmod u+x remote-pull-test-push-<remote-machine>.sh
-$ emacs -nw remote-pull-test-push-<remote-machine>.sh   # or use vi
+cd <local_trilinos_base_dir>/
+touch remote-pull-test-push-<remote-machine>.sh
+chmod u+x remote-pull-test-push-<remote-machine>.sh
+emacs -nw remote-pull-test-push-<remote-machine>.sh   # or use vi
 ```
 
 This script `remote-pull-test-push-<remote-machine>.sh` should have the contents:
@@ -158,11 +158,11 @@ cd $HOME/Trilinos.base/
 **A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>`:**
 
 ```
-$ ssh <local-machine>
-$ scp ~/.ssh/id_rsa.pub <remote-machine>:~/.ssh/id_rsa.pub.<local-machine>
-$ ssh <remote-machine>
-$ cd ~/.ssh
-$ cat id_rsa.pub.<local-machine> >> authorized_keys
+ssh <local-machine>
+scp ~/.ssh/id_rsa.pub <remote-machine>:~/.ssh/id_rsa.pub.<local-machine>
+ssh <remote-machine>
+cd ~/.ssh
+cat id_rsa.pub.<local-machine> >> authorized_keys
 ```
 
 NOTES:
@@ -233,7 +233,7 @@ You may now keep working on your local machine and wait for email notifications!
 To keep tabs on the remote pull/test/push progress, one can follow this up on `<local-machine>` with:
 
 ```
-$ tail -f checkin-test-remote.log
+tail -f checkin-test-remote.log
 ```
 
 Otherwise, if everything passes and the push happens (or if there are any failures), then emails will be sent to your email account (as set by git on `<remote-machine>`).
@@ -277,24 +277,24 @@ The following steps describe how to reproduce and address failures on `<remote-m
 **C.1) Log onto `<remote-machine>` and reproduce the problem:**
 
 ```
-$ ssh <remote-machine>
-$ cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
-$ source ../cmake/load_ci_sems_dev_env.sh
-$ cd MPI_RELEASE_DEBUG_SHARED_PT/
-$ less configure.out           # View cmake configure output/errors
-$ ./do-configure               # Reproduce configure failure
-$ less make.out                # View make build output/errors
-$ make -j<N>                   # Reproduce build failure
-$ less ctest.out               # View ctest output/failures
-$ ctest -j<N> -R <test-name>   # Reproduce failing test(s)
+ssh <remote-machine>
+cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
+source ../cmake/load_ci_sems_dev_env.sh
+cd MPI_RELEASE_DEBUG_SHARED_PT/
+less configure.out           # View cmake configure output/errors
+./do-configure               # Reproduce configure failure
+less make.out                # View make build output/errors
+make -j<N>                   # Reproduce build failure
+less ctest.out               # View ctest output/failures
+ctest -j<N> -R <test-name>   # Reproduce failing test(s)
 ```
 
 **C.2) Add new fixing commits on `<remote-machine>`**
 
 ```
-$ cd <remote_trilinos_base_dir>/Trilinos/
-$ emacs -nw <broken-files>  # or other editors
-$ git commit -m "Blah blah blah (#1234)"
+cd <remote_trilinos_base_dir>/Trilinos/
+emacs -nw <broken-files>  # or other editors
+git commit -m "Blah blah blah (#1234)"
 ```
 
 NOTES:
@@ -308,8 +308,8 @@ NOTES:
 **C.3) Run final remote test/push on `<remote-machine>`:**
 
 ```
-$ cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
-$ ./checkin-test-sems.sh --no-rebase --do-all --push
+cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
+./checkin-test-sems.sh --no-rebase --do-all --push
 ```
 
 NOTES:
