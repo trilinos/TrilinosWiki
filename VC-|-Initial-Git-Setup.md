@@ -5,11 +5,11 @@ Before getting started using git with Trilinos (or any other project that uses g
 **1) Set up minimal Git settings for your account**, including “user.name,” “user.email,” “color.ui,” “push.default,” and “rerere.enabled”:
 
 ```
-$ git config --global user.name "First M. Last"
-$ git config --global user.email "youremail@someurl.com"
-$ git config --global color.ui true         # Use color in git output to terminal
-$ git config --global push.default simple   # or 'tracking' with older versions of git
-$ git config --global rerere.enabled 1      # auto resolve of same conflicts on rebase!
+git config --global user.name "First M. Last"
+git config --global user.email "youremail@someurl.com"
+git config --global color.ui true          # Use color in git output to terminal
+git config --global push.default tracking  # or 'simple' with newer versions of git
+git config --global rerere.enabled 1       # auto resolve of same conflicts on rebase!
 ```
 For example, set up a shell script like [git-config-bartlettra.sh](https://github.com/trilinos/Trilinos/blob/master/sampleScripts/git-profiles/git-config-bartlettra.sh) and run it on every new machine to set consistent git settings. The first two settings are required. The last three are recommended.
 
