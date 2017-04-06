@@ -34,7 +34,7 @@ If one changes a given Trilinos package and one knows that it only impacts that 
 Also, one can test any set of packages `<pkg0>`, `<pkg1>`, etc. (and not downstream packages) with the local git repo in any arbitrary state (i.e. has modified or untracked files, is in a detached-head state, etc.) using:
 
 ```
-./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,...
+./checkin-test-sems.sh --enable-all-packages=off --enable-packages=<pkg0>,<pkg1>,... \
    --no-enable-fwd-packages --local-do-all
 ```
 
