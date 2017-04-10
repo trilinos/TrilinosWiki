@@ -256,6 +256,8 @@ Therefore, it is a good idea to run `remote-pull-test-push-<remote-machine>.sh` 
 
 **NOTES:**
 
+* The script `remote-pull-test-push.sh` also works from Mac OSX machines.  Therefore, a Trilinos developer can do local development on a Mac OSX laptop and then run one script from their Mac to invoke the pull/test/push process.
+
 * The script `remote-pull-test-push.sh` does a forced push of the local branch to your `intermediate-repo `(e.g. your GitHub fork) and does a hard reset on the 'develop' branch on `<remote-machine>` to the 'origin/develop' branch.  Therefore, you can rebase your local commits on `<local-machine>` and the run the script `remote-pull-test-push-<remote-machine>.sh` again and again and it will discard the old branch and start over correctly each time fresh.
 
 * **WARNING:** As described above, because this script will hard reset the 'develop' branch on `<remote-machine>`, don't make any uncommitted changes in that remote repo that you want to keep and then run the `remote-pull-test-push-<remote-machine>.sh` script again.  That will wipe out those uncommitted changes!
