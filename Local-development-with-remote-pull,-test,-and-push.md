@@ -200,7 +200,7 @@ Once you are ready for your current branch to be tested and pushed to Trilinos '
 $ <local_trilinos_base_dir>/remote-pull-test-push-<remote-machine>.sh
 ```
 
-This prints output like, for example:
+In `nonblocking` mode, this prints output like, for example:
 
 ```
 [rabartl@crf450 Trilinos.base (master)]$ ./remote-pull-test-push-ceerws1113.sh
@@ -210,41 +210,39 @@ This prints output like, for example:
 
 Remote server: 'ceerws1113'
 Remote base dir: '/scratch/rabartl/TRILINOS_PUSH_SERVER'
+Blocking or nonblocking: 'nonblocking'
 
 ***
 *** 1) Force push local branch 'develop' to 'intermediate-repo'
 ***
 
-Counting objects: 56, done.
-Delta compression using up to 32 threads.
-Compressing objects: 100% (55/55), done.
-Writing objects: 100% (56/56), 7.16 KiB | 0 bytes/s, done.
-Total 56 (delta 43), reused 0 (delta 0)
-remote: Resolving deltas: 100% (43/43), completed with 28 local objects.
-To git@github.com:bartlettroscoe/Trilinos.git
-   23879fb..dfa989f  develop -> develop
+Everything up-to-date
 
 ***
-*** 2) Hard reset the 'develop' branch in Trilinos repo on ceerws1113
+*** 2) Hard reset the 'develop' branch and merge in the 'develop' branch in Trilinos repo on ceerws1113
 ***
 
 Already on 'develop'
-HEAD is now at c761a11 MiniTensor, ROL: Fix error introduced by making some data members
+HEAD is now at f108897 Merge branch 'develop' of github.com:trilinos/Trilinos into develop
+From github.com:bartlettroscoe/Trilinos
+   6256478..9ffb24e  develop    -> intermediate-repo/develop
+Merge made by recursive.
+ ...
 
 ***
-*** 3) Doing non-blocking remote pull/tets/push on 'ceerws1113' (se log file checkin-test-remote.log)
+*** 3) Doing non-blocking remote test/push on 'ceerws1113' (see log file checkin-test-remote.log)
 ***
 
 You may now keep working on your local machine and wait for email notifications!  (final result will be printed when complete)
 ```
 
-To keep tabs on the remote pull/test/push progress, one can follow this up on `<local-machine>` with:
+To keep tabs on the `nonblocking` remote pull/test/push progress, one can follow this up on `<local-machine>` in that same terminal (or another terminal) with:
 
 ```
 tail -f checkin-test-remote.log
 ```
 
-Otherwise, if everything passes and the push happens (or if there are any failures), then emails will be sent to your email account (as set by git on `<remote-machine>`).
+Otherwise, if everything passes and the push happens (or if there are any failures), then emails will be sent to your email address (as set by your git config command on `<remote-machine>`).
 
 Once the remote `checkin-test-sems.sh` script completes, the final status is printed to the terminal on the local machine, like for example:
 
@@ -260,19 +258,21 @@ Final time: Tue Mar 21 07:23:09 MDT 2017
 REQUESTED ACTIONS: PASSED
 ```
 
-Therefore, it is a good idea to run `remote-pull-test-push-<remote-machine>.sh` in its own terminal.
+Therefore, it is a good idea to run `remote-pull-test-push-<remote-machine>.sh` in its own terminal on `<local-machine>`.
 
 **NOTES:**
 
-* When using the `blocking` mode for the `remote-pull-test-push-<remote-machine>.sh` script, the full output from the remote `checkin-test-sems.sh` script is sent to the STDOUT on the local machine.
+* When using the `blocking` mode for the `remote-pull-test-push-<remote-machine>.sh` script, the full output from the remote `checkin-test-sems.sh` script is sent to the STDOUT on the local machine.  (In this case it is even more attractive to run in its own terminal on `<local-machine>`.)
 
 * The script `remote-pull-test-push.sh` also works from Mac OSX machines.  Therefore, a Trilinos developer can do local development on a Mac OSX laptop and then run one script from their Mac to invoke the pull/test/push process.
 
-* The script `remote-pull-test-push.sh` does a forced push of the local branch to your `intermediate-repo `(e.g. your GitHub fork) and does a hard reset on the 'develop' branch on `<remote-machine>` to the 'origin/develop' branch.  Therefore, you can rebase your local commits on `<local-machine>` and the run the script `remote-pull-test-push-<remote-machine>.sh` again and again and it will discard the old branch and start over correctly each time fresh.
+* The script `remote-pull-test-push.sh` does a forced push of the local branch to your `intermediate-repo` (e.g. your GitHub fork) and does a hard reset on the 'develop' branch on `<remote-machine>` to the 'origin/develop' branch.  Therefore, you can rebase your local commits on `<local-machine>` and the run the script `remote-pull-test-push-<remote-machine>.sh` again and again and it will discard the old branch and start over correctly each time fresh.
 
 * **WARNING:** As described above, because this script will hard reset the 'develop' branch on `<remote-machine>`, don't make any uncommitted changes in that remote repo that you want to keep and then run the `remote-pull-test-push-<remote-machine>.sh` script again.  That will wipe out those uncommitted changes!
 
-* One may need to open a new terminal on `<local-machine>` to avoid a timeout for public/private SSH key access on `<remote-machine>`.
+* **WARNING:** As described above, because this script will force push your local branch to your `intermediate-repo`, one should not use the same branch name as an existing branch that one wants to maintain on the remote git repo.
+
+* One may need to open a new terminal on `<local-machine>` to avoid a timeout for public/private SSH key access on `<remote-machine>` (i.e. this happens on CEE LAN machines at Sandia).
 
 * If there are no packages changed by your commits, then no push will be performed and no email will go out and the final result printed will be `ABORTED DUE TO NO ENABLES`.  If that happens, then one can just directly push the changes to the 'develop' branch from `<local-machine>` or `<remote-machine>`.
 
