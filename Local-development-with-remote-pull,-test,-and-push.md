@@ -54,6 +54,8 @@ For these instructions, define the following:
 
 To get started, one needs to do a minimal one-time setup.  Once this setup is complete, it never needs to be done again.  The setup steps are given below.
 
+<a name="initial_setup_get_settings_on_remote"/>
+
 **A.1) Set up [minimal Git settings](https://github.com/trilinos/Trilinos/wiki/VC-|-Initial-Git-Setup#minimal_git_settings) for your account on `<remote-machine>`:**
 
 ```
@@ -64,6 +66,8 @@ git config --global color.ui true          # Use color in git output to terminal
 git config --global push.default tracking  # Or 'simpler' with git 2.0+
 git config --global rerere.enabled 1       # Auto resolve of same conflicts on rebase!
 ```
+
+<a name="initial_setup_trilinos_repo_on_remote"/>
 
 **A.2) Set up a Trilinos clone and CHECKIN build directory on `<remote machine>`:**
 
@@ -99,6 +103,8 @@ cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
 ./checkin-test-sems.sh --help
 emacs -nw local-checkin-test-defaults.py  # e.g. change -j4 to -j16
 ```
+
+<a name="initial_setup_trilinos_repo_on_local"/>
 
 **A.3) Set up local git repo on `<local-machine>`:**
 
@@ -160,6 +166,8 @@ cd $HOME/Trilinos.base/
 NOTES:
 * If one cannot successfully set up the passwordless public/private SSH access from `<local-machine>` to `<remote-machine>`, then one must replace `nonblocking` with `blocking` in the `remote-pull-test-push-<remote-machine>.sh` script.
 
+<a name="initial_setup_ssh_keys"/>
+
 **A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>` [Optional]:**
 
 In order to invoke the remote commands on `<remote-machine>` from `<local-machine>` in nonblocking mode without having to type a password, the public SSH key from `<local-machine>` must be copied to `<remote-machine>` and set in the `authorized_keys` file as follows:
@@ -183,6 +191,8 @@ NOTES:
 
 Once the above one-time [initial setup](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup) is performed, you can use the following process to develop changes on your local machine and use the remote machine to pull, test, and push your new commits.
 
+<a name="local_dev_remote_pull_test_push_develop_on_local"/>
+
 **B.1) Do development of Trilinos on `<local-machine>`**
 
 * Do development, make commits, do local testing as you normally would to the git repo on `<local-machine>` (see [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow) except for the push).  (NOTE: This can be done on the local 'develop' branch or in a local topic branch.  It works either way.)
@@ -191,6 +201,8 @@ Once the above one-time [initial setup](https://github.com/trilinos/Trilinos/wik
 NOTE: Doing `git rebase -i` removes all of the merge commits that might have been created when doing `git pull` to keep your local branch up to date and avoid a merge conflict on `<remote-machine>`.
 
 <a name="remote_pull_test_push"/>
+
+<a name="local_dev_remote_pull_test_push_invoke_remote"/>
 
 **B.2) Invoke a remote pull/test/push process:**
 
@@ -286,6 +298,8 @@ If the configure, build, or any tests failed in the invocation of `checkin-test-
 
 The following steps describe how to reproduce and address failures on `<remote-machine>`.
 
+<a name="resolving_problems_reproduce_on_remote"/>
+
 **C.1) Log onto `<remote-machine>` and reproduce the problem:**
 
 ```
@@ -300,6 +314,8 @@ make -j<N>                   # Reproduce build failure
 less ctest.out               # View ctest output/failures
 ctest -j<N> -R <test-name>   # Reproduce failing test(s)
 ```
+
+<a name="resolving_problems_fixing_commits"/>
 
 **C.2) Add new fixing commits on `<remote-machine>`**
 
@@ -316,6 +332,10 @@ NOTES:
 * For simplicity, you should fix the problems by **adding new commits, not amending old commits** on `<remote-machine>`.  (Amending existing commits on `<remote-machine>` may result in merge conflicts when pulling the main `develop` branch from GitHub back on `<local-machine>` using `git pull` or `git pull --rebase`.)
 
 * However, if you are conformable with git, you can amend, squash and otherwise alter commits not yet pushed to GitHub 'develop' all you want. (Then one will just need to make the necessary adjustments back on `<local-machine>` when pulling the updated GitHub 'develop' branch.)
+
+<a name="resolving_problems_fixing_commits"/>
+
+<a name="resolving_problems_remote_test_push"/>
 
 **C.3) Run final remote test/push on `<remote-machine>`:**
 
