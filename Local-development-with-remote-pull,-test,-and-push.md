@@ -162,7 +162,7 @@ NOTES:
 
 **A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>` [Optional]:**
 
-I order to invoke the remote commands on `<remote-machine>` from `<local-machine>` in nonblocking mode without having to type a password, then the public SSH key from `<local-machine>` must be copied to `<remote-machine>` as follows:
+In order to invoke the remote commands on `<remote-machine>` from `<local-machine>` in nonblocking mode without having to type a password, the public SSH key from `<local-machine>` must be copied to `<remote-machine>` and set in the `authorized_keys` file as follows:
 
 ```
 ssh <local-machine>
@@ -173,7 +173,7 @@ cat id_rsa.pub.<local-machine> >> authorized_keys
 ```
 
 NOTES:
-* This is only required when using the `nonblocking` mode of the `remote-pull-test-push.sh` script.  For the `blocking` mode, one can just type the password getting to `<remote-machine>` once and everything will occur on the remote machine.
+* This step is only required when using the `nonblocking` mode of the `remote-pull-test-push.sh` script.  For the `blocking` mode, one can just type the password getting to `<remote-machine>` once and everything will occur on the remote machine.
 * This allows you to SSH from `<local-machine>` to `<remote-machine>` and run commands on `<remote-machine>` invoked from `<local-machine>` without requiring a password.
 * This step needs to be performed for each new `<local-machine>` that will use `<remote-machine>` as a remote pull, test, and push machine.
 
