@@ -28,13 +28,31 @@ The advantages of using this process are:
 
 ## Process
 
-Process Outline
+**Process Outline:**
 
 * [A) Initial setup on `<remote-machine>` and `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup)
 
+  * [A.1) Set up minimal Git settings for your account on `<remote-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup_get_settings_on_remote)
+
+  * [A.2) Set up a Trilinos clone and CHECKIN build directory on `<remote machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup_trilinos_repo_on_remote)
+
+  * [A.3) Set up local git repo on `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup_trilinos_repo_on_local)
+
+  * [A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>` [Optional]](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup_ssh_keys)
+
 * [B) Local development then remote pull, test, and push](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push)
 
+  * [B.1) Do development of Trilinos on `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push_develop_on_local)
+
+  * [B.2) Invoke a remote pull/test/push process](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push_invoke_remote)
+
 * [C) Resolving problems on `<remote-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#resolving_problems)
+
+  * [C.1) Log onto `<remote-machine>` and reproduce the problem](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#resolving_problems_reproduce_on_remote)
+
+  * [C.2) Add new fixing commits on `<remote-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#resolving_problems_fixing_commits)
+
+  * [C.3) Run final remote test/push on `<remote-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#resolving_problems_remote_test_push)
 
 For these instructions, define the following:
 
