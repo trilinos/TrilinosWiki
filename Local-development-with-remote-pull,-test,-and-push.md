@@ -140,10 +140,11 @@ cd <local_trilinos_base_dir>/
 
 ./Trilinos/cmake/std/sems/remote-pull-test-push.sh \
   <remote-machine> \
-  <remote_trilinos_base_dir>    # Abs dir!
+  <remote_trilinos_base_dir> \
+  nonblocking    # or 'blocking' if can't get public/private SSH keys working, see below
 ```
 
-For example, a script using remote machine `ceerws1113` called `remote-pull-test-push-ceerws1113.sh` would look something like:
+For example, a script using remote machine `ceerws1113` in `nonblocking` mode called `remote-pull-test-push-ceerws1113.sh` would look something like:
 
 ```
 #!/bin/bash -e
@@ -152,10 +153,16 @@ cd $HOME/Trilinos.base/
 
 ./Trilinos/cmake/std/sems/remote-pull-test-push.sh \
   ceerws1113 \
-  /scratch/$USER/TRILINOS_PUSH_SERVER
+  /scratch/$USER/TRILINOS_PUSH_SERVER \
+  nonblocking
 ```
 
-**A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>`:**
+NOTES:
+* If one cannot successfully set up the passwordless public/private SSH access from `<local-machine>` to `<remote-machine>`, then one must replace `nonblocking` with `blocking` in the `remote-pull-test-push-<remote-machine>.sh` script.
+
+**A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>` [Optional]:**
+
+I order to invoke the remote commands on `<remote-machine>` from `<local-machine>` in nonblocking mode without having to type a password, then the public SSH key from `<local-machine>` must be copied to `<remote-machine>` as follows:
 
 ```
 ssh <local-machine>
@@ -166,6 +173,7 @@ cat id_rsa.pub.<local-machine> >> authorized_keys
 ```
 
 NOTES:
+* This is only required when using the `nonblocking` mode of the `remote-pull-test-push.sh` script.  For the `blocking` mode, one can just type the password getting to `<remote-machine>` once and everything will occur on the remote machine.
 * This allows you to SSH from `<local-machine>` to `<remote-machine>` and run commands on `<remote-machine>` invoked from `<local-machine>` without requiring a password.
 * This step needs to be performed for each new `<local-machine>` that will use `<remote-machine>` as a remote pull, test, and push machine.
 
@@ -255,6 +263,8 @@ REQUESTED ACTIONS: PASSED
 Therefore, it is a good idea to run `remote-pull-test-push-<remote-machine>.sh` in its own terminal.
 
 **NOTES:**
+
+* When using the `blocking` mode for the `remote-pull-test-push-<remote-machine>.sh` script, the full output from the remote `checkin-test-sems.sh` script is sent to the STDOUT on the local machine.
 
 * The script `remote-pull-test-push.sh` also works from Mac OSX machines.  Therefore, a Trilinos developer can do local development on a Mac OSX laptop and then run one script from their Mac to invoke the pull/test/push process.
 
