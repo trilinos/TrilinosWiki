@@ -198,6 +198,15 @@ cd ~/.ssh
 cat id_rsa.pub.<local-machine> >> authorized_keys
 ```
 
+Then test that the public/private SSH key access works without needing to type a password:
+
+```
+ssh <local-machine>    # May require you to type a password depending on your setup
+ssh <remote-machine>   # Should *NOT* require you to type a password!
+```
+
+If the command `ssh <remote-machine>` run from `<local-machine>` requires that you type a password, then something is not set up correctly (e.g. check your permissions on the file `<remote-machine>:~/ssh/authorized_keys`, it should be user-only read/write).  If you can't get this working, don't worry, you can just skip this step and use the `blocking` mode as described [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup_trilinos_repo_on_local).
+
 NOTES:
 * This step is only required when using the `nonblocking` mode of the `remote-pull-test-push.sh` script.  For the `blocking` mode, one can just type the password getting to `<remote-machine>` once and everything will occur on the remote machine.
 * This allows you to SSH from `<local-machine>` to `<remote-machine>` and run commands on `<remote-machine>` invoked from `<local-machine>` without requiring a password.
@@ -292,7 +301,7 @@ Therefore, it is a good idea to run `remote-pull-test-push-<remote-machine>.sh` 
 
 **NOTES:**
 
-* When using the `blocking` mode for the `remote-pull-test-push-<remote-machine>.sh` script, the full output from the remote `checkin-test-sems.sh` script is sent to the STDOUT on the local machine.  (In this case it is even more attractive to run in its own terminal on `<local-machine>`.)
+* When using the `blocking` mode for the `remote-pull-test-push-<remote-machine>.sh` script (as contrasted with the `nonblocking` mode demonstrated above), the full output from the remote `checkin-test-sems.sh` script is sent to STDOUT on the local machine.  (In this case it is even more attractive to run in its own terminal on `<local-machine>`.)
 
 * The script `remote-pull-test-push.sh` also works from Mac OSX machines.  Therefore, a Trilinos developer can do local development on a Mac OSX laptop and then run one script from their Mac to invoke the pull/test/push process.
 
