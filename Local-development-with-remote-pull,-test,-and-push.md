@@ -40,6 +40,8 @@ The advantages of using this process are:
 
   * [A.4) Set up SSH key access from `<local-machine>` to `<remote-machine>` [Optional]](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup_ssh_keys)
 
+  * [A.5) Test that remote pull/test/push process setup works](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup_test_remote_pull_test_push)
+
 * [B) Local development then remote pull, test, and push](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push)
 
   * [B.1) Do development of Trilinos on `<local-machine>`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#local_dev_remote_pull_test_push_develop_on_local)
@@ -211,6 +213,44 @@ NOTES:
 * This step is only required when using the `nonblocking` mode of the `remote-pull-test-push.sh` script.  For the `blocking` mode, one can just type the password getting to `<remote-machine>` once and everything will occur on the remote machine.
 * This allows you to SSH from `<local-machine>` to `<remote-machine>` and run commands on `<remote-machine>` invoked from `<local-machine>` without requiring a password.
 * This step needs to be performed for each new `<local-machine>` that will use `<remote-machine>` as a remote pull, test, and push machine.
+
+<a name="initial_setup_test_remote_pull_test_push"/>
+
+**A.5) Test that remote pull/test/push process setup works:**
+
+A good way to test that everything is set up correctly is to simply run the script `remote-pull-test-push-<remote-machine>.sh` on `<local-machine>` where the local Trilinos repo has no local changes.  This will result in all of the repository commands and operations being invoked, but the remote `checkin-test-sems.sh` script will detect that there are no changes to test or push and it will terminate quickly with the status `ABORTED DUE TO NO ENABLES`.
+
+First make sure that there are no local committed changes on your local repo branch by doing:
+
+```
+ssh <local-machine>
+cd <local_trilinos_base_dir>/Trilinos/
+git log HEAD ^origin/develop    # Should return no commits!
+```
+
+If that `git log HEAD ^origin/develop` command returns no commits, then trying to test and push that branch will be a no op and it is safe to test.
+
+Then test the remote pull/test/push process on on `<local-machine>` by running:
+
+```
+<local_trilinos_base_dir>/remote-pull-test-push-<remote-machine>.sh
+```
+
+That script (in both `blocking` and `nonblocking` mode) should terminate with output like:
+
+```
+ABORTED DUE TO NO ENABLES: Trilinos: ceerws1113
+
+
+
+Total time for checkin-test.py = 0.07 min
+
+Final time: Tue Apr 11 08:03:08 MDT 2017
+
+REQUESTED ACTIONS: PASSED
+```
+
+If you see that output, then all of the setup has been completed correctly.  If you don't see that output, then please contact rabartl@sandia.gov for help.
 
 <a name="local_dev_remote_pull_test_push"/>
 
