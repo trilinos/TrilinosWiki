@@ -412,4 +412,4 @@ cd <remote_trilinos_base_dir>/Trilinos/CHECKIN/
 ```
 
 NOTES:
-* One can remove the `--no-rebase` option to allow the rebase in case where merge conflicts are not a concern or with a `git rebase -i @{u}` cleanup has recently been done.  (Doing a final rebase creates a nice linear history on the 'develop' branch, if that is what you want.)
+* One can remove the `--no-rebase` option to allow the rebase in case where merge conflicts are not a concern or when a `git rebase -i @{u}` cleanup has recently been done.  (Doing a final rebase creates a nice linear history on the 'develop' branch, if that is what you want.)
