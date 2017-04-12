@@ -3,7 +3,7 @@
 **Contents:**
 
 * [Overview](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#overview)
-* [Categories of Tests](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#categories_of_tests")
+* [Categories of Tests](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#categories_of_tests)
 * [Finding information on CDash](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#finding_info_on_cdash)
 
 <a name="overview"/>
