@@ -1,6 +1,12 @@
-(Note this page needs to be reviewed after the move to GitHub wiki as it is partially out of date.)
-
 # Trilinos Test Harness
+
+**Contents:**
+
+* [Overview](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#overview)
+* [Categories of Tests](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#categories_of_tests")
+* [Finding information on CDash](https://github.com/trilinos/Trilinos/wiki/Policies--|-Testing#finding_info_on_cdash)
+
+<a name="overview"/>
 
 ## Overview
 
@@ -27,6 +33,8 @@ Links to main Trilinos CDash dashboard results and query tools:
    + Tip: To see tests for the last two weeks, select the filter ('Build Time', 'is after', '2 weeks ago')
 + [Current coverage results](http://testing.sandia.gov/extended/cdash/index.php?project=Trilinos&display=project&filtercount=2&showfilters=1&filtercombine=and&field1=buildstarttime/date&compare1=83&value1=7%20days%20ago&field2=buildname/string&compare2=66&value2=_COV) (as of last Saturday)
  + Tip: Click on the Build Name for the MPI or Serial build under 'Nightly' and then go to 'Coverage' to the coverage results for each Trilinos package.
+
+<a name="categories_of_tests"/>
 
 ## Categories of Tests
 
@@ -137,3 +145,25 @@ Currently the test category used for Memory testing is `Trilinos_TEST_CATEGORIES
 **Scalability Testing**: Secondary Tested Code
 
 !!! **NOT DEFINED YET** !!! There is currently no support for automated scalability testing in the Trilinos CMake/CTest/CDash system.
+
+
+<a name="finding_info_on_cdash"/>
+
+## Finding information on CDash
+
+There is a wealth of information on CDash about the builds that are done, the version of Trilinos being tested, the commits that are pulled from the last time that build was run, etc.  Below, are some tips on what of information there is and how to find and view it.  As a frame of reference, we will use the CI build `Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI` that runs on `ceerws1113` which can be viewed [here](http://testing.sandia.gov/cdash/index.php?project=Trilinos&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now).
+
+* **Version of Trilinos being tested (and the prior version):**
+  * View Trilinos version natively in CDash:
+    * Start on the `cdash/index.php?project=Trilinos` page view
+    * Click on the build name (e.g. "Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI")
+    * On package-by-package build page `cdash/index.php?project=Trilinos&parentid=<parent-build-id>`, click on the number of updates in the "Update"|"Files" column for any package row displayed (e.g. for the "Teuchos" row).
+    * On the package updates page `cdash/viewUpdate.php?buildid=<pkg-build-id>`, the current version and prior version SHA1s of Trilinos for this build are shown at the top of the page by the names "Revision" and "Prior Revision", respectively.  
+  * View notes files "TrilinosRepoVersion.txt" and "Updates.txt":
+    * Start on the `cdash/index.php?project=Trilinos` page view
+    * Click on the build name (e.g. "Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI")
+    * On package-by-package build page `cdash/index.php?project=Trilinos&parentid=<parent-build-id>`, click on any package name in the first "SubProject" column for any packages displayed (e.g. "Teuchos")
+    * On the package build summary page `cdash/buildSummary.php?buildid=<pkg-build-id>`, click on the "view notes" link at the top ad the end of the "Build Name" field.
+    * On the package notes page `cdash/viewNotes.php?buildid=<pkg-build-id>`:
+       * Click on the "TrilinosRepoVersion.txt" file link to see the top commit from Trilinos being tested
+       * Click on the "Updates.txt" file link to see the new commits pulled from the last time this build ran
