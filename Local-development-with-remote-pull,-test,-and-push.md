@@ -1,3 +1,9 @@
+**Contents:**
+* [Overview](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push#overview)
+* [Process](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push#process)
+
+<a name="overview"/>
+
 ## Overview
 
 With a little setup and some basic comfort with git workflows involving multiple repositories, you can do development of Trilinos on any machine with any environment you want and then use a different standard Linux COE RHEL 6 machine with the SEMS Env (e.g. any CEE LAN machine at Sandia) to pull, test, and push the changes to the Trilinos GitHub 'develop' branch using the [checkin-test-sems.sh](https://github.com/trilinos/Trilinos/wiki/Policies-%7C-Safe-Checkin-Testing) script.  This is a minor variation of the [simple centralized workflow](https://github.com/trilinos/Trilinos/wiki/VC-%7C-Simple-Centralized-Workflow) on the 'develop' branch and does not require any deep understanding of topic branch workflows.
