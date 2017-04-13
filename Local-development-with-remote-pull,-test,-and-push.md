@@ -108,7 +108,7 @@ ln -s ../cmake/std/sems/checkin-test-sems.sh .
 ```
 
 NOTES:
-* You can use a different remote git repo for [`intermediate-repo`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull#intermediate_repo) other than your GitHub fork of Trilinos (see [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull#intermediate_repo)).
+* You can use a different remote git repo for [`intermediate-repo`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push#intermediate_repo) other than your GitHub fork of Trilinos (see [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push#intermediate_repo)).
 * Other special considerations and tips for setting up a remote pull/test/push server using a Sandia CEE LAN machine are given at [Development and Testing on CEE LAN Machines](https://snl-wiki.sandia.gov/display/TRIL/Development+and+Testing+on+CEE+LAN+machines).
 
 Test that remote `intermediate-repo` is set up correctly and is accessible:
@@ -130,13 +130,13 @@ emacs -nw local-checkin-test-defaults.py  # e.g. change -j4 to -j16
 
 **A.3) Set up local git repo on `<local-machine>`:**
 
-Add git remote [`intermediate-repo`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull#intermediate_repo) in your local Trilinos repo on `<local-machine>`:
+Add git remote [`intermediate-repo`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push#intermediate_repo) in your local Trilinos repo on `<local-machine>`:
 
 ```
 cd <local_trilinos_base_dir>/Trilinos/
 git remote add intermediate-repo git@github.com:<your-github-id>/Trilinos.git  # e.g. your Trilinos fork
 ```
-NOTE: You can use a different remote git repo for [`intermediate-repo`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull#intermediate_repo) other than your GitHub fork of Trilinos (see [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull#intermediate_repo)).
+NOTE: You can use a different remote git repo for [`intermediate-repo`](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push#intermediate_repo) other than your GitHub fork of Trilinos (see [above](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull,-test,-and-push#intermediate_repo)).
 
 If you have not already, get on a local `develop` branch:
 
