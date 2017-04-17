@@ -4,7 +4,7 @@ The Trilinos Project is committed to providing support for its user community, p
 
 ## Trilinos Support Philosophy
 
-User and client support is most effective when performed by those who are intimately involved in the development effort.  These people have the fullest context of development goals, target computing environments and project priorities.  Furthermore, support is a significant cost.  Most software studies estimate support and maintenance costs to be 70 - 80% of the total software project cost.  Any improvement in support will have significant impact on quality, cost and time.
+User and client support is most effective when performed by those who are intimately involved in the development effort.  These people have the fullest awareness of development goals, target computing environments and project priorities.  Furthermore, support is a significant cost.  Most software studies estimate support and maintenance costs to be 70 - 80% of the total software project cost.  Any improvement in support will have significant impact on quality, cost and time.
 
 Therefore, support is best done by the team members developing capabilities.  Support and support planning should be an integral part of development efforts.
 
