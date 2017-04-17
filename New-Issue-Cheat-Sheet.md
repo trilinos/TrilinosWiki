@@ -1,6 +1,6 @@
 Below is a concise summary of the key elements of processing new Trilinos issues in GitHub. This summary relates only to Trilinos-specific conventions. Other activities, such as making sure an issue is valid, and gathering enough information to address the issue, are omitted.
 
-The full Trilinos Testing Policy can be found at: [https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues](https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues).
+See the [Trilinos Issue Management Policy](https://github.com/trilinos/Trilinos/wiki/Managing-Trilinos-Project-Issues) for a full discussion.
 
 0. **Close the Issue if it will never be worked**: If the package lead or the capability lead for the area (for an orphaned package) reads over an Issue and decides that it is not appropriate, or realistically will never be resolved, then it is appropriate to close the Issue and state the justification for why the Issue should be closed.  Other interested parties should be @ referenced in the comment that closes the issue. Closing issues rather than leaving them open for years prevents false expectations on the part of Trilinos customers. Closed issues can be found and reopened if the issue priority increases.
 
