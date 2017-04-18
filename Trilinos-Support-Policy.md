@@ -24,7 +24,7 @@ Most Trilinos capabilities are developed within projects targeted at specific mo
 1. _**Trilinos framework staff will provide support for framework activities associated with funded projects:**_  Trilinos framework team members will provide funded projects with support in the use of testing infrastructures, understanding Trilinos issue management, testing and other policies.  If framework staffing demands are significant, the funded project should budget for this effort.
 
 ### Notes:
-1. _**Policy Scope:**_ This policy formally applies to any _Production Growth_ package development.  It is encouraged for packages in other phases (_Research Stable_ or _Production Maintenance_).
+1. _**Policy Scope:**_ This policy formally applies to any _Production Growth_ package development.  It also applies to modifications of other Trilinos packages that are not being actively developed but are essential and may require modification. It is encouraged for packages in other phases (_Research Stable_ or _Production Maintenance_).
 2. _**Exceptions:**_ Yes, there will be exceptional circumstances where you need to bypass the support policy, but it should be the _exception_ and addressed as soon as possible.
 
 ### Questions?
