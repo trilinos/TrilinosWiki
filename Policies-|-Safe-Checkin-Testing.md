@@ -69,6 +69,8 @@ NOTES:
 
 <a name="raw_checkin_test_py"/>
 
+<a name="rhel_7_tips"/>
+
 * To run the `checkin-test-sems.sh` script on RHEL 7 systems, it is necessary to load cmake in version 2.8.12. Use the following commands:
 
    ```
