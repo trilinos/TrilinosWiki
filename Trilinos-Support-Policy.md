@@ -8,7 +8,7 @@ Software support is a significant cost.  Many studies estimate support and maint
 
 Support of actively developed software is most effective when those who are involved in the development effort take ownership of support planning, and are the first point of contact with issues arise.  These people have the fullest awareness of development goals, target computing environments and project priorities.  Furthermore, these people should invest adequate time and resources into testing and documentation infrastructure, preparing for the future when the code is no longer actively developed but still used, and support is transferred to others.
 
-Support of software that is not actively developed starts with the Trilinos framework team.  This team will work with clients and users to identify the best approach for identifying technical and funding resources.  
+Support of software that is not actively developed starts with the Trilinos framework team.  This team will work with clients and users to determine the best approach for acquiring technical and funding resources.  
  
 ## Trilinos Support Policy
 
