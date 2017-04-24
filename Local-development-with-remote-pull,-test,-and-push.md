@@ -357,13 +357,13 @@ Therefore, it is a good idea to run `remote-pull-test-push-<remote-machine>.sh` 
 
 * The script `remote-pull-test-push.sh` does a forced push of the local branch to your `intermediate-repo` (e.g. your GitHub fork) and does a hard reset on the 'develop' branch on `<remote-machine>` to the 'origin/develop' branch.  Therefore, you can rebase your local commits on `<local-machine>` and the run the script `remote-pull-test-push-<remote-machine>.sh` again and again and it will discard the old branch and start over correctly each time fresh.
 
-* **WARNING:** As described above, because this script will hard reset the 'develop' branch on `<remote-machine>`, don't make any uncommitted changes in that remote repo that you want to keep and then run the `remote-pull-test-push-<remote-machine>.sh` script again.  That will wipe out those uncommitted changes!
-
-* **WARNING:** As described above, because this script will force push your local branch to your `intermediate-repo`, one should not use the same branch name as an existing branch that one wants to maintain on the remote git repo.
-
 * One may need to open a new terminal on `<local-machine>` to avoid a timeout for public/private SSH key access on `<remote-machine>` (i.e. this happens on CEE LAN machines at Sandia).
 
 * If there are no packages changed by your commits, then no push will be performed and no email will go out and the final result printed will be `ABORTED DUE TO NO ENABLES`.  If that happens, then one can just directly push the changes to the 'develop' branch from `<local-machine>` or `<remote-machine>`.
+
+* **WARNING:** As described above, because this script will hard reset the 'develop' branch on `<remote-machine>`, don't make any uncommitted changes in that remote repo that you want to keep and then run the `remote-pull-test-push-<remote-machine>.sh` script again.  That will wipe out those uncommitted changes!
+
+* **WARNING:** As described above, because this script will force push your local branch to your `intermediate-repo`, one should not use the same branch name as an existing branch that one wants to maintain on the remote git repo.
 
 * **WARNING:** Until the `checkin-test-sems.sh` script finishes running on `<remote-machine>` do not try to invoke another remote pull/test/push process.  (Otherwise, the two `checkin-test-sems.sh` process will run on top of each other and create a huge mess.)
 
