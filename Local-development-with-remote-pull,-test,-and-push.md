@@ -11,7 +11,8 @@ With a little setup and some basic comfort with git workflows involving multiple
 After a [one-time initial setup](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#initial_setup) is performed, you can invoke a remote pull/test/push process using a local script on your local machine as:
 
 ```
-./remote-pull-test-push-<remote-machine>.sh
+cd Trilinos/
+../remote-pull-test-push-<remote-machine>.sh
 ```
 
 (see details [below](https://github.com/trilinos/Trilinos/wiki/Local-development-with-remote-pull%2C-test%2C-and-push#remote_pull_test_push)).
