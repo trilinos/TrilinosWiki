@@ -66,9 +66,9 @@ The default test category set by the Trilinos checkin-test-sems.sh script is `Tr
 
 <a name="post_push_ci_testing"/>
 
-**Post-push Continuous Integration Testing**: Primary Tested Code [[Continuous Integration Build](http://testing.sandia.gov/cdash/index.php?project=Trilinos&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now)]
+**Post-push Continuous Integration Testing**: Primary Tested Code [[Continuous Integration Build](http://testing.sandia.gov/cdash/index.php?project=Trilinos&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now)]
 
-A Continuous Integration (CI) server is set up that run the build [Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI](http://testing.sandia.gov/cdash/index.php?project=Trilinos&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now) in a continuous loop looking for updates to the global repository and when it finds them, it enables the affected packages and runs the builds and tests.  This build is an exact duplicate of the default build MPI_RELEASE_DEBUG_SHARED_PT_CI which is run by the checkin-test-sems.sh script.
+A Continuous Integration (CI) server is set up that run the build [Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI](http://testing.sandia.gov/cdash/index.php?project=Trilinos&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now) in a continuous loop looking for updates to the global repository and when it finds them, it enables the affected packages and runs the builds and tests.  This build is an exact duplicate of the default build MPI_RELEASE_DEBUG_SHARED_PT_CI which is run by the checkin-test-sems.sh script.
 
 Emails are sent out by CDash to the different package lists `PACKAGE-regression@software.sandia.gov` when errors are detected. The first build of the day is a build from scratch while every subsequent CI iteration is a rebuild and retesting of only the affected packages.  (This greatly speeds up the response time of the CI server compared to always building and testing of of Trilinos at every iteration.)
 
@@ -151,17 +151,17 @@ Currently the test category used for Memory testing is `Trilinos_TEST_CATEGORIES
 
 ## Finding information on CDash
 
-There is a wealth of information on CDash about the builds that are done, the version of Trilinos being tested, the commits that are pulled from the last time that build was run, etc.  Below, are some tips on what of information there is and how to find and view it.  As a frame of reference, we will use the CI build `Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI` that runs on `ceerws1113` which can be viewed [here](http://testing.sandia.gov/cdash/index.php?project=Trilinos&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now).
+There is a wealth of information on CDash about the builds that are done, the version of Trilinos being tested, the commits that are pulled from the last time that build was run, etc.  Below, are some tips on what of information there is and how to find and view it.  As a frame of reference, we will use the CI build `Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI` that runs on `ceerws1113` which can be viewed [here](http://testing.sandia.gov/cdash/index.php?project=Trilinos&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now).
 
 * **Version of Trilinos being tested (and the prior version):**
   * View Trilinos version natively in CDash:
     * Start on the `cdash/index.php?project=Trilinos` page view
-    * Click on the build name (e.g. "Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI")
+    * Click on the build name (e.g. "Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI")
     * On package-by-package build page `cdash/index.php?project=Trilinos&parentid=<parent-build-id>`, click on the number of updates in the "Update"|"Files" column for any package row displayed (e.g. for the "Teuchos" row).
     * On the package updates page `cdash/viewUpdate.php?buildid=<pkg-build-id>`, the current version and prior version SHA1s of Trilinos for this build are shown at the top of the page by the names "Revision" and "Prior Revision", respectively.  
   * View notes files "TrilinosRepoVersion.txt" and "Updates.txt":
     * Start on the `cdash/index.php?project=Trilinos` page view
-    * Click on the build name (e.g. "Linux-GCC-4.7.2-MPI_RELEASE_DEBUG_SHARED_PT_CI")
+    * Click on the build name (e.g. "Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI")
     * On package-by-package build page `cdash/index.php?project=Trilinos&parentid=<parent-build-id>`, click on any package name in the first "SubProject" column for any packages displayed (e.g. "Teuchos")
     * On the package build summary page `cdash/buildSummary.php?buildid=<pkg-build-id>`, click on the "view notes" link at the top ad the end of the "Build Name" field.
     * On the package notes page `cdash/viewNotes.php?buildid=<pkg-build-id>`:
