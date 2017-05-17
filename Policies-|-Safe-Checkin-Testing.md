@@ -40,7 +40,9 @@ Also, one can test any set of packages `<pkg0>`, `<pkg1>`, etc. (and not downstr
 
 One can also run any individual step by replacing `--do-all` and `--local-do-all` with the action commands `--pull`, `--configure`, `--build`, and/or `--test` (the script keep memory of what steps have been performed already).
 
-If the configure, build or any tests fail, then one can easily reproduce them just like for any regular build of Trilinos by sourcing the script [load_ci_sems_dev_env.sh](https://github.com/trilinos/Trilinos/wiki/SEMS-Dev-Env#load_ci_sems_dev_env.sh) and doing the following (in an `sh` compatible shell, not (t)csh):
+If the configure, build or any tests fail, then one can easily reproduce them just like for any regular build of Trilinos by sourcing the script [load_ci_sems_dev_env.sh](https://github.com/trilinos/Trilinos/wiki/SEMS-Dev-Env#load_ci_sems_dev_env.sh) and doing the following (in an `sh` compatible shell, **not (t)csh**):
+
+<a name="manual_reproduce_bash"/>
 
 ```
 cd Trilinos/CHECKIN/
@@ -76,3 +78,7 @@ NOTES:
 * You can see if the CI build is currently clean by [looking at the CI build on CDash](http://testing.sandia.gov/cdash/index.php?project=Trilinos&date=2016-11-30&filtercount=3&showfilters=1&filtercombine=and&field1=buildname&compare1=61&value1=Linux-GCC-4.9.3-MPI_RELEASE_DEBUG_SHARED_PT_CI&field2=groupname&compare2=61&value2=Continuous&field3=buildstarttime&compare3=84&value3=now).  If you see failing tests then you can disable those tests when invoking the checkin-test-sems.sh script by passing in `--extra-cmake-options="-D<failing_test_0>_DISABLE=ON -D<failing_test_1>_DISABLE=ON ..."`.  That will allow you to push by ignoring those failing tests.  If entire packages are failing to build or have catastrophic test failures, then you can disable those using `--disable-packages=<pkg0>,<pkg1>,...`. 
 
 * The checkin-test-sems.sh script is not supported on systems like Mac OSX or Windows.  It only works and has been tested on Linux machines (in particular on RHEL 6 and 7 with the SEMS env at present).
+
+<a name="csh_shell_issues"/>
+
+* Some people have reported module load problems when running the `checkin-test-sems.sh` script directly from a `csh` shell.  Therefore, if there are issues, first open a `bash` shell and then run the script from there.  Also note that one can not manually source the `load_ci_sems_env.sh` script from `csh` but instead must use `bash` (see [above](github.com/trilinos/Trilinos/wiki/Policies-|-Safe-Checkin-Testing#manual_reproduce_bash)).  If one wants to manually load the SEMS modules on a non-`sh` shell (e.g. `(t)csh`) and then reproduce failures , then one will need to manually load the SEMS modules (direct support for `(t)csh` is not provided).
