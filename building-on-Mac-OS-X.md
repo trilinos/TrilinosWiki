@@ -111,9 +111,9 @@ fi
 
 # Compiler dependent ports are: superlu, boost, metis, hdf5, netcdf, SuiteSparse
 $port install $compiler || exit
-$port install yaml-cpp +$compiler || exit
 $port install superlu +$compiler || exit
 $port install boost +$compiler configure.compiler=macports-$compiler_vendor-$compiler_major_version || exit
+$port install yaml-cpp +$compiler || exit
 $port install metis +$compiler || exit
 $port install hdf5-18 +$compiler +fortran || exit
 $port install netcdf +$compiler || exit
@@ -123,8 +123,8 @@ $port install SuiteSparse +$compiler || exit
 # OPENMPI Ports installed are: openmpi, boost, parmetis, scotch, hdf5, pnetcdf, netcdf
 mpi=openmpi
 $port install $mpi-$compiler +threads || exit
-$port install yaml-cpp +$compiler +$mpi || exit
 $port install boost +$compiler +$mpi configure.compiler=macports-$compiler_vendor-$compiler_major_version configure.mpi=$mpi-$compiler-fortran || exit
+$port install yaml-cpp +$compiler +$mpi || exit
 $port install parmetis +$compiler +$mpi || exit
 $port install scotch +$compiler +$mpi || exit
 $port install hdf5-18 +$compiler +fortran +$mpi || exit
