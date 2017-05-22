@@ -1,4 +1,4 @@
-# Building Trilinos on Mac OS X
+# Configuring Mac OS X to Build Trilinos Using Macports
 
 | Author:  | Tim Fuller |
 | :------- | :--------- |
