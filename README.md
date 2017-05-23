@@ -1,6 +1,11 @@
 # TrilinosWiki
 
-This is git repository to facilitate changes to the Trilinos wiki https://github.com/trilinos/Trilinos.wiki.git using pull requests.
+This is git repository to facilitate changes to the Trilinos wiki https://github.com/trilinos/Trilinos/wiki/ through the git repo git@github.com:trilinos/Trilinos.wiki.git using pull requests.
+
+**Contents:**
+
+* [Suggesting Contributions to Trilinos Wiki as a PR](https://github.com/trilinos/TrilinosWiki/blob/master/README.md#suggesting-contributions-to-trilinos-wiki-as-a-pr)
+* [Reviewing and merging PR branch to Trilinos Wiki](https://github.com/trilinos/TrilinosWiki/blob/master/README.md#reviewing-and-merging-pr-branch-to-trilinos-wiki)
 
 ## Suggesting Contributions to Trilinos Wiki as a PR
 
